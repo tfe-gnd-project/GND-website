@@ -3,12 +3,17 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const SecondPage = () => (
-  <Layout>
-    <SEO title="Contact" />
-    <h1>This is the Contact Page</h1>
-    <Link to="/">Go back to the homepage</Link>
-  </Layout>
-)
+class Contact extends React.Component {
 
-export default SecondPage
+  render() {
+    return (
+      <Layout >
+        <SEO title="Contact Us" />
+        <Link to="/contact/">Contact Page</Link>
+      </Layout>
+    );
+  }
+}
+
+
+export default Contact;
