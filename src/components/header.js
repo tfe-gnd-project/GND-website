@@ -1,34 +1,35 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import PropTypes from 'prop-types'
+import React from 'react'
+
+const headerStyle = {
+  backgroundSize: `100vw`,
+  maxHeight: `75px`,
+  backgroundColor: `#0a2f6c`,
+}
+
+const title = {
+  float: `left`, 
+  marginTop: `15px`, 
+  color: 'white', 
+  letterSpacing: '2px',
+  paddingLeft: '10px'
+}
+
+const gndlogo = {
+  maxHeight: `50px`, 
+  maxWidth: `50px`, 
+  float: `left`, 
+  margin: `10px`,
+}
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
+  <div style={headerStyle}>
+    <div>
+      <img style={gndlogo} src="https://gurunanakdwara.com/img/gnd-logo.svg" alt="logo"/>
+      <h1 style={title} >GND Website</h1>
     </div>
-  </header>
+  </div>
+
 )
 
 Header.propTypes = {
