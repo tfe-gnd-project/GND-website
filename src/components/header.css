@@ -10,6 +10,8 @@
   flex-wrap: wrap;
   align-items: stretch;
   justify-content: space-between;
+  position: fixed sticky;
+  top: 0;
 }
 
 .menufont {
@@ -29,7 +31,7 @@
 }
 
 nav {
-  position: -webkit-sticky; 
+  position: fixed;
   position: sticky;
   top: 0;
 }

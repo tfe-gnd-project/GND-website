@@ -5,8 +5,19 @@ import { FaFacebook, FaTwitter, FaYoutube, FaInstagram } from 'react-icons/fa'
 
 
 
+
+const icons = {
+  width: '20px',
+  height: '20px',
+  
+}
+
 const Footer = ({ siteTitle }) => (
   <div style={{ background: `#0a2f6c` }} >
+    {/* <div>
+      <img style ={icons} src="https://cdn3.iconfinder.com/data/icons/transparent-on-dark-grey/500/icon-02-512.png" alt="facebook" />
+    </div> */}
+
     <div style={{ padding: `1.00rem 1.0875rem` }}>
       <div className='font-container'>
         <a href="https://www.facebook.com/gurunanakdwara/" rel="noopener noreferrer" class="social-media" title="GND Facebook Page" target="_blank"><FaFacebook className='icons'/></a>
