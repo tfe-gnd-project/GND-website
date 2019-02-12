@@ -1,6 +1,32 @@
 module.exports = {
   siteMetadata: {
     title: `GND-website`,
+      menuLinks: [
+        {
+           name:'Home',
+           link:'/'
+        },
+        {
+          name:'New Here',
+          link:'/newhere'
+        },
+        {
+          name:'Event',
+          link:'/event'
+        },
+        {
+          name:'Start Serving',
+          link:'/startserving'
+       },
+        {
+           name:'Contact',
+           link:'/contact'
+        },
+        {
+          name:'Donate',
+          link:'/donate'
+       },
+      ],
     description: `GND website.`,
     author: `misun-janice`,
   },

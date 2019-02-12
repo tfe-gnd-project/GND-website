@@ -1,0 +1,40 @@
+
+.menu {
+  padding-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 2em;
+  padding-right: 2em;
+  background-color: rgba(148, 179, 228, 0.61);
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.menufont {
+  color: #0a2f6c;
+  font-family: sans-serif;
+  text-decoration: none;
+  display: block;
+  flex: 0 1 auto;
+}
+
+.menufont:hover {
+  color: white;
+}
+
+.menufont:active {
+  color: orange;
+}
+
+nav {
+  position: -webkit-sticky; 
+  position: sticky;
+  top: 0;
+}
+
+li {
+  float: left;
+  list-style-type: none;
+}

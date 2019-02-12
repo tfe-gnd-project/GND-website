@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Link } from "gatsby"
+import "./header.css"
+
 
 const headerStyle = {
   backgroundSize: `100vw`,
@@ -21,7 +23,8 @@ const title = {
   paddingLeft: '10px',
   flexDirection: 'row',
   flexWrap: 'wrap',
-  fontSize: '2.2em'
+  fontSize: '2.2em',
+  marginLeft: '10px'
 }
 
 const gndlogo = {
@@ -46,27 +49,8 @@ const gndlogobackground = {
   flexWrap: 'wrap'
 }
 
-const menu = {
-  padding: '10px',
-  backgroundColor: 'white',
-  display: 'flex',
-  alignItems: 'stretch',
-  justifyContent: 'space-between',
-  width: '100%',
-}
 
-const menufont = {
-  color: `#0a2f6c`,
-  fontFamily: 'sans-serif',
-  textDecoration: 'none',
-  display: 'block',
-  flex: '0 1 auto',
-  paddingLeft: '20px',
-  paddingRight: '20px',
-}
-
-
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle, menuLinks }) => (
   <div>
     <div style={headerStyle}>
         <div style={gndlogobackground}>
@@ -75,15 +59,14 @@ const Header = ({ siteTitle }) => (
         <h1 style={title} >Guru Nanak Dwara</h1>
     </div>
 
-    <div style={menu}>
-      <Link to="/" style={menufont}>Home</Link>
-      <Link to="/" style={menufont}>New Here</Link>
-      <Link to="/" style={menufont}>Events</Link>
-      <Link to="/" style={menufont}>Start Serving</Link>
-      <Link to="/" style={menufont}>Photos</Link>
-      <Link to="/" style={menufont}>Donate</Link>            
-      <Link to="/contact/" style={menufont}>Contact</Link>
-    </div>
+    <nav className='menu'>
+      {
+        menuLinks.map(link =>
+          <li key={link.name}>
+            <Link className='menufont' to={link.link}>{link.name}</Link>
+          </li>)
+      }
+    </nav>
   </div>
 
 )
