@@ -132,15 +132,23 @@ class Contact extends React.Component {
             <img
             src="/images/tfegndbanner.png"
             alt="Banner"
-            style={{ marginTop: 30, borderRadius: 15 }}
+            style={{ marginTop: 30, borderRadius: 15}}
             />{" "}
               <center>
                 <div className="centered" style={{ marginTop: 30 }}>
                   CONTACT US
                   <br />
-                  <span style={{ fontSize: 20 }}>
-                    <CallIcon />: 555-555-5555 <br /> <RoomIcon />
-                    :2302 N 9th St, Phoenix, AZ 85006{" "}
+                  <span style={{ fontSize: 15 }}>
+                  We're here for you. Questions? Concerns? Want to volunteer?
+                  </span>
+                  <br/>
+                  <span style={{ fontSize: 15 }}>
+                    <CallIcon />:
+                    <a href="tel:+1-602-632-9598">602-632-9598</a> 
+                    &nbsp; &nbsp; &nbsp; &nbsp;
+                    <RoomIcon />
+                    <a target="_blank" href="https://goo.gl/maps/1hfhCynn68J2">
+                    :2302 N 9th St, Phoenix, AZ 85006{" "}</a>
                   </span>
                 </div>
               </center>
@@ -175,7 +183,7 @@ class Contact extends React.Component {
             <Form className={classes.container}
         style={{
           marginTop: 10,
-          marginBottom: 150,
+          marginBottom: 30,
           padding: `15px 25px`,
           backgroundColor: `white`,
           borderRadius: 15

@@ -32,3 +32,8 @@
     background-image: linear-gradient(to right, #0a2f6c 0%, #f6914a 51%, #f6914a 100%)
     
 }
+
+a {
+    color: white;
+    text-decoration: none;
+  }
