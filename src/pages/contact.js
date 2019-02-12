@@ -150,21 +150,14 @@ class Contact extends React.Component {
                     <a href="tel:+1-602-632-9598">602-632-9598</a> 
                     &nbsp; &nbsp; &nbsp; &nbsp;
                     <RoomIcon />
-                    <a target="_blank" href="https://goo.gl/maps/1hfhCynn68J2">
+                    <a target="_blank"rel="noopener noreferrer"  href="https://goo.gl/maps/1hfhCynn68J2">
                     :2302 N 9th St, Phoenix, AZ 85006{" "}</a>
                   </span>
                 </div>
               </center>
             </div>
             <Formik
-      initialValues={{
-        firstName: '',
-        lastName: '',
-        emailAddress: '',
-        phoneNumber: '',
-        questionType: '',
-        questionAbout: '',
-      }}
+      initialValues={values}
       validationSchema={ContactSchema}
       onSubmit={this.submitValues}
     >
@@ -175,7 +168,7 @@ class Contact extends React.Component {
                 emailAddress,
                 phoneNumber,
                 questionType,
-                questionAbout
+                questionAbout,
               },
               errors,
               touched,
@@ -183,16 +176,15 @@ class Contact extends React.Component {
               handleSubmit,
               isValid
             }) => (
-            <Form className={classes.container}
-        style={{
-          marginTop: 10,
-          marginBottom: 30,
-          padding: `15px 25px`,
-          backgroundColor: `white`,
-          borderRadius: 15
-        }}
-        className="customerinfofield"
-        onSubmit={handleSubmit} method="post">
+            <Form 
+              style={{
+                marginTop: 10,
+                marginBottom: 30,
+                padding: `15px 25px`,
+                backgroundColor: `white`,
+                borderRadius: 15
+              }}
+              onSubmit={handleSubmit} method="post">
               <TextField style={textfield}
                     name="firstName"
                     id="standard-required"
@@ -288,7 +280,7 @@ class Contact extends React.Component {
                     id="outlined-full-width"
                     label="I have a question about..."
                     placeholder="Placeholder"
-                    // value={questionAbout}
+                    value={questionAbout}
                     onChange={handleChange}
                     helperText={touched.questionAbout ? errors.questionAbout :""}
                     error={touched.questionAbout && Boolean(errors.questionAbout)}
