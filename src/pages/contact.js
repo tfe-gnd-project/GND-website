@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "gatsby";
 import Layout from "../components/layout";
@@ -302,10 +303,12 @@ class Contact extends React.Component {
             <SEO title="Contact Us" />
             <Link to="/contact/">Contact Page</Link>
         </div>
+
       </Layout>
     );
   }
 }
+
 
 Contact.propTypes = {
   classes: PropTypes.object.isRequired

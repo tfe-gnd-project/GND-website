@@ -7,9 +7,9 @@ class Index extends React.Component {
 
   render() {
     return (
-      <Layout >
+      <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-        <Link to="/contact/">Contact Page</Link>
+        <Link to="/contact/"></Link>
       </Layout>
     );
   }
