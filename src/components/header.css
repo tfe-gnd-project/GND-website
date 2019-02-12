@@ -1,4 +1,50 @@
 
+.headerStyle {
+  background-size: 100vw;
+  min-height: 75px;
+  background-color: #0a2f6c;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.gndlogobackground {
+  min-height: 70px;
+  max-height: 70px;
+  min-width: 70px;
+  max-width: 70px;
+  background-color: white;
+  border-radius: 50%;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.gndlogo {
+  min-height: 60px;
+  min-width: 60px;
+  max-height: 60px; 
+  max-width: 60px; 
+  float: left; 
+  margin: 5px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
+.title {
+  float: left; 
+  margin-top: 15px; 
+  color: white; 
+  letter-spacing: 2px;
+  padding-left: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 2.2em;
+  margin-left: 10px;
+}
+
 .menu {
   padding-top: 10px;
   margin-bottom: 10px;
