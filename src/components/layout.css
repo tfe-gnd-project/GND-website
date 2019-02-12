@@ -624,7 +624,7 @@ pre tt:after {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background: white;
+  background: orange;
 }
 
 .site-content {
