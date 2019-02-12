@@ -6,8 +6,33 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
+import CallIcon from '@material-ui/icons/call';
+import RoomIcon from '@material-ui/icons/room';
+import { Formik, Form } from 'formik';
+import * as Yup from 'yup';
 import "../assets/contact.css";
 
+const ContactSchema = Yup.object({
+  firstName: Yup.string("Enter a name")
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .matches(/^[- A-Za-z']+$/, "Enter a valid first name.")
+    .required("Please enter your First Name"),
+  lastName: Yup.string("Enter a name")
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .matches(/^[- A-Za-z']+$/, "Enter a valid last name.")
+    .required("Please enter your Last Name"),
+  emailAddress: Yup.string("Enter your email")
+    .email("Enter a valid email")
+    .required("Please enter your E-mail"),
+  phoneNumber: Yup.string("Enter your phone number")
+    .matches(/^\d{3}-\d{3}-\d{4}$/, "Enter a valid phone number.")
+    .required("Please enter a Phone Number"),
+  // questionAbout: Yup.string("Enter a message")
+  //   .min(1, "What can we help you with?")
+  //   .required("What can we help you with?")
+});
 
 const styles = theme => ({
   container: {
@@ -71,19 +96,83 @@ class Contact extends React.Component {
     this.setState({ value: event.target.value });
   };
 
+  submitValues = ({
+    firstName,
+    lastName,
+    emailAddress,
+    phoneNumber,
+    questionType,
+    questionAbout,
+
+  }) => {
+    const custcontactinfo = {
+      firstName: firstName,
+      lastName: lastName,
+      emailAddress: emailAddress,
+      phoneNumber: phoneNumber,
+      questionType: questionType,
+      questionAbout: questionAbout
+    };
+    console.log(custcontactinfo);
+  };
   render() {
     const classes = this.props;
+    const values = {
+      firstName: "",
+      lastName: "",
+      emailAddress: "",
+      phoneNumber: "",
+      questionType: "",
+      questionAbout: "",
+    };
     return (
       <Layout>
         <div>
           <div className="contactbanner">
             <img
-              src="/images/tfegndbanner.png"
-              alt="Banner"
-              style={{ marginTop: 30, borderRadius: 15 }}
-            /> <div className="centered">CONTACT US<br/><span style={{fontSize: 20}}>Phone: 555-555-5555 </span></div>
+            src="/images/tfegndbanner.png"
+            alt="Banner"
+            style={{ marginTop: 30, borderRadius: 15 }}
+            />{" "}
+              <center>
+                <div className="centered" style={{ marginTop: 30 }}>
+                  CONTACT US
+                  <br />
+                  <span style={{ fontSize: 20 }}>
+                    <CallIcon />: 555-555-5555 <br /> <RoomIcon />
+                    :2302 N 9th St, Phoenix, AZ 85006{" "}
+                  </span>
+                </div>
+              </center>
             </div>
-            <form className={classes.container}
+            <Formik
+      initialValues={{
+        firstName: '',
+        lastName: '',
+        emailAddress: '',
+        phoneNumber: '',
+        questionType: '',
+        questionAbout: '',
+      }}
+      validationSchema={ContactSchema}
+      onSubmit={this.submitValues}
+    >
+            {({
+              values: {
+                firstName,
+                lastName,
+                emailAddress,
+                phoneNumber,
+                questionType,
+                questionAbout
+              },
+              errors,
+              touched,
+              handleChange,
+              handleSubmit,
+              isValid
+            }) => (
+            <Form className={classes.container}
         style={{
           marginTop: 10,
           marginBottom: 150,
@@ -91,27 +180,43 @@ class Contact extends React.Component {
           backgroundColor: `white`,
           borderRadius: 15
         }}
-        className="customerinfofield">
+        className="customerinfofield"
+        onSubmit={handleSubmit} method="post">
               <TextField style={textfield}
+                    name="firstName"
                     id="standard-required"
                     label="First name*"
+                    value={firstName}
+                    onChange={handleChange}
+                    helperText={touched.firstName ? errors.firstName : ""}
+                    error={touched.firstName && Boolean(errors.firstName)}
                     placeholder="ex. John"
                     margin="normal"
                     variant="outlined"
               />
       
               <TextField style={textfield}
+                    name="lastName"
                     id="standard-required"
                     label="Last name*"
                     placeholder="ex. John"
+                    value={lastName}
+                    onChange={handleChange}
+                    helperText={touched.lastName ? errors.lastName : ""}
+                    error={touched.lastName && Boolean(errors.lastName)}
                     margin="normal"
                     variant="outlined"
                     className="textfield"
               />
            <br/>
                   <TextField style={textfield}
+                    name="emailAddress"
                     id="standard-email-input"
                     label="E-mail*"
+                    value={emailAddress}
+                    onChange={handleChange}
+                    helperText={touched.emailAddress ? errors.emailAddress : ""}
+                    error={touched.emailAddress && Boolean(errors.emailAddress)}
                     type="email"
                     placeholder="ex. hi@email.com"
                     margin="normal"
@@ -120,9 +225,14 @@ class Contact extends React.Component {
                     />
                  
                   <TextField style={textfield}
+                    name="phoneNumber"
                     id="standard-phone-input"
                     label="Phone Number*"
                     type="tel"
+                    value={phoneNumber}
+                    onChange={handleChange}
+                    helperText={touched.phoneNumber ? errors.phoneNumber : ""}
+                    error={touched.phoneNumber && Boolean(errors.phoneNumber)}
                     placeholder="ex. 555-555-5555"
                     margin="normal"
                     variant="outlined"
@@ -132,11 +242,23 @@ class Contact extends React.Component {
                     <TextField 
                     style={{width: `100%`}}
                     id="standard-select-questions"
+                    name="questionType"
                     select
                     fullWidth
+                    value={questionType}
+                    onChange={handleChange}
                     label="Type of Question"
+                    helperText={
+                      touched.questionType
+                        ? errors.questionType
+                        : ""
+                    }
+                    error={
+                      touched.questionType &&
+                      Boolean(errors.questionType)
+                    }
                     SelectProps={{
-                    // MenuProps: {className: classes.menu}
+                    MenuProps: {className: classes.menu}
                     }}
                     margin="normal"
                     variant="outlined"
@@ -151,17 +273,24 @@ class Contact extends React.Component {
                     <br/>
                     <TextField
                     style={{width: `100%`}}
+                    name="questionAbout"
                     id="outlined-full-width"
                     label="I have a question about..."
                     placeholder="Placeholder"
+                    // value={questionAbout}
+                    onChange={handleChange}
+                    helperText={touched.questionAbout ? errors.questionAbout :""}
+                    error={touched.questionAbout && Boolean(errors.questionAbout)}
                     margin="normal"
                     variant="outlined"
                     InputLabelProps={{
                       shrink: true,
                     }}
                   />
-            </form>
-
+                  <center><button className="contactusbutton"type="submit">Submit</button></center>
+            </Form>
+            )}
+            </Formik>
             <SEO title="Contact Us" />
             <Link to="/contact/">Contact Page</Link>
         </div>
