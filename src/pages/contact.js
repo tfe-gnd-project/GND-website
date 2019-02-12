@@ -12,6 +12,7 @@ import RoomIcon from '@material-ui/icons/room';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import "../assets/contact.css";
+import Image from "../images/tfegndbanner.png";
 
 const ContactSchema = Yup.object({
   firstName: Yup.string("Enter a name")
@@ -130,8 +131,9 @@ class Contact extends React.Component {
       <Layout>
         <div>
           <div className="contactbanner">
+          
             <img
-            src="/images/tfegndbanner.png"
+            src={Image}
             alt="Banner"
             style={{ marginTop: 30, borderRadius: 15}}
             />{" "}
