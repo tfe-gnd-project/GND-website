@@ -129,11 +129,11 @@ class Contact extends React.Component {
       <Layout>
         <div className="contactpage" style={{
             margin: `0 auto`,
-            maxWidth: 960,
+            maxWidth: `100vw`,
             padding: `0px 1.0875rem 1.45rem`,
             paddingTop: 75
           }}>
-              <center>
+         <center>
                 <div className="contact-title" style={{ background: `linear-gradient(147deg,#0a2f6c,#6d6d6d,#c97e51)`, height: 250, maxWidth: `100vw`, borderRadius: 7, color: `white`}}>
                   <div className="contact-title-text" style={{paddingTop: 60}}>
                     <p style={{fontSize: 70}}>CONTACT US</p>
@@ -150,7 +150,7 @@ class Contact extends React.Component {
                   </p>
                   </div>
                 </div>
-              </center>
+              
             <Formik
       initialValues={values}
       validationSchema={ContactSchema}
@@ -177,7 +177,8 @@ class Contact extends React.Component {
                 marginBottom: 30,
                 padding: `15px 25px`,
                 backgroundColor: `white`,
-                borderRadius: 15
+                borderRadius: 15,
+                maxWidth: `100vw`
               }}
               onSubmit={handleSubmit} method="post">
               <TextField style={textfield}
@@ -237,7 +238,7 @@ class Contact extends React.Component {
                     />
                     <br/>
                     <TextField 
-                    style={{ width: `50vw`, textAlign: `center` }}
+                    style={{ width: `100%`, textAlign: `center` }}
                     id="standard-select-questions"
                     name="questionType"
                     select
@@ -267,7 +268,7 @@ class Contact extends React.Component {
                     </TextField>
                     <br/>
                     <TextField
-                    style={{ width: `50vw`, textAlign: `center` }}
+                    style={{ width: `100%`, textAlign: `center` }}
                     name="questionAbout"
                     id="outlined-full-width"
                     label="I have a question about..."
@@ -282,11 +283,13 @@ class Contact extends React.Component {
                       shrink: true,
                     }}
                   />
-                  <br/>
-                  <button className="contactusbutton"type="submit">Submit</button>
+                  <br/><center>
+                  <button className="contactusbutton"type="submit">Submit</button></center>
+                
             </Form>
+           
             )}
-            </Formik>
+            </Formik> </center>
             <SEO title="Contact Us" />
             <Link to="/contact/">Contact Page</Link>
         </div>
