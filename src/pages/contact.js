@@ -129,33 +129,30 @@ class Contact extends React.Component {
     };
     return (
       <Layout>
-        <div>
-          <div className="contactbanner">
-          
-            <img
-            src={Image}
-            alt="Banner"
-            style={{ marginTop: 30, borderRadius: 15}}
-            />{" "}
+        <div className="contactpage" style={{
+            margin: `0 auto`,
+            maxWidth: 960,
+            padding: `0px 1.0875rem 1.45rem`,
+            paddingTop: 75
+          }}>
               <center>
-                <div className="centered" style={{ marginTop: 30 }}>
-                  CONTACT US
-                  <br />
-                  <span style={{ fontSize: 15 }}>
-                  We're here for you. Questions? Concerns? Want to volunteer?
-                  </span>
-                  <br/>
-                  <span style={{ fontSize: 15 }}>
+                <div className="contact-title" style={{ background: `linear-gradient(147deg,#0a2f6c,#6d6d6d,#c97e51)`, height: 250, maxWidth: `100vw`, borderRadius: 7, color: `white`}}>
+                  <div className="contact-title-text" style={{paddingTop: 60}}>
+                    <p style={{fontSize: 70}}>CONTACT US</p>
+                     <p style={{ fontSize: 15 }}>
+                    We're here for you. Questions? Suggestions? Want to volunteer?
+                     </p>
+                  <p style={{ fontSize: 15 }}>
                     <CallIcon />:
                     <a href="tel:+1-602-632-9598">602-632-9598</a> 
                     &nbsp; &nbsp; &nbsp; &nbsp;
                     <RoomIcon />
                     <a target="_blank"rel="noopener noreferrer"  href="https://goo.gl/maps/1hfhCynn68J2">
                     :2302 N 9th St, Phoenix, AZ 85006{" "}</a>
-                  </span>
+                  </p>
+                  </div>
                 </div>
               </center>
-            </div>
             <Formik
       initialValues={values}
       validationSchema={ContactSchema}
