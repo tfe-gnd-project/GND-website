@@ -1,88 +1,113 @@
 
-.headerStyle {
-  background-size: 100vw;
-  min-height: 75px;
-  background-color: #0a2f6c;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding-top: 10px;
-  padding-left: 10px;
-}
-
 .gndlogobackground {
-  min-height: 70px;
-  max-height: 70px;
-  min-width: 70px;
-  max-width: 70px;
+  min-height: 50px;
+  max-height: 50px;
+  min-width: 50px;
+  max-width: 50px;
   background-color: white;
   border-radius: 50%;
-  flex-direction: row;
-  flex-wrap: wrap;
+  margin-right: 10px;
+  z-index: 1;
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
 }
 
 .gndlogo {
-  min-height: 60px;
-  min-width: 60px;
-  max-height: 60px; 
-  max-width: 60px; 
-  float: left; 
-  margin: 5px;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-
-.title {
-  float: left; 
-  margin-top: 15px; 
-  color: white; 
-  letter-spacing: 2px;
-  padding-left: 10px;
-  flex-direction: row;
-  flex-wrap: wrap;
-  font-size: 2.2em;
-  margin-left: 10px;
+  min-height: 44px;
+  min-width: 44px;
+  max-height: 44px; 
+  max-width: 44px;
+  margin-right: 10px;
+  margin: 3px;
+  z-index: 1;
 }
 
 .menu {
-  padding-top: 10px;
+  /* padding: 10px;
+  padding-right: 30px;
   margin-bottom: 10px;
-  padding-left: 2em;
-  padding-right: 2em;
-  background-color: rgba(148, 179, 228, 0.61);
+  background-color: #0a2f6c;
   display: flex;
   flex: 1;
+  flex-grow: 1;
   flex-wrap: wrap;
   align-items: stretch;
   justify-content: space-between;
-  position: fixed sticky;
+  position: fixed;
+  left: 0;
   top: 0;
+  width: 100%; */
+  background-color: #0a2f6c;
+  padding: 10px;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
 }
 
 .menufont {
-  color: #0a2f6c;
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+}
+
+.links {
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: large;
+}
+
+.icon {
+  padding-top: 10px;
+  font-size: 25px;
+}
+/* 
+.menufont {
+  color: white;
+  padding-top: 10px;
   font-family: sans-serif;
   text-decoration: none;
   display: block;
   flex: 0 1 auto;
-}
+  font-size: 19px;
+} */
 
 .menufont:hover {
-  color: white;
+  color: skyblue;
 }
 
 .menufont:active {
   color: orange;
 }
 
-nav {
-  position: fixed;
-  position: sticky;
-  top: 0;
+.menu .icon {
+  display: none;
 }
 
-li {
-  float: left;
-  list-style-type: none;
+@media screen and (max-width: 600px) {
+  .menu a:not(:first-child) {display: none;}
+  .menu a.icon {
+    float: right;
+    display: block;
+  }
 }
+
+@media screen and (max-width: 600px) {
+  .menu.responsive {position: fixed;}
+  .menu.responsive .icon {
+    position: absolute;
+    right: 10px;
+    top: 0;
+  }
+  .menu.responsive .menufont {
+    float: none;
+    display: block;
+    text-align: center;
+  }
+}
+

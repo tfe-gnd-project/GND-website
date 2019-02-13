@@ -1,36 +1,48 @@
-import PropTypes from 'prop-types'
 import React from 'react'
-import { Link } from "gatsby"
 import "./header.css"
 
+import { Link } from "gatsby"
+import { FaBars } from 'react-icons/fa'
 
-const Header = ({ siteTitle, menuLinks }) => (
-  <div>
-    <div className='headerStyle'>
-        <div className='gndlogobackground'>
-          <img className='gndlogo' src="https://gurunanakdwara.com/img/gnd-logo.svg" alt="logo"/>
+import NavBar from './navbar'
+
+
+class Header extends React.Component {
+  state = {
+    toggleicon: 'menu'
+  }
+
+  handleToggle = () => {
+    if (this.state.toggleicon === 'menu') {
+      this.setState({
+        toggleicon: 'menu responsive'
+      })
+    } else {
+      this.setState({
+        toggleicon: 'menu'
+      })
+    }
+  }
+
+  render() {
+    return (
+        <div>
+          <div className={this.state.toggleicon}>
+            <Link to='/' className='gndlogobackground menufont'>
+              <img className='gndlogo' src="https://gurunanakdwara.com/img/gnd-logo.svg" alt="logo"/>
+            </Link>
+            <Link className='links menufont' to='/newhere'>New Here</Link>
+            <Link className='links menufont' to='/events'>Events</Link>
+            <Link className='links menufont' to='/startserving'>Start Serving</Link>
+            <Link className='links menufont' to='/contact'>Contact</Link>
+            <Link className='links menufont' to='/donate'>Donate</Link>
+            <a className="icon" onClick={this.handleToggle}>
+              <FaBars />
+            </a>
+          </div>
         </div>
-        <h1 className='title' >Guru Nanak Dwara</h1>
-    </div>
-
-    <nav className='menu'>
-      {
-        menuLinks.map(link =>
-          <li key={link.name}>
-            <Link className='menufont' to={link.link}>{link.name}</Link>
-          </li>)
-      }
-    </nav>
-  </div>
-
-)
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
+    )
+  }
 }
 
 export default Header
