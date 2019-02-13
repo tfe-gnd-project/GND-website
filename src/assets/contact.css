@@ -1,11 +1,31 @@
-.contactbanner .centered {
+.contactpage {
+    max-width: 100%;
+}
+
+.contactbanner {
+    width:100vw;
+    margin:1rem auto;
+    position: relative;
+}
+
+.centeredtext {
     position: absolute;
-    top: 25%;
-    left: 50%;
+    top:40%;
+    left:35%;
     color: white;
-    font-size: 60px;
-    transform: translate(-50%, -50%);
-  }
+    padding:1rem;
+    transform:translateY(-50%);
+}
+
+.banner-title {
+    
+    margin: 0px;
+}
+
+.banner-sub-title {
+    background:rgba(255,255,255,0.5);
+    border-radius: 5px;
+}
 
 .contactusbutton {
     margin: 10px;
