@@ -31,9 +31,9 @@ const ContactSchema = Yup.object({
   phoneNumber: Yup.string("Enter your phone number")
     .matches(/^\d{3}-\d{3}-\d{4}$/, "Enter a valid phone number.")
     .required("Please enter a Phone Number"),
-  // questionAbout: Yup.string("Enter a message")
-  //   .min(1, "What can we help you with?")
-  //   .required("What can we help you with?")
+  questionAbout: Yup.string("Enter a message")
+    .min(1, "What can we help you with?")
+    .required("What can we help you with?")
 });
 
 const styles = theme => ({
@@ -58,10 +58,8 @@ const styles = theme => ({
 const textfield = {
   marginLeft: 6,
   marginRight: 6,
-  width: 420,
   textAlign: `center`,
   
-
 }
 
 const questions = [
@@ -208,7 +206,6 @@ class Contact extends React.Component {
                     variant="outlined"
                     className="textfield"
               />
-           <br/>
                   <TextField style={textfield}
                     name="emailAddress"
                     id="standard-email-input"
@@ -240,11 +237,10 @@ class Contact extends React.Component {
                     />
                     <br/>
                     <TextField 
-                    style={{width: `100%`}}
+                    style={{ width: `50vw`, textAlign: `center` }}
                     id="standard-select-questions"
                     name="questionType"
                     select
-                    fullWidth
                     value={questionType}
                     onChange={handleChange}
                     label="Type of Question"
@@ -262,7 +258,6 @@ class Contact extends React.Component {
                     }}
                     margin="normal"
                     variant="outlined"
-                    className="textfield"
                     >
                       {questions.map(option => (
                         <MenuItem key={option.value} value={option.value}>
@@ -272,7 +267,7 @@ class Contact extends React.Component {
                     </TextField>
                     <br/>
                     <TextField
-                    style={{width: `100%`}}
+                    style={{ width: `50vw`, textAlign: `center` }}
                     name="questionAbout"
                     id="outlined-full-width"
                     label="I have a question about..."
@@ -287,7 +282,8 @@ class Contact extends React.Component {
                       shrink: true,
                     }}
                   />
-                  <center><button className="contactusbutton"type="submit">Submit</button></center>
+                  <br/>
+                  <button className="contactusbutton"type="submit">Submit</button>
             </Form>
             )}
             </Formik>
