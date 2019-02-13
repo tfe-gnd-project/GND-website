@@ -4,7 +4,6 @@ import "./header.css"
 import { Link } from "gatsby"
 import { FaBars } from 'react-icons/fa'
 
-import NavBar from './navbar'
 
 
 class Header extends React.Component {
