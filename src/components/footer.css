@@ -10,7 +10,8 @@
 .font-container {
   display: flex;
   justify-content: center;
-  padding-bottom: 10px
+  padding-bottom: 10px;
+  width: 100%
 }
 
 .icons {

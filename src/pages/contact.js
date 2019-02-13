@@ -31,9 +31,9 @@ const ContactSchema = Yup.object({
   phoneNumber: Yup.string("Enter your phone number")
     .matches(/^\d{3}-\d{3}-\d{4}$/, "Enter a valid phone number.")
     .required("Please enter a Phone Number"),
-  // questionAbout: Yup.string("Enter a message")
-  //   .min(1, "What can we help you with?")
-  //   .required("What can we help you with?")
+  questionAbout: Yup.string("Enter a message")
+    .min(1, "What can we help you with?")
+    .required("What can we help you with?")
 });
 
 const styles = theme => ({
@@ -58,10 +58,8 @@ const styles = theme => ({
 const textfield = {
   marginLeft: 6,
   marginRight: 6,
-  width: 420,
   textAlign: `center`,
   
-
 }
 
 const questions = [
@@ -129,33 +127,30 @@ class Contact extends React.Component {
     };
     return (
       <Layout>
-        <div>
-          <div className="contactbanner">
-          
-            <img
-            src={Image}
-            alt="Banner"
-            style={{ marginTop: 30, borderRadius: 15}}
-            />{" "}
-              <center>
-                <div className="centered" style={{ marginTop: 30 }}>
-                  CONTACT US
-                  <br />
-                  <span style={{ fontSize: 15 }}>
-                  We're here for you. Questions? Concerns? Want to volunteer?
-                  </span>
-                  <br/>
-                  <span style={{ fontSize: 15 }}>
+        <div className="contactpage" style={{
+            margin: `0 auto`,
+            maxWidth: `100vw`,
+            padding: `0px 1.0875rem 1.45rem`,
+            paddingTop: 75
+          }}>
+         <center>
+                <div className="contact-title" style={{ background: `linear-gradient(147deg,#0a2f6c,#6d6d6d,#c97e51)`, height: 250, maxWidth: `100vw`, borderRadius: 7, color: `white`}}>
+                  <div className="contact-title-text" style={{paddingTop: 60}}>
+                    <p style={{fontSize: 70}}>CONTACT US</p>
+                     <p style={{ fontSize: 15 }}>
+                    We're here for you. Questions? Suggestions? Want to volunteer?
+                     </p>
+                  <p style={{ fontSize: 15 }}>
                     <CallIcon />:
                     <a href="tel:+1-602-632-9598">602-632-9598</a> 
                     &nbsp; &nbsp; &nbsp; &nbsp;
                     <RoomIcon />
                     <a target="_blank"rel="noopener noreferrer"  href="https://goo.gl/maps/1hfhCynn68J2">
                     :2302 N 9th St, Phoenix, AZ 85006{" "}</a>
-                  </span>
+                  </p>
+                  </div>
                 </div>
-              </center>
-            </div>
+              
             <Formik
       initialValues={values}
       validationSchema={ContactSchema}
@@ -182,7 +177,8 @@ class Contact extends React.Component {
                 marginBottom: 30,
                 padding: `15px 25px`,
                 backgroundColor: `white`,
-                borderRadius: 15
+                borderRadius: 15,
+                maxWidth: `100vw`
               }}
               onSubmit={handleSubmit} method="post">
               <TextField style={textfield}
@@ -211,7 +207,6 @@ class Contact extends React.Component {
                     variant="outlined"
                     className="textfield"
               />
-           <br/>
                   <TextField style={textfield}
                     name="emailAddress"
                     id="standard-email-input"
@@ -243,11 +238,10 @@ class Contact extends React.Component {
                     />
                     <br/>
                     <TextField 
-                    style={{width: `100%`}}
+                    style={{ width: `100%`, textAlign: `center` }}
                     id="standard-select-questions"
                     name="questionType"
                     select
-                    fullWidth
                     value={questionType}
                     onChange={handleChange}
                     label="Type of Question"
@@ -265,7 +259,6 @@ class Contact extends React.Component {
                     }}
                     margin="normal"
                     variant="outlined"
-                    className="textfield"
                     >
                       {questions.map(option => (
                         <MenuItem key={option.value} value={option.value}>
@@ -275,7 +268,7 @@ class Contact extends React.Component {
                     </TextField>
                     <br/>
                     <TextField
-                    style={{width: `100%`}}
+                    style={{ width: `100%`, textAlign: `center` }}
                     name="questionAbout"
                     id="outlined-full-width"
                     label="I have a question about..."
@@ -290,10 +283,13 @@ class Contact extends React.Component {
                       shrink: true,
                     }}
                   />
-                  <center><button className="contactusbutton"type="submit">Submit</button></center>
+                  <br/><center>
+                  <button className="contactusbutton"type="submit">Submit</button></center>
+                
             </Form>
+           
             )}
-            </Formik>
+            </Formik> </center>
             <SEO title="Contact Us" />
             <Link to="/contact/">Contact Page</Link>
         </div>
