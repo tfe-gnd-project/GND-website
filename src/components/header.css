@@ -102,7 +102,7 @@
   .menu.responsive .icon {
     position: absolute;
     right: 10px;
-    top: 0;
+    top: 10px;
   }
   .menu.responsive .menufont {
     float: none;
