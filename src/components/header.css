@@ -25,20 +25,6 @@
 }
 
 .menu {
-  /* padding: 10px;
-  padding-right: 30px;
-  margin-bottom: 10px;
-  background-color: #0a2f6c;
-  display: flex;
-  flex: 1;
-  flex-grow: 1;
-  flex-wrap: wrap;
-  align-items: stretch;
-  justify-content: space-between;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%; */
   background-color: #0a2f6c;
   padding: 10px;
   overflow: hidden;
@@ -66,16 +52,6 @@
   padding-top: 10px;
   font-size: 25px;
 }
-/* 
-.menufont {
-  color: white;
-  padding-top: 10px;
-  font-family: sans-serif;
-  text-decoration: none;
-  display: block;
-  flex: 0 1 auto;
-  font-size: 19px;
-} */
 
 .menufont:hover {
   color: skyblue;
