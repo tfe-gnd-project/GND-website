@@ -10,6 +10,7 @@ class Index extends React.Component {
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <Link to="/contact/"></Link>
+        <div style={{height: 1000}}>Content</div>
       </Layout>
     );
   }
