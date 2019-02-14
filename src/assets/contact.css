@@ -37,11 +37,14 @@
 }
 
   
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 900px) {
     .contact-title-text {
-      width: 100%;
+      width: 100vw;
     }
     p {
         font-size: 3vw;
+    }
+    .textfield {
+        width: 100%;
     }
   }
