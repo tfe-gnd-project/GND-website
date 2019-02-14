@@ -1,0 +1,72 @@
+.border {
+  border-radius: 15px;
+  max-width: 900px;
+  margin: 20px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: white;
+  text-align: center;
+  justify-content: center;
+}
+
+.index {
+  border: solid 2px grey;
+  border-radius: 6px;
+  margin: 20px;
+  padding: 10px;
+  background-repeat: round;
+}
+
+.subheaders {
+  color: #0a2f6c;
+  margin: 10px;
+  font-family: sans-serif;
+  font-size: larger;
+}
+
+.buttoncontainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 100vw;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 100vw;
+  justify-content: center;
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid grey;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: load8 2s linear infinite;
+}
+
+@keyframes load8 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.textfieldEmail {
+  width: 620px;
+}
+
+@media screen and (max-width: 600px) {
+  .textfieldEmail  { width: 300px }
+}
