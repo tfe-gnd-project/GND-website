@@ -8,7 +8,10 @@ import * as Yup from "yup"
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import Tooltip from '@material-ui/core/Tooltip';
+import Checkbox from '@material-ui/core/Checkbox';
+import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import './startserving.css'
 
 
@@ -325,7 +328,12 @@ class Forms extends React.Component {
   state = {
     message: "",
     messageColor: "",
+    checked: false,
   }
+
+  handleChange = name => event => {
+    this.setState({ [name]: event.target.checked });
+  };
 
   sendEmail = (email) => {
 
@@ -417,147 +425,141 @@ class Forms extends React.Component {
             }) => (
               <Form onSubmit={handleSubmit} >
                 <div className="border">
-                <div className="subheaders">CONTACT INFORMATION</div>
-                <TextField
-                    style={textfield}
-                    id="first"
-                    name="first"
-                    helperText={touched.first ? errors.first : ""}
-                    error={touched.first && Boolean(errors.first)}
-                    label="First Name"
-                    value={first}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    margin="normal"
-                    variant="outlined"
-                />
+                  <div className="subheaders">CONTACT INFORMATION</div>
+                  <TextField
+                      style={textfield}
+                      id="first"
+                      name="first"
+                      helperText={touched.first ? errors.first : ""}
+                      error={touched.first && Boolean(errors.first)}
+                      label="First Name"
+                      value={first}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      margin="normal"
+                      variant="outlined"
+                  />
 
-                <TextField
-                    style={textfield}
-                    id="last"
-                    name="last"
-                    helperText={touched.last ? errors.last : ""}
-                    error={touched.last && Boolean(errors.last)}
-                    label="Last Name"
-                    value={last}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    margin="normal"
-                    variant="outlined"
-                /> 
+                  <TextField
+                      style={textfield}
+                      id="last"
+                      name="last"
+                      helperText={touched.last ? errors.last : ""}
+                      error={touched.last && Boolean(errors.last)}
+                      label="Last Name"
+                      value={last}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      margin="normal"
+                      variant="outlined"
+                  /> 
 
-                <TextField
-                    style={textfield}
-                    id="street"
-                    name="street"
-                    helperText={touched.street ? errors.street : ""}
-                    error={touched.street && Boolean(errors.street)}
-                    label="Street Address"
-                    value={street}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    margin="normal"
-                    variant="outlined"
-                />
+                  <TextField
+                      style={textfield}
+                      id="street"
+                      name="street"
+                      helperText={touched.street ? errors.street : ""}
+                      error={touched.street && Boolean(errors.street)}
+                      label="Street Address"
+                      value={street}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      margin="normal"
+                      variant="outlined"
+                  />
 
-                <TextField
-                    style={textfield}
-                    id="unit"
-                    name="unit"
-                    helperText={touched.unit ? errors.unit : ""}
-                    error={touched.unit && Boolean(errors.unit)}
-                    label="Apt/Unit"
-                    value={unit}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    margin="normal"
-                    variant="outlined"
-                />
+                  <TextField
+                      style={textfield}
+                      id="unit"
+                      name="unit"
+                      helperText={touched.unit ? errors.unit : ""}
+                      error={touched.unit && Boolean(errors.unit)}
+                      label="Apt/Unit"
+                      value={unit}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      margin="normal"
+                      variant="outlined"
+                  />
 
-                <TextField
-                    style={textfield}
-                    id="city"
-                    name="city"
-                    helperText={touched.city ? errors.city : ""}
-                    error={touched.city && Boolean(errors.city)}
-                    label="City"
-                    value={city}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    margin="normal"
-                    variant="outlined"
-                />
-
-                <Tooltip title="Select a state" placement="top-start">
-                    <TextField
-                        style={textfield}
-                        id="state"
-                        name="state"
-                        helperText={touched.state ? errors.state : ""}
-                        error={touched.state && Boolean(errors.state)}
-                        label="State"
-                        value={state}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        margin="normal"
-                        variant="outlined"
-                        select
-                    >
-                        {ranges.map(option => (
-                        <MenuItem key={option.value} value={option.value}>
-                        {option.label}
-                        </MenuItem>
-                        ))}
-                    </TextField>
-                </Tooltip>
-
-                <TextField
-                    style={textfield}
-                    id="zipcode"
-                    name="zipcode"
-                    helperText={touched.zipcode ? errors.zipcode : ""}
-                    error={touched.zipcode && Boolean(errors.zipcode)}
-                    label="Zip Code"
-                    value={zipcode}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    margin="normal"
-                    variant="outlined"
-                />
-
-                <Tooltip title="Please enter in this format: ###-###-####" placement="top-start">
-                    <TextField
-                        style={textfield}
-                        id="phone"
-                        name="phone"
-                        placeholder="###-###-####"
-                        helperText={touched.phone ? errors.phone : ""}
-                        error={touched.phone && Boolean(errors.phone)}
-                        label="Phone Number"
-                        value={phone}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        margin="normal"
-                        variant="outlined"
-                    />
-                </Tooltip>
-
-
-                <Tooltip title="ex) test123@email.com" placement="top-start">
-                    <TextField
-                        className='textfieldEmail'
-                        id="email"
-                        name="email"
-                        helperText={touched.email ? errors.email : ""}
-                        error={touched.email && Boolean(errors.email)}
-                        label="Email"
-                        margin="normal"
-                        variant="outlined"
-                        value={email}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                    />
-                </Tooltip>
+                  <TextField
+                      style={textfield}
+                      id="city"
+                      name="city"
+                      helperText={touched.city ? errors.city : ""}
+                      error={touched.city && Boolean(errors.city)}
+                      label="City"
+                      value={city}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      margin="normal"
+                      variant="outlined"
+                  />
+                
+                  <TextField
+                      style={textfield}
+                      id="state"
+                      name="state"
+                      helperText={touched.state ? errors.state : ""}
+                      error={touched.state && Boolean(errors.state)}
+                      label="State"
+                      value={state}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      margin="normal"
+                      variant="outlined"
+                      select
+                  >
+                      {ranges.map(option => (
+                      <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                      </MenuItem>
+                      ))}
+                  </TextField>
+                  
+                  <TextField
+                      style={textfield}
+                      id="zipcode"
+                      name="zipcode"
+                      helperText={touched.zipcode ? errors.zipcode : ""}
+                      error={touched.zipcode && Boolean(errors.zipcode)}
+                      label="Zip Code"
+                      value={zipcode}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      margin="normal"
+                      variant="outlined"
+                  />
+                
+                  <TextField
+                      style={textfield}
+                      id="phone"
+                      name="phone"
+                      placeholder="###-###-####"
+                      helperText={touched.phone ? errors.phone : ""}
+                      error={touched.phone && Boolean(errors.phone)}
+                      label="Phone Number"
+                      value={phone}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      margin="normal"
+                      variant="outlined"
+                  />
+                  
+                  <TextField
+                      className='textfieldEmail'
+                      id="email"
+                      name="email"
+                      helperText={touched.email ? errors.email : ""}
+                      error={touched.email && Boolean(errors.email)}
+                      label="Email"
+                      margin="normal"
+                      variant="outlined"
+                      value={email}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                  />
+                
                 </div>
                 
                 <div className='border'>
@@ -603,6 +605,21 @@ class Forms extends React.Component {
                   />
                   <br/>
 
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={this.state.checked}
+                        onChange={this.handleChange('checked')}
+                        icon={<CheckBoxOutlineBlankIcon fontSize="30px" />}
+                        checkedIcon={<CheckBoxIcon fontSize="30px" />}
+                        value="checked"
+                      />
+                    }
+                    label="Send me newsletters about Guru Nanak Dwara."
+                  />
+
+
+                  <br/>
                   <Button
                       style={button}
                       type="submit"
