@@ -588,7 +588,6 @@ class Forms extends React.Component {
 
                   <TextField
                       className='textfieldEmail'
-                      style={{fontSize: '20px' }}
                       label="Tell us how you can serve in your own unique way"
                       id="description"
                       name="description"
