@@ -623,7 +623,7 @@ pre tt:after {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background: white;
+  background: lightgray;
   margin-top: 90px;
 }
 

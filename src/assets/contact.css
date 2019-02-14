@@ -1,6 +1,6 @@
 .contactusbutton {
     margin: 10px;
-    font-family: "Arial Black", Gadget, sans-serif;
+    font-family: "Arial", Gadget, sans-serif;
     font-size: 20px;
     padding: 15px;
     text-align: center;
@@ -10,8 +10,8 @@
     color: white;
     box-shadow: 0 0 20px black;
     border-radius: 10px;
-    width: 200px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    width: 50%;
+    /* box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); */
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     cursor: pointer;
     display: inline-block;
@@ -21,10 +21,27 @@
 
 .contactusbutton:hover {
     background-image: linear-gradient(to right, #0a2f6c 0%, #f6914a 51%, #f6914a 100%)
-    
+
 }
 
-a {
+.contact-title-text a {
     color: white;
     text-decoration: none;
+    width: 100%
+  }
+
+.contact-title-text a:hover {
+    box-shadow: 0 0 20px black;
+    cursor: pointer;
+    background-image: linear-gradient(#0a2f6c 0%, #0a2f6c 51%, #0a2f6c 100%)
+}
+
+  
+@media only screen and (min-width: 600px) {
+    .contact-title-text {
+      width: 100%;
+    }
+    p {
+        font-size: 3vw;
+    }
   }
