@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Link } from "gatsby";
+import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import PropTypes from "prop-types";
@@ -128,13 +128,18 @@ class Contact extends React.Component {
     return (
       <Layout>
         <div className="contactpage" style={{
-            margin: `0 auto`,
-            maxWidth: `100vw`,
-            padding: `0px 1.0875rem 1.45rem`,
-            paddingTop: 75
+            // border: `3px red solid`,
+            // padding: 15,
+            // borderRadius: 10,
+            // backgroundColor: `gray`
+            // margin: `0 auto`,
+            // maxWidth: `100vw`,
+            // padding: `0px 1.0875rem 1.45rem`,
+            // paddingTop: 75,
+            // color: `gray`
           }}>
          <center>
-                <div className="contact-title" style={{ background: `linear-gradient(147deg,#0a2f6c,#6d6d6d,#c97e51)`, height: 250, maxWidth: `100vw`, borderRadius: 7, color: `white`}}>
+                <div className="contact-title" style={{ background: `linear-gradient(147deg,#0a2f6c,#6d6d6d,#c97e51)`, height: 250, maxWidth: `100vw`, borderRadius: 15, color: `white`, marginTop: 60}}>
                   <div className="contact-title-text" style={{paddingTop: 60}}>
                     <p style={{fontSize: 70}}>CONTACT US</p>
                      <p style={{ fontSize: 15 }}>
@@ -144,9 +149,9 @@ class Contact extends React.Component {
                     <CallIcon />:
                     <a href="tel:+1-602-632-9598">602-632-9598</a> 
                     &nbsp; &nbsp; &nbsp; &nbsp;
-                    <RoomIcon />
+                    <RoomIcon />:
                     <a target="_blank"rel="noopener noreferrer"  href="https://goo.gl/maps/1hfhCynn68J2">
-                    :2302 N 9th St, Phoenix, AZ 85006{" "}</a>
+                    2302 N 9th St, Phoenix, AZ 85006{" "}</a>
                   </p>
                   </div>
                 </div>
@@ -271,8 +276,7 @@ class Contact extends React.Component {
                     style={{ width: `100%`, textAlign: `center` }}
                     name="questionAbout"
                     id="outlined-full-width"
-                    label="I have a question about..."
-                    placeholder="Placeholder"
+                    label="My question is..."
                     value={questionAbout}
                     onChange={handleChange}
                     helperText={touched.questionAbout ? errors.questionAbout :""}
@@ -291,7 +295,6 @@ class Contact extends React.Component {
             )}
             </Formik> </center>
             <SEO title="Contact Us" />
-            <Link to="/contact/">Contact Page</Link>
         </div>
 
       </Layout>
