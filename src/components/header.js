@@ -27,17 +27,18 @@ class Header extends React.Component {
     return (
         <div>
           <div className={this.state.toggleicon}>
-            <Link to='/' className='gndlogobackground menufont'>
+            <Link to='/' className='gndlogobackground menufont' activeClassName='active'>
               <img className='gndlogo' src="https://gurunanakdwara.com/img/gnd-logo.svg" alt="logo"/>
             </Link>
-            <Link className='links menufont'  to='/newhere'>New Here</Link>
-            <Link className='links menufont' to='/events'>Events</Link>
+            <Link className='links menufont'  to='/newhere' activeClassName='active'>New Here</Link>
+            <Link className='links menufont' to='/events' activeClassName='active'>Events</Link>
             <Link className='links menufont' to='/startserving' activeClassName='active'>Start Serving</Link>
+            <Link className='links menufont' to='/photos' activeClassName='active'>Photos</Link>
             <Link className='links menufont' to='/contact' activeClassName='active'>Contact</Link>
-            <Link className='links menufont' to='/donate'>Donate</Link>
-            <button className="icon" onClick={this.handleToggle}>
+            <Link className='links menufont' to='/donate' activeClassName='active'>Donate</Link>
+            <a className="icon" onClick={this.handleToggle}>
               <FaBars />
-            </button>
+            </a>
           </div>
         </div>
     )
