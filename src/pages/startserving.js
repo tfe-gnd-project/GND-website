@@ -9,9 +9,13 @@ import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Grow from '@material-ui/core/Grow';
+
+import startserving1 from '../images/startserving1.jpg'
+import startserving2 from '../images/startserving2.jpg'
+import startserving3 from '../images/startserving3.jpg'
+
 import './startserving.css'
 
 
@@ -27,7 +31,8 @@ const button = {
     height: 50,
     maxWidth: '100px',
     fontSize: 17,
-    marginTop: '15px'
+    marginTop: '15px',
+    boxShadow: '5px 5px 20px grey'
   }
 
 const ranges = [
@@ -424,6 +429,11 @@ class Forms extends React.Component {
                 handleBlur,
             }) => (
               <Form onSubmit={handleSubmit} >
+              <Grow
+                in='true'
+                style={{ transformOrigin: '0 0 0' }}
+                {...(true ? { timeout: 1000 } : {})}
+                >
                 <div className="border">
                   <div className="subheaders">CONTACT INFORMATION</div>
                   <TextField
@@ -561,12 +571,37 @@ class Forms extends React.Component {
                   />
                 
                 </div>
+                </Grow>
                 
+              <Grow
+                in='true'
+                style={{ transformOrigin: '0 0 0' }}
+                {...(true ? { timeout: 2000 } : {})}
+                >
                 <div className='border'>
                   <div className="subheaders">WAYS TO SERVE</div>
-                  <img style={{width: '200px', height: '133.469px' }} src='https://scontent.xx.fbcdn.net/v/t31.0-0/p600x600/29873485_2107894096153349_649925096164396480_o.jpg?_nc_cat=100&_nc_ht=scontent.xx&oh=cc8f1c1f12d84340db562232167de5f0&oe=5CDE0830' alt='service'/> 
-                  <img style={{width: '200px', height: '133.469px', objectFit: 'fill' }} src='https://scontent.xx.fbcdn.net/v/t31.0-0/p600x600/28616987_2086539218288837_6380233400767908142_o.jpg?_nc_cat=107&_nc_ht=scontent.xx&oh=2ce7a3bd5c82b8155eaf18a383fa3bf3&oe=5CDE2BB0' alt='service'/> 
-                  <img style={{width: '200px', height: '133.469px'}} src='https://scontent.xx.fbcdn.net/v/t31.0-0/p600x600/29983213_2107894519486640_6449556099070029557_o.jpg?_nc_cat=108&_nc_ht=scontent.xx&oh=310ab8ce59357dbf8750bfaad4bdc18a&oe=5CEC5DB7' alt='service'/><br/>
+                  <Grow
+                    in='true'
+                    style={{ transformOrigin: '0 0 0' }}
+                    {...(true ? { timeout: 3000 } : {})}
+                  >
+                    <img style={{width: '200px', height: '133.469px' }} src={startserving1} alt='service'/>
+                  </Grow>
+                  <Grow
+                    in='true'
+                    style={{ transformOrigin: '0 0 0' }}
+                    {...(true ? { timeout: 3000 } : {})}
+                  >
+                    <img style={{width: '200px', height: '133.469px', objectFit: 'fill' }} src={startserving2} alt='service'/>
+                  </Grow>
+                  <Grow
+                    in='true'
+                    style={{ transformOrigin: '0 0 0' }}
+                    {...(true ? { timeout: 3000 } : {})}
+                  >
+                    <img style={{width: '200px', height: '133.469px'}} src={startserving3} alt='service'/>
+                  </Grow>
+                  <br/>
                   <TextField
                       className='textfieldEmail'
                       label="How would you like to start serving?"
@@ -605,18 +640,19 @@ class Forms extends React.Component {
                   />
                   <br/>
 
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={this.state.checked}
-                        onChange={this.handleChange('checked')}
-                        icon={<CheckBoxOutlineBlankIcon fontSize="30px" />}
-                        checkedIcon={<CheckBoxIcon fontSize="30px" />}
-                        value="checked"
-                      />
-                    }
-                    label="Send me newsletters about Guru Nanak Dwara."
-                  />
+                
+                    <FormControlLabel
+                        className="checkboxlabel"
+                        control={
+                        <Checkbox
+                            checked={this.state.checked}
+                            onChange={this.handleChange('checked')}
+                            value="checked"
+                            color="primary"
+                        />
+                        }
+                        label="Send me newsletters about Guru Nanak Dwara."
+                    />
 
 
                   <br/>
@@ -629,9 +665,9 @@ class Forms extends React.Component {
                       Submit
                   </Button>
                 </div>
+                </Grow>
+                
                 <br/>
-
-                <div style={{ color: this.state.messageColor }}>{this.state.message}</div>
 
               </Form>
             )}
