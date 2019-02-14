@@ -230,91 +230,155 @@ const ranges = [
     },
   ];
 
+
+const serving = [
+  {
+    value: 'Fundraising',
+    label: 'Fundraising',
+  },
+  {
+    value: 'Program Development',
+    label: 'Program Development',
+  },
+  {
+    value: 'Operations',
+    label: 'Operations',
+  },
+  {
+    value: 'Security',
+    label: 'Security',
+  },
+  {
+    value: 'Marketing',
+    label: 'Marketing',
+  },
+  {
+    value: 'Event Production',
+    label: 'Event Production',
+  },
+  {
+    value: 'Public Relations',
+    label: 'Public Relations',
+  },
+  {
+    value: 'Guru Ka Langar',
+    label: 'Guru Ka Langar',
+  },
+  {
+    value: 'Khalsa Youth Training',
+    label: 'Khalsa Youth Training',
+  },
+  {
+    value: 'Marble Perkarma',
+    label: 'Marble Perkarma',
+  },
+  {
+    value: 'Ramala Set Up',
+    label: 'Ramala Set Up',
+  },
+  {
+    value: 'Kirtan, Ardas or Hukham',
+    label: 'Kirtan, Ardas or Hukham',
+  },
+  {
+    value: 'Akhand Path',
+    label: 'Akhand Path',
+  },
+  {
+    value: 'Other',
+    label: 'Other',
+  },
+]
+
 const validationSchema = Yup.object({
-    first: Yup.string()
-    .matches(/^[- A-Za-z']+$/, 'Please enter a valid first name.')
-    .required("Please enter a first name."),
-    last: Yup.string()
-    .matches(/^[- A-Za-z']+$/, 'Please enter a valid last name.')
-    .required("Please enter a last name."),
-    street: Yup.string()
-    .required("Please enter a street address"),
-    unit: Yup.string(),
-    city: Yup.string()
-    .matches(/^[- A-Za-z']+$/, 'Please enter a valid city.')
-    .required("Please enter a city"),
-    state: Yup.string()
-    .required("Please select a state"),
-    zipcode: Yup.string()
-    .matches(/\d{5}/, 'Please enter a valid ZIP code.')
-    .required("Please enter a zip code"),
-    phone: Yup.string()
-    .matches(/\d{3}([-])\d{3}([-])\d{4}/, 'Please enter in this format: ###-###-####')
-    .required("Please enter in this format: ###-###-####"),
-    email: Yup.string()
-    .email("Please enter a valid email address.")
-    .required("Please enter an email address"),
+  first: Yup.string()
+  .matches(/^[- A-Za-z']+$/, 'Please enter a valid first name.')
+  .required("Please enter a first name."),
+  last: Yup.string()
+  .matches(/^[- A-Za-z']+$/, 'Please enter a valid last name.')
+  .required("Please enter a last name."),
+  street: Yup.string()
+  .required("Please enter a street address"),
+  unit: Yup.string(),
+  city: Yup.string()
+  .matches(/^[- A-Za-z']+$/, 'Please enter a valid city.')
+  .required("Please enter a city"),
+  state: Yup.string()
+  .required("Please select a state"),
+  zipcode: Yup.string()
+  .matches(/\d{5}/, 'Please enter a valid ZIP code.')
+  .required("Please enter a zip code"),
+  phone: Yup.string()
+  .matches(/\d{3}([-])\d{3}([-])\d{4}/, 'Please enter in this format: ###-###-####')
+  .required("Please enter in this format: ###-###-####"),
+  email: Yup.string()
+  .email("Please enter a valid email address.")
+  .required("Please enter an email address"),
+  serve: Yup.string()
+  .required("Please choose a service"),
+  description: Yup.string()
+  .required("Please provide a brief description of your service"),
 })
 
 
 class Forms extends React.Component {
-    state = {
-            message: "",
-            messageColor: "",
-          }
+  state = {
+    message: "",
+    messageColor: "",
+  }
 
-    sendEmail = (email) => {
+  sendEmail = (email) => {
 
-        console.log(email)
-        const user = {
-            email
-        }
+      console.log(email)
+      const user = {
+          email
+      }
 
-        axios.post(`https://4i3mkrng2k.execute-api.us-east-1.amazonaws.com/dev/ses-api`, user)
-                .then(res => {
-                    console.log(res);
-                    console.log(res.data);
-                })
-                .catch(error => {
-                    console.error("Error:", error);
-                })
-    }
-   
-    submitValues = ({ first, last, street, unit, city, state, zipcode, phone, email }) => 
-        { 
-            const person = {
-                firstName: first,
-                lastName: last,
-                address1: street, 
-                unitNumber: unit, 
-                city: city, 
-                stateProvinceGeoId: state, 
-                postalCode: zipcode, 
-                contactNumber: phone,
-                emailAddress: email,
-            };
-    
-            console.log(person)
+      axios.post(`https://4i3mkrng2k.execute-api.us-east-1.amazonaws.com/dev/ses-api`, user)
+              .then(res => {
+                  console.log(res);
+                  console.log(res.data);
+              })
+              .catch(error => {
+                  console.error("Error:", error);
+              })
+  }
+  
+  submitValues = ({ first, last, street, unit, city, state, zipcode, phone, email }) => 
+      { 
+          const person = {
+              firstName: first,
+              lastName: last,
+              address1: street, 
+              unitNumber: unit, 
+              city: city, 
+              stateProvinceGeoId: state, 
+              postalCode: zipcode, 
+              contactNumber: phone,
+              emailAddress: email,
+          };
+  
+          console.log(person)
 
-            axios.post(`http://54.224.143.14:8080/apps/NewPage/NewForm/createCCOSApplication`,
-                person )
-                .then(res => {
-                    console.log(res);
-                    console.log(res.data);
-                    this.sendEmail(email);
-                    this.setState({
-                        message: "Submission successful!",
-                        messageColor: "green"
-                    })
-                })
-                .catch(error => {
-                    console.error("Error:", error);
-                    this.setState({
-                        message: "Submission failed.",
-                        messageColor: "red"
-                    })
-                })
-        }
+          axios.post(`http://54.224.143.14:8080/apps/NewPage/NewForm/createCCOSApplication`,
+              person )
+              .then(res => {
+                  console.log(res);
+                  console.log(res.data);
+                  this.sendEmail(email);
+                  this.setState({
+                      message: "Submission successful!",
+                      messageColor: "green"
+                  })
+              })
+              .catch(error => {
+                  console.error("Error:", error);
+                  this.setState({
+                      message: "Submission failed.",
+                      messageColor: "red"
+                  })
+              })
+      }
 
 
   render() {
@@ -327,9 +391,10 @@ class Forms extends React.Component {
         state: "", 
         zipcode: "", 
         phone: "", 
-        email: "" 
+        email: "",
+        serve: "",
+        description: ""
       };
-
 
     return (
       <Layout>
@@ -342,7 +407,7 @@ class Forms extends React.Component {
           >
             {({
                 values: { 
-                    first, last, street, unit, city, state, zipcode, phone, email 
+                    first, last, street, unit, city, state, zipcode, phone, email, serve, description
                 },
                 errors,
                 touched,
@@ -350,9 +415,9 @@ class Forms extends React.Component {
                 handleSubmit,
                 handleBlur,
             }) => (
-              <Form className="border" onSubmit={handleSubmit} >
-                <h2 className="subheaders">Contact Information</h2>
-                <div className="form">
+              <Form onSubmit={handleSubmit} >
+                <div className="border">
+                <div className="subheaders">CONTACT INFORMATION</div>
                 <TextField
                     style={textfield}
                     id="first"
@@ -494,15 +559,60 @@ class Forms extends React.Component {
                     />
                 </Tooltip>
                 </div>
+                
+                <div className='border'>
+                  <div className="subheaders">WAYS TO SERVE</div>
+                  <img style={{width: '200px', height: '133.469px' }} src='https://scontent.xx.fbcdn.net/v/t31.0-0/p600x600/29873485_2107894096153349_649925096164396480_o.jpg?_nc_cat=100&_nc_ht=scontent.xx&oh=cc8f1c1f12d84340db562232167de5f0&oe=5CDE0830' alt='service'/> 
+                  <img style={{width: '200px', height: '133.469px', objectFit: 'fill' }} src='https://scontent.xx.fbcdn.net/v/t31.0-0/p600x600/28616987_2086539218288837_6380233400767908142_o.jpg?_nc_cat=107&_nc_ht=scontent.xx&oh=2ce7a3bd5c82b8155eaf18a383fa3bf3&oe=5CDE2BB0' alt='service'/> 
+                  <img style={{width: '200px', height: '133.469px'}} src='https://scontent.xx.fbcdn.net/v/t31.0-0/p600x600/29983213_2107894519486640_6449556099070029557_o.jpg?_nc_cat=108&_nc_ht=scontent.xx&oh=310ab8ce59357dbf8750bfaad4bdc18a&oe=5CEC5DB7' alt='service'/><br/>
+                  <TextField
+                      className='textfieldEmail'
+                      label="How would you like to start serving?"
+                      id="serve"
+                      name="serve"
+                      helperText={touched.serve ? errors.serve : ""}
+                      error={touched.serve && Boolean(errors.serve)}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={serve}
+                      margin="normal"
+                      variant="outlined"
+                      select
+                  >
+                      {serving.map(option => (
+                      <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                      </MenuItem>
+                      ))}
+                  </TextField>
 
-                <Button
-                    style={button}
-                    type="submit"
-                    margin="normal"
-                    variant="contained"
-                >
-                    Submit
-                </Button>
+                  <TextField
+                      className='textfieldEmail'
+                      style={{fontSize: '20px' }}
+                      label="Tell us how you can serve in your own unique way"
+                      id="description"
+                      name="description"
+                      helperText={touched.description ? errors.description : ""}
+                      error={touched.description && Boolean(errors.description)}
+                      value={description}
+                      margin="normal"
+                      variant="outlined"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      multiline
+                      rows="4"
+                  />
+                  <br/>
+
+                  <Button
+                      style={button}
+                      type="submit"
+                      margin="normal"
+                      variant="contained"
+                  >
+                      Submit
+                  </Button>
+                </div>
                 <br/>
 
                 <div style={{ color: this.state.messageColor }}>{this.state.message}</div>
