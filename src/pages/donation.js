@@ -20,6 +20,8 @@ import "../assets/donation.css";
 import Image1 from "../images/gndfloat1.jpg"
 import Image2 from "../images/gndfloat2.jpg"
 import Image3 from "../images/gndfloat3.jpg"
+import SSLlogo from '../images/ssllogo.png'
+import StripeLogo from '../images/stripe.png'
 
 const validationSchema = Yup.object({
   firstName: Yup.string("Enter a name")
@@ -399,7 +401,9 @@ class Donation extends React.Component {
                   onSubmit={handleSubmit}
                   method="post"
                 >
+                <img  className="ssl" src={SSLlogo} alt="SSLLogo" height="124" width="124"/>
                 <div className="mainborder" >
+                
                 <center>
                     <h2>Select Amount To Donate</h2>
                       <FormControl
@@ -632,6 +636,7 @@ class Donation extends React.Component {
                             </Button>
                           </StripeCheckout>
                         </div>
+                        <img src={StripeLogo} alt="Stripe-Logo" height="30" width="100"/>
                       </center>
                 </Form>
               )}

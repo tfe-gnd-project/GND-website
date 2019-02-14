@@ -16,7 +16,20 @@ width: 45vw;
 
 .floatright {
 float: right;
-margin-top: 50px;
+margin-top: 45px;
 margin-Left: 50px;
 width: 40vw
+}
+
+.floatright img {
+    border-radius: 8px; 
+    max-width: 100%;
+    object-fit: cover
+
+}
+
+.ssl {
+    float: right;
+    margin-top: 80px;
+    margin-right: 40;
 }
