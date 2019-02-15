@@ -46,7 +46,11 @@
 }
 
 
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 2000px) and  (min-width: 400px) {
+
+  .contactpage {
+    padding: 20px;
+  }
 
   .contact-us-title p
   {
@@ -58,6 +62,11 @@
     p {
         font-size: 3vw;
     }
+
+    .contact-address {
+      display: none;
+    }
+    
   }
 
   @media only screen and (max-width: 400px) {
@@ -80,6 +89,11 @@
     .contact-us-title {
       margin-top: 0px;
       padding-bottom: 20px;
+    }
+
+    .contact-address a {
+      width: 100%;
+      text-decoration: none;
     }
 
   }

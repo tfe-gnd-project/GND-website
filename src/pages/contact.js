@@ -149,6 +149,16 @@ class Contact extends React.Component {
            <div className="contact-us-title" >
             <center><p>CONTACT US</p></center>
            </div>
+           <div className="contact-address" >
+           <p style={{ fontSize: 15 }}>
+                    <CallIcon />:
+                    <a href="tel:+1-602-632-9598">602-632-9598</a> 
+                    &nbsp; &nbsp; &nbsp; &nbsp;
+                    <RoomIcon />:
+                    <a target="_blank"rel="noopener noreferrer"  href="https://goo.gl/maps/1hfhCynn68J2">
+                    2302 N 9th St, Phoenix, AZ 85006{" "}</a>
+                  </p>
+           </div>
                 <div className="contact-title" style={{ background: `linear-gradient(147deg,#0a2f6c,#6d6d6d,#c97e51)`, height: 250, maxWidth: `100vw`, borderRadius: 15, color: `white`, marginTop: 30}}>
                   <div className="contact-title-text" style={{paddingTop: 60}}>
                     <p style={{fontSize: 70}}>CONTACT US</p>
