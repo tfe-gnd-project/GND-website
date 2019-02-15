@@ -632,7 +632,7 @@ class Donation extends React.Component {
                             token={this.onToken}
                             type="submit"
                           >
-                            <Button className="contactusbutton" type="submit">
+                            <Button className="contactusbutton" style={{color: `white`}} type="submit">
                               Donate Now
                             </Button>
                           </StripeCheckout>
@@ -642,7 +642,7 @@ class Donation extends React.Component {
                 </Form>
               )}
             </Formik>
-            <SEO title="Donate Now" />
+            <SEO title="Donate" />
           </center>
         </div>
 
