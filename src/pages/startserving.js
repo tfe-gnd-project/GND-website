@@ -17,7 +17,7 @@ import startserving1 from '../images/startserving1.jpg'
 import startserving2 from '../images/startserving2.jpg'
 import startserving3 from '../images/startserving3.jpg'
 
-import './startserving.css'
+import "../assets/startserving.css";
 
 
 const textfield = { 
@@ -444,10 +444,89 @@ class Forms extends React.Component {
                 </Grow> <br/>
 
               <div className='both-borders'>
+                <Grow
+                    in='true'
+                    style={{ transformOrigin: '0 0 0' }}
+                    {...(true ? { timeout: 1000 } : {})}
+                >
+                    <div className='border'>
+                        <div className="subheaders">WAYS TO SERVE</div>
+                        <Grow
+                            in='true'
+                            {...(true ? { timeout: 2000 } : {})}
+                        >
+                            <img className='images image1' src={startserving1} alt='service'/>
+                        </Grow>
+                        <Grow
+                            in='true'
+                            {...(true ? { timeout: 2000 } : {})}
+                        >
+                            <img className='images' src={startserving2} alt='service'/>
+                        </Grow>
+                        <Grow
+                            in='true'
+                            {...(true ? { timeout: 2000 } : {})}
+                        >
+                            <img className='images' src={startserving3} alt='service'/>
+                        </Grow>
+                        <br/>
+                        <TextField
+                            className='textfieldEmail'
+                            label="How would you like to start serving?"
+                            id="serve"
+                            name="serve"
+                            helperText={touched.serve ? errors.serve : ""}
+                            error={touched.serve && Boolean(errors.serve)}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={serve}
+                            margin="normal"
+                            variant="outlined"
+                            select
+                        >
+                            {serving.map(option => (
+                            <MenuItem key={option.value} value={option.value}>
+                            {option.label}
+                            </MenuItem>
+                            ))}
+                        </TextField>
+                        <br/>
+
+                        <TextField
+                            className='textfieldEmail'
+                            label="Tell us how you can serve in your own unique way"
+                            id="description"
+                            name="description"
+                            helperText={touched.description ? errors.description : ""}
+                            error={touched.description && Boolean(errors.description)}
+                            value={description}
+                            margin="normal"
+                            variant="outlined"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            multiline
+                            rows="4"
+                        />
+                        <br/>
+
+                        <FormControlLabel
+                            className="checkboxlabel"
+                            control={
+                            <Checkbox
+                                checked={this.state.checked}
+                                onChange={this.handleChange('checked')}
+                                value="checked"
+                                color="primary"
+                            />
+                            }
+                            label="Send me newsletters about Guru Nanak Dwara."
+                        />
+                    </div> 
+              </Grow>
               <Grow
                 in='true'
                 style={{ transformOrigin: '0 0 0' }}
-                {...(true ? { timeout: 1000 } : {})}
+                {...(true ? { timeout: 2000 } : {})}
                 >
                 <div className="border">
                   <div className="subheaders">CONTACT INFORMATION</div>
@@ -584,105 +663,21 @@ class Forms extends React.Component {
                       onChange={handleChange}
                       onBlur={handleBlur}
                   />
+
+                  <br/>
+                    <Button
+                        style={button}
+                        type="submit"
+                        margin="normal"
+                        variant="contained"
+                    >
+                        Submit
+                    </Button>
                 
                 </div>
                 </Grow>
                 
-              <Grow
-                in='true'
-                style={{ transformOrigin: '0 0 0' }}
-                {...(true ? { timeout: 2000 } : {})}
-                >
-                <div className='border'>
-                  <div className="subheaders">WAYS TO SERVE</div>
-                  <Grow
-                    in='true'
-                    style={{ transformOrigin: '0 0 0' }}
-                    {...(true ? { timeout: 2000 } : {})}
-                  >
-                    <img style={{width: '200px', height: '133.469px' }} src={startserving1} alt='service'/>
-                  </Grow>
-                  <Grow
-                    in='true'
-                    style={{ transformOrigin: '0 0 0' }}
-                    {...(true ? { timeout: 2000 } : {})}
-                  >
-                    <img style={{width: '200px', height: '133.469px', objectFit: 'fill' }} src={startserving2} alt='service'/>
-                  </Grow>
-                  <Grow
-                    in='true'
-                    style={{ transformOrigin: '0 0 0' }}
-                    {...(true ? { timeout: 2000 } : {})}
-                  >
-                    <img style={{width: '200px', height: '133.469px'}} src={startserving3} alt='service'/>
-                  </Grow>
-                  <br/>
-                  <TextField
-                      className='textfieldEmail'
-                      label="How would you like to start serving?"
-                      id="serve"
-                      name="serve"
-                      helperText={touched.serve ? errors.serve : ""}
-                      error={touched.serve && Boolean(errors.serve)}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={serve}
-                      margin="normal"
-                      variant="outlined"
-                      select
-                  >
-                      {serving.map(option => (
-                      <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                      </MenuItem>
-                      ))}
-                  </TextField>
-                  <br/>
-
-                  <TextField
-                      className='textfieldEmail'
-                      label="Tell us how you can serve in your own unique way"
-                      id="description"
-                      name="description"
-                      helperText={touched.description ? errors.description : ""}
-                      error={touched.description && Boolean(errors.description)}
-                      value={description}
-                      margin="normal"
-                      variant="outlined"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      multiline
-                      rows="4"
-                  />
-                  <br/>
-
-                
-                    <FormControlLabel
-                        className="checkboxlabel"
-                        control={
-                        <Checkbox
-                            checked={this.state.checked}
-                            onChange={this.handleChange('checked')}
-                            value="checked"
-                            color="primary"
-                        />
-                        }
-                        label="Send me newsletters about Guru Nanak Dwara."
-                    />
-
-
-                  <br/>
-                  <Button
-                      style={button}
-                      type="submit"
-                      margin="normal"
-                      variant="contained"
-                  >
-                      Submit
-                  </Button>
-                </div>
-                
-                </Grow>
+              
                 </div>
                 
                 <br/>
