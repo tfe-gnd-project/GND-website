@@ -23,6 +23,7 @@ import Image2 from "../images/gndfloat2.jpg"
 import Image3 from "../images/gndfloat3.jpg"
 import SSLlogo from '../images/ssllogo.png'
 import StripeLogo from '../images/stripe.png'
+import Grow from '@material-ui/core/Grow';
 
 const validationSchema = Yup.object({
   firstName: Yup.string("Enter a name")
