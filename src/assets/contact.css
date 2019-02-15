@@ -36,12 +36,64 @@
     background-image: linear-gradient(#0a2f6c 0%, #0a2f6c 51%, #0a2f6c 100%)
 }
 
-  
-@media only screen and (min-width: 600px) {
+.contact-us-title p{
+  font-family: sans-serif; 
+  font-size: 30px; 
+  color: #0a2f6c; 
+  border-bottom: 2px solid lightgrey; 
+  padding-bottom:10px; 
+  width: 300px;
+}
+
+
+@media only screen and (max-width: 2000px) and  (min-width: 400px) {
+
+  .contactpage {
+    padding: 20px;
+  }
+
+  .contact-us-title p
+  {
+    display: none;
+  }
     .contact-title-text {
       width: 100%;
     }
     p {
         font-size: 3vw;
     }
+
+    .contact-address {
+      display: none;
+    }
+    
+  }
+
+  @media only screen and (max-width: 400px) {
+    
+    .contactpage {
+      padding: 20px;
+    }
+    
+    .contact-title {
+      display: none;
+    }
+    .contact-title-text {
+      width: 100%;
+      display: none;
+    }
+    p {
+        font-size: 12px;
+    }
+
+    .contact-us-title {
+      margin-top: 0px;
+      padding-bottom: 20px;
+    }
+
+    .contact-address a {
+      width: 100%;
+      text-decoration: none;
+    }
+
   }

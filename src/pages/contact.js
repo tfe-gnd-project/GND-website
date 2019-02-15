@@ -1,6 +1,5 @@
 
 import React from "react";
-import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import PropTypes from "prop-types";
@@ -12,7 +11,9 @@ import RoomIcon from '@material-ui/icons/room';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import "../assets/contact.css";
-import Image from "../images/tfegndbanner.png";
+import Grow from '@material-ui/core/Grow';
+
+
 
 const ContactSchema = Yup.object({
   firstName: Yup.string("Enter a name")
@@ -59,6 +60,7 @@ const textfield = {
   marginLeft: 6,
   marginRight: 6,
   textAlign: `center`,
+  width: `100%`,
   
 }
 
@@ -127,6 +129,11 @@ class Contact extends React.Component {
     };
     return (
       <Layout>
+        <Grow
+            in="true"
+            style={{ transformOrigin: '0 0 0' }}
+            {...(true ? { timeout: 1000 } : {})}
+          >
         <div className="contactpage" style={{
             // border: `3px red solid`,
             // padding: 15,
@@ -135,11 +142,24 @@ class Contact extends React.Component {
             // margin: `0 auto`,
             // maxWidth: `100vw`,
             // padding: `0px 1.0875rem 1.45rem`,
-            // paddingTop: 75,
+            // paddingTop: 5,
             // color: `gray`
           }}>
          <center>
-                <div className="contact-title" style={{ background: `linear-gradient(147deg,#0a2f6c,#6d6d6d,#c97e51)`, height: 250, maxWidth: `100vw`, borderRadius: 15, color: `white`, marginTop: 60}}>
+           <div className="contact-us-title" >
+            <center><p>CONTACT US</p></center>
+           </div>
+           <div className="contact-address" >
+           <p style={{ fontSize: 15 }}>
+                    <CallIcon />:
+                    <a href="tel:+1-602-632-9598">602-632-9598</a> 
+                    &nbsp; &nbsp; &nbsp; &nbsp;
+                    <RoomIcon />:
+                    <a target="_blank"rel="noopener noreferrer"  href="https://goo.gl/maps/1hfhCynn68J2">
+                    2302 N 9th St, Phoenix, AZ 85006{" "}</a>
+                  </p>
+           </div>
+                <div className="contact-title" style={{ background: `linear-gradient(147deg,#0a2f6c,#6d6d6d,#c97e51)`, height: 250, maxWidth: `100vw`, borderRadius: 15, color: `white`, marginTop: 30}}>
                   <div className="contact-title-text" style={{paddingTop: 60}}>
                     <p style={{fontSize: 70}}>CONTACT US</p>
                      <p style={{ fontSize: 15 }}>
@@ -176,14 +196,15 @@ class Contact extends React.Component {
               handleSubmit,
               isValid
             }) => (
-            <Form 
+            <Form className="mainform"
               style={{
                 marginTop: 10,
                 marginBottom: 30,
                 padding: `15px 25px`,
                 backgroundColor: `white`,
                 borderRadius: 15,
-                maxWidth: `100vw`
+                maxWidth: `100vw`,
+                boxShadow: `0 0 10px black`,
               }}
               onSubmit={handleSubmit} method="post">
               <TextField style={textfield}
@@ -296,7 +317,7 @@ class Contact extends React.Component {
             </Formik> </center>
             <SEO title="Contact Us" />
         </div>
-
+      </Grow>
       </Layout>
     );
   }
