@@ -35,7 +35,7 @@ class Header extends React.Component {
             <Link className='links menufont' to='/startserving' activeClassName='active'>Start Serving</Link>
             <Link className='links menufont' to='/photos' activeClassName='active'>Photos</Link>
             <Link className='links menufont' to='/contact' activeClassName='active'>Contact</Link>
-            <Link className='links menufont' to='/donation' activeClassName='active'>Donate</Link>
+            <Link className='links menufont' to='/donate' activeClassName='active'>Donate</Link>
             <a className="icon" onClick={this.handleToggle}>
               <FaBars />
             </a>
