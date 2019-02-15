@@ -17,13 +17,14 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import classNames from "classnames";
-import "../assets/donation.css";
+import "../assets/donate.css";
 import Image1 from "../images/gndfloat1.jpg"
 import Image2 from "../images/gndfloat2.jpg"
 import Image3 from "../images/gndfloat3.jpg"
 import SSLlogo from '../images/ssllogo.png'
 import StripeLogo from '../images/stripe.png'
 import Grow from '@material-ui/core/Grow';
+import Slide from '@material-ui/core/Slide';
 
 const validationSchema = Yup.object({
   firstName: Yup.string("Enter a name")
@@ -374,6 +375,11 @@ class Donation extends React.Component {
     };
     return (
       <Layout>
+      <Grow
+            in="true"
+            style={{ transformOrigin: '0 0 0' }}
+            {...(true ? { timeout: 1000 } : {})}
+          >
         <div className="donationpage">
           <center>
             <Formik
@@ -444,7 +450,7 @@ class Donation extends React.Component {
                           <FormControlLabel
                             className="radiobtn"
                             value="101.00"
-                            control={<Radio color="primary" checked="true"/>}
+                            control={<Radio color="primary" />}
                             label="$101.00"
                             
                           />
@@ -647,12 +653,14 @@ class Donation extends React.Component {
             <SEO title="Donate" />
           </center>
         </div>
-
+      </Grow>
+      <Slide direction="left" in="true" {...(true ? { timeout: 1000 } : {})} mountOnEnter unmountOnExit>
         <div className="floatright" >
         <img src={Image1} alt="GND" height="320" width="600"/>
         <img src={Image2} alt="GND" height="320" width="600"/>
         <img src={Image3} alt="GND" height="320" width="600"/>
         </div>
+      </Slide>
       </Layout>
     );
   }
