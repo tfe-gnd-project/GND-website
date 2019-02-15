@@ -12,6 +12,25 @@
   box-shadow: 5px 5px 25px grey;
 }
 
+.start-serving-header {
+  font-family: sans-serif; 
+  font-size: 30px; 
+  color: #0a2f6c; 
+  border-bottom: 2px solid lightgrey; 
+  padding-bottom:10px; 
+  width: 300px;
+}
+
+@media screen and (min-width: 1400px) {
+  .both-borders {
+    display: flex;
+    flex-direction: row;
+  }
+  .border {
+    width: 900px;
+  }
+}
+
 .index {
   border: solid 2px grey;
   border-radius: 6px;
@@ -47,7 +66,7 @@
   height: 30;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 682px) {
   .textfieldEmail  { width: 300px }
   .checkboxlabel  { width: 280px }
 }

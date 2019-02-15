@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 import axios from 'axios';
 import { Formik, Form } from "formik";
@@ -411,7 +412,8 @@ class Forms extends React.Component {
 
     return (
       <Layout>
-        <center><p style={{fontFamily: 'georgia', fontSize: '30px', color: '#0a2f6c'}}> START SERVING</p></center>
+        <SEO title="Start Serving"/>
+        
         <div >
           <Formik
             initialValues={values}
@@ -428,7 +430,20 @@ class Forms extends React.Component {
                 handleSubmit,
                 handleBlur,
             }) => (
-              <Form onSubmit={handleSubmit} >
+              <Form  onSubmit={handleSubmit} >
+              <Grow
+                in='true'
+                style={{ transformOrigin: '0 0 0' }}
+                {...(true ? { timeout: 1000 } : {})}
+                >
+                <center>
+                    <div className='start-serving-header'>
+                        START SERVING
+                    </div>
+                </center>
+                </Grow> <br/>
+
+              <div className='both-borders'>
               <Grow
                 in='true'
                 style={{ transformOrigin: '0 0 0' }}
@@ -554,7 +569,7 @@ class Forms extends React.Component {
                       onBlur={handleBlur}
                       margin="normal"
                       variant="outlined"
-                  />
+                  /><br/>
                   
                   <TextField
                       className='textfieldEmail'
@@ -583,21 +598,21 @@ class Forms extends React.Component {
                   <Grow
                     in='true'
                     style={{ transformOrigin: '0 0 0' }}
-                    {...(true ? { timeout: 3000 } : {})}
+                    {...(true ? { timeout: 2000 } : {})}
                   >
                     <img style={{width: '200px', height: '133.469px' }} src={startserving1} alt='service'/>
                   </Grow>
                   <Grow
                     in='true'
                     style={{ transformOrigin: '0 0 0' }}
-                    {...(true ? { timeout: 3000 } : {})}
+                    {...(true ? { timeout: 2000 } : {})}
                   >
                     <img style={{width: '200px', height: '133.469px', objectFit: 'fill' }} src={startserving2} alt='service'/>
                   </Grow>
                   <Grow
                     in='true'
                     style={{ transformOrigin: '0 0 0' }}
-                    {...(true ? { timeout: 3000 } : {})}
+                    {...(true ? { timeout: 2000 } : {})}
                   >
                     <img style={{width: '200px', height: '133.469px'}} src={startserving3} alt='service'/>
                   </Grow>
@@ -622,6 +637,7 @@ class Forms extends React.Component {
                       </MenuItem>
                       ))}
                   </TextField>
+                  <br/>
 
                   <TextField
                       className='textfieldEmail'
@@ -665,7 +681,9 @@ class Forms extends React.Component {
                       Submit
                   </Button>
                 </div>
+                
                 </Grow>
+                </div>
                 
                 <br/>
 
