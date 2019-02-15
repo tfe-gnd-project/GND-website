@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
@@ -295,11 +296,16 @@ class Contact extends React.Component {
             </Formik> </center>
             <SEO title="Contact Us" />
         </div>
+
       </Layout>
     );
   }
 }
+
+
 Contact.propTypes = {
   classes: PropTypes.object.isRequired
 };
+
 export default withStyles(styles)(Contact);
+

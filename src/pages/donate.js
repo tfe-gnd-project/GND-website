@@ -1,3 +1,4 @@
+
 import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -651,7 +652,6 @@ class Donation extends React.Component {
         <img src={Image2} alt="GND" height="320" width="600"/>
         <img src={Image3} alt="GND" height="320" width="600"/>
         </div>
-
       </Layout>
     );
   }
@@ -662,3 +662,4 @@ Donation.propTypes = {
 };
 
 export default withStyles(styles)(Donation);
+
