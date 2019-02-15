@@ -442,8 +442,9 @@ class Donation extends React.Component {
                           <FormControlLabel
                             className="radiobtn"
                             value="101.00"
-                            control={<Radio color="primary" />}
+                            control={<Radio color="primary" checked="true"/>}
                             label="$101.00"
+                            
                           />
                           <FormControlLabel
                             className="radiobtn"
