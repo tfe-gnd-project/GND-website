@@ -4,6 +4,7 @@ import "./header.css"
 import { Link } from "gatsby"
 import { FaBars } from 'react-icons/fa'
 
+import logo from '../images/gnd-logo.svg'
 
 
 class Header extends React.Component {
@@ -28,14 +29,14 @@ class Header extends React.Component {
         <div>
           <div className={this.state.toggleicon}>
             <Link to='/' className='gndlogobackground menufont' activeClassName='active'>
-              <img className='gndlogo' src="https://gurunanakdwara.com/img/gnd-logo.svg" alt="logo"/>
+              <img className='gndlogo' src={logo} alt="logo"/>
             </Link>
             <Link className='links menufont'  to='/newhere' activeClassName='active'>New Here</Link>
             <Link className='links menufont' to='/events' activeClassName='active'>Events</Link>
             <Link className='links menufont' to='/startserving' activeClassName='active'>Start Serving</Link>
             <Link className='links menufont' to='/photos' activeClassName='active'>Photos</Link>
             <Link className='links menufont' to='/contact' activeClassName='active'>Contact</Link>
-            <Link className='links menufont' to='/donate' activeClassName='active'>Donate</Link>
+            <Link style={{ backgroundColor: 'orange', borderRadius: '10px' }} className='links menufont donate' to='/donate' activeStyle={{ color: '#0a2f6c' }}>Donate</Link>
             <a className="icon" onClick={this.handleToggle}>
               <FaBars />
             </a>

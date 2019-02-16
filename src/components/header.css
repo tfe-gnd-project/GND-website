@@ -27,7 +27,7 @@
 .menu {
   background-color: #0a2f6c;
   padding: 10px;
-  box-shadow: 5px 0px 15px grey;
+  box-shadow: 5px 0px 15px lightgrey;
   overflow: hidden;
   position: fixed;
   top: 0;
@@ -57,6 +57,10 @@
 
 .menufont:hover {
   color: skyblue;
+}
+
+.donate:hover {
+  color: grey;
 }
 
 .active {

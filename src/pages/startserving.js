@@ -33,7 +33,6 @@ const button = {
     maxWidth: '100px',
     fontSize: 17,
     marginTop: '15px',
-    boxShadow: '5px 5px 20px grey'
   }
 
 const ranges = [
