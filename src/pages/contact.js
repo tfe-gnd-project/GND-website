@@ -204,7 +204,7 @@ class Contact extends React.Component {
                 backgroundColor: `white`,
                 borderRadius: 15,
                 maxWidth: `100vw`,
-                boxShadow: `0 0 10px black`,
+                // boxShadow: `0 0 10px black`,
               }}
               onSubmit={handleSubmit} method="post">
               <TextField style={textfield}

@@ -5,6 +5,7 @@
   width: 45vw;
   }
   
+  
 .mainborder {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -33,7 +34,7 @@
 .ssl {
   float: right;
   margin-top: 80px;
-  margin-right: 40;
+  /* margin-right: 5px; */
   }
     
 .radiobtn:hover {
@@ -41,7 +42,31 @@
   border-radius: 5px;
   padding-right: 3px
   }
-    
+
+h2 {
+  font-family: arial;
+}
+
+.donation-frequency p {
+  font-size: 18px;
+}
+
+.donation-frequency button {
+  margin: 10px;
+  font-family: "Arial", Gadget, sans-serif;
+  font-size: 14px;
+  padding: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  color: white;
+  width: 30%;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 5px;
+  background-image: linear-gradient(#0a2f6c 0%, #0a2f6c 51%, #0a2f6c 100%)
+}
     
 @media only screen and (max-width: 1340px) {
   .floatright {

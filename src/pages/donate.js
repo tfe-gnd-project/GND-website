@@ -21,10 +21,10 @@ import "../assets/donate.css";
 import Image1 from "../images/gndfloat1.jpg"
 import Image2 from "../images/gndfloat2.jpg"
 import Image3 from "../images/gndfloat3.jpg"
-import SSLlogo from '../images/ssllogo.png'
-import StripeLogo from '../images/stripe.png'
+import StripeLogo from '../images/secure-stripe-payment-logo.png'
 import Grow from '@material-ui/core/Grow';
 import Slide from '@material-ui/core/Slide';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const validationSchema = Yup.object({
   firstName: Yup.string("Enter a name")
@@ -318,7 +318,8 @@ class Donation extends React.Component {
     city,
     stateProviceGeoId,
     postalCode,
-    emailAddress
+    emailAddress,
+    subscribe
   }) => {
     const person = {
       firstName: firstName,
@@ -329,7 +330,8 @@ class Donation extends React.Component {
       city: city,
       stateProviceGeoId: stateProviceGeoId,
       postalCode: postalCode,
-      emailAddress: emailAddress
+      emailAddress: emailAddress,
+      subscribe: subscribe
     };
 
     console.log(person);
@@ -354,7 +356,8 @@ class Donation extends React.Component {
       city,
       stateProviceGeoId,
       postalCode,
-      emailAddress
+      emailAddress,
+      subscribe
     });
   };
 
@@ -371,7 +374,8 @@ class Donation extends React.Component {
       city: "",
       stateProviceGeoId: "",
       postalCode: "",
-      emailAddress: ""
+      emailAddress: "",
+      subscribe: "",
     };
     return (
       <Layout>
@@ -397,7 +401,8 @@ class Donation extends React.Component {
                   city,
                   stateProviceGeoId,
                   postalCode,
-                  emailAddress
+                  emailAddress,
+                  subscribe
                 },
                 errors,
                 touched,
@@ -409,7 +414,6 @@ class Donation extends React.Component {
                   onSubmit={handleSubmit}
                   method="post"
                 >
-                <img  className="ssl" src={SSLlogo} alt="SSLLogo" height="124" width="124"/>
                 <div className="mainborder" >
                 
                 <center>
@@ -479,6 +483,16 @@ class Donation extends React.Component {
                             control={<Radio />}
                           />
                         </RadioGroup>
+                  <div className="donation-frequency">
+                 
+                    <p> Donation Frequency: </p>
+                    <button type="button" onclick="alert('This is supposed to be a one time payment') ">One Time</button>
+                    &nbsp; &nbsp; 
+                    
+                    <button type="button" onclick="alert('This is supposed to be a monthly payment') ">Monthly</button>
+                    
+                  </div>
+
                       </FormControl>
                       </center>
                 </div>
@@ -626,6 +640,16 @@ class Donation extends React.Component {
                     variant="outlined"
                     className="textfield"
                   /> 
+                 <FormControlLabel
+                    control={
+                     <Checkbox
+                        checked={this.state.subscribe}
+                        onChange={handleChange}
+                        value="subscribe"
+                      />
+                    }
+                    label="Send me newsletters about Guru Nanak Dwara"
+                    />
                   </div>
                       <center>
                       <div className="mainborder" >
@@ -645,7 +669,7 @@ class Donation extends React.Component {
                             </Button>
                           </StripeCheckout>
                         </div>
-                        <img src={StripeLogo} alt="Stripe-Logo" height="30" width="100"/>
+                        <img src={StripeLogo} alt="Stripe-Logo" height="40" width="250"/>
                       </center>
                 </Form>
               )}
