@@ -340,14 +340,15 @@ class Forms extends React.Component {
     this.setState({ [name]: event.target.checked });
   };
 
-  sendEmail = (email) => {
+  sendEmail = (email, first) => {
 
-      console.log(email)
+      console.log(email, first)
       const user = {
-          email
+          email,
+          first
       }
 
-      axios.post(`https://4i3mkrng2k.execute-api.us-east-1.amazonaws.com/dev/ses-api`, user)
+      axios.post(`https://qbjqrzyla9.execute-api.us-east-1.amazonaws.com/dev/send-email-serving-page`, user)
               .then(res => {
                   console.log(res);
                   console.log(res.data);
@@ -357,7 +358,7 @@ class Forms extends React.Component {
               })
   }
   
-  submitValues = ({ first, last, street, unit, city, state, zipcode, phone, email }) => 
+  submitValues = ({ first, last, street, unit, city, state, zipcode, phone, email, serve, description }) => 
       { 
           const person = {
               firstName: first,
@@ -369,16 +370,18 @@ class Forms extends React.Component {
               postalCode: zipcode, 
               contactNumber: phone,
               emailAddress: email,
+              accessCode: serve,
+              directions: description
           };
   
           console.log(person)
 
-          axios.post(`http://54.224.143.14:8080/apps/NewPage/NewForm/createCCOSApplication`,
+          axios.post(`http://localhost:8080//apps/NewPage/NewForm/createCCOSApplication`,
               person )
               .then(res => {
                   console.log(res);
                   console.log(res.data);
-                  this.sendEmail(email);
+                  this.sendEmail(email, first);
                   this.setState({
                       message: "Submission successful!",
                       messageColor: "green"
