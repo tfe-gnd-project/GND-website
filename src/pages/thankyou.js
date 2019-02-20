@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Handshake from "../images/donation-hand.png"
+import Handshake from "../images/donation-hand2.png"
 
 class Thankyou extends React.Component {
 
