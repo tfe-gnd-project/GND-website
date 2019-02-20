@@ -342,7 +342,7 @@ class Donation extends React.Component {
 
     axios
       .post(
-        `http://54.165.248.29:8080/apps/CreditCardApp/ApplicationForm/createApplicationForm`,
+        `http://localhost:8080/apps/CreditCardApp/ApplicationForm/createApplicationForm`,
         person
       )
       .then(res => {
@@ -423,7 +423,7 @@ class Donation extends React.Component {
                 <div className="mainborder" >
                 
                 <center>
-                    <h2>Select Amount To Donate</h2>
+                    <h2 style={{fontFamily: `arial`}}>Select Amount To Donate</h2>
                       <FormControl
                         component="fieldset"
                         className={classes.formControl}
@@ -491,10 +491,8 @@ class Donation extends React.Component {
                         </RadioGroup>
                         </FormControl>
                         </center>
-                </div>
                   <div className="donation-frequency">
-                    <p> Donation Frequency: </p>
-                    <h2>Select Amount To Donate</h2>
+                    <p style={{fontSize: 18, margin: 0}}> Donation Frequency: </p>
                       <FormControl
                         component="fieldset"
                         className={classes.formControl}
@@ -524,6 +522,7 @@ class Donation extends React.Component {
                           />
                           </RadioGroup>
                           </FormControl>
+                  </div>
                   </div>
                 <div className="mainborder" >
                   <TextField

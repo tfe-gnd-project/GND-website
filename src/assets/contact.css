@@ -46,7 +46,7 @@
 }
 
 
-@media only screen and (max-width: 2000px) and  (min-width: 400px) {
+@media only screen and (max-width: 2000px) and  (min-width: 480px) {
 
   .contactpage {
     padding: 20px;
@@ -69,7 +69,7 @@
     
   }
 
-  @media only screen and (max-width: 400px) {
+  @media only screen and (max-width: 480px) {
     
     .contactpage {
       padding: 20px;
@@ -92,8 +92,12 @@
     }
 
     .contact-address a {
+      color: black;
       width: 100%;
-      text-decoration: none;
+      background: #0a37751f;
+      border-radius: 8px;
+      padding: 5px;
+      text-decoration: none
     }
 
   }
