@@ -8,15 +8,15 @@ const Footer = ({ siteTitle }) => (
   <div style={{ background: `#0a2f6c` }} >
     <div style={{ padding: `1.00rem 1.0875rem` }}>
       <div className='font-container'>
-        <a href="https://www.facebook.com/gurunanakdwara/" rel="noopener noreferrer" class="social-media" title="GND Facebook Page" target="_blank"><FaFacebook className='icons'/></a>
+        <a href="https://www.facebook.com/gurunanakdwara/" rel="noopener noreferrer" title="GND Facebook Page" target="_blank"><FaFacebook className='icons'/></a>
          
-        <a href="https://www.instagram.com/gurunanakdwara/" rel="noopener noreferrer" class="social-media" title="GND Instagram Page" target="_blank">
+        <a href="https://www.instagram.com/gurunanakdwara/" rel="noopener noreferrer" title="GND Instagram Page" target="_blank">
         <FaInstagram className='icons' /></a>
 
-        <a href="https://twitter.com/gurunanakdwara" rel="noopener noreferrer"  class="social-media" title="GND Twitter Page" target="_blank">
+        <a href="https://twitter.com/gurunanakdwara" rel="noopener noreferrer"  title="GND Twitter Page" target="_blank">
         <FaTwitter className='icons' /></a>
 
-        <a href="https://www.youtube.com/c/GuruNanakDwara" rel="noopener noreferrer" class="social-media" title="GND YouTube Channel" target="_blank">
+        <a href="https://www.youtube.com/c/GuruNanakDwara" rel="noopener noreferrer" title="GND YouTube Channel" target="_blank">
         <FaYoutube className='icons' /></a>
       </div>
 

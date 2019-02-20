@@ -340,14 +340,15 @@ class Forms extends React.Component {
     this.setState({ [name]: event.target.checked });
   };
 
-  sendEmail = (email) => {
+  sendEmail = (email, first) => {
 
-      console.log(email)
+      console.log(email, first)
       const user = {
-          email
+          email,
+          first
       }
 
-      axios.post(`https://4i3mkrng2k.execute-api.us-east-1.amazonaws.com/dev/ses-api`, user)
+      axios.post(`https://qbjqrzyla9.execute-api.us-east-1.amazonaws.com/dev/send-email-serving-page`, user)
               .then(res => {
                   console.log(res);
                   console.log(res.data);
@@ -356,8 +357,29 @@ class Forms extends React.Component {
                   console.error("Error:", error);
               })
   }
+
+  addNewsletter = (email, first, last) => {
+     
+    const person = {
+        firstName: first,
+        lastName: last,
+        emailAddress: email,
+        salutation: 'Subscribed'
+    };
+
+    if (this.state.checked === true) {
+        axios.post(`http://localhost:8080//apps/NewPage/NewForm/createCCOSApplication`, person )
+        .then(res => {
+            console.log(res);
+            console.log(res.data);
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        })
+    }
+  }
   
-  submitValues = ({ first, last, street, unit, city, state, zipcode, phone, email }) => 
+  submitValues = ({ first, last, street, unit, city, state, zipcode, phone, email, serve, description }) => 
       { 
           const person = {
               firstName: first,
@@ -369,16 +391,19 @@ class Forms extends React.Component {
               postalCode: zipcode, 
               contactNumber: phone,
               emailAddress: email,
+              accessCode: serve,
+              directions: description
           };
   
           console.log(person)
 
-          axios.post(`http://54.224.143.14:8080/apps/NewPage/NewForm/createCCOSApplication`,
+          axios.post(`http://localhost:8080//apps/NewPage/NewForm/createCCOSApplication`,
               person )
               .then(res => {
                   console.log(res);
                   console.log(res.data);
-                  this.sendEmail(email);
+                  this.sendEmail(email, first);
+                  this.addNewsletter(email, first, last);
                   this.setState({
                       message: "Submission successful!",
                       messageColor: "green"
@@ -408,6 +433,7 @@ class Forms extends React.Component {
         serve: "",
         description: ""
       };
+      console.log(this.state.checked)
 
     return (
       <Layout>
@@ -431,7 +457,7 @@ class Forms extends React.Component {
             }) => (
               <Form  onSubmit={handleSubmit} >
               <Grow
-                in='true'
+                in={true}
                 style={{ transformOrigin: '0 0 0' }}
                 {...(true ? { timeout: 1000 } : {})}
                 >
@@ -444,26 +470,26 @@ class Forms extends React.Component {
 
               <div className='both-borders'>
                 <Grow
-                    in='true'
+                    in={true}
                     style={{ transformOrigin: '0 0 0' }}
                     {...(true ? { timeout: 1000 } : {})}
                 >
                     <div className='border'>
                         <div className="subheaders">WAYS TO SERVE</div>
                         <Grow
-                            in='true'
+                            in={true}
                             {...(true ? { timeout: 2000 } : {})}
                         >
                             <img className='images image1' src={startserving1} alt='service'/>
                         </Grow>
                         <Grow
-                            in='true'
+                            in={true}
                             {...(true ? { timeout: 2000 } : {})}
                         >
                             <img className='images' src={startserving2} alt='service'/>
                         </Grow>
                         <Grow
-                            in='true'
+                            in={true}
                             {...(true ? { timeout: 2000 } : {})}
                         >
                             <img className='images' src={startserving3} alt='service'/>
@@ -523,7 +549,7 @@ class Forms extends React.Component {
                     </div> 
               </Grow>
               <Grow
-                in='true'
+                in={true}
                 style={{ transformOrigin: '0 0 0' }}
                 {...(true ? { timeout: 2000 } : {})}
                 >
