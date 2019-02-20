@@ -291,8 +291,7 @@ class Donation extends React.Component {
   }
 
   onToken = (token, addresses) => {
-    //need thank you page here
-    // window.location.replace("thankyou");
+    window.location.replace("thankyou");
   };
 
   ses = emailAddress => {
