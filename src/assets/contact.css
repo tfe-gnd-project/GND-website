@@ -8,7 +8,7 @@
     transition: 0.5s;
     background-size: 200% auto;
     color: white;
-    box-shadow: 0 0 20px black;
+    /* box-shadow: 0 0 20px black; */
     border-radius: 10px;
     width: 50%;
     /* box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); */
@@ -46,7 +46,7 @@
 }
 
 
-@media only screen and (max-width: 2000px) and  (min-width: 400px) {
+@media only screen and (max-width: 2000px) and  (min-width: 480px) {
 
   .contactpage {
     padding: 20px;
@@ -69,7 +69,7 @@
     
   }
 
-  @media only screen and (max-width: 400px) {
+  @media only screen and (max-width: 480px) {
     
     .contactpage {
       padding: 20px;
@@ -92,8 +92,12 @@
     }
 
     .contact-address a {
+      color: black;
       width: 100%;
-      text-decoration: none;
+      background: #0a37751f;
+      border-radius: 8px;
+      padding: 5px;
+      text-decoration: none
     }
 
   }

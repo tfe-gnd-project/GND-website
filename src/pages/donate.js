@@ -21,10 +21,10 @@ import "../assets/donate.css";
 import Image1 from "../images/gndfloat1.jpg"
 import Image2 from "../images/gndfloat2.jpg"
 import Image3 from "../images/gndfloat3.jpg"
-import SSLlogo from '../images/ssllogo.png'
-import StripeLogo from '../images/stripe.png'
+import StripeLogo from '../images/secure-stripe-payment-logo.png'
 import Grow from '@material-ui/core/Grow';
 import Slide from '@material-ui/core/Slide';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const validationSchema = Yup.object({
   firstName: Yup.string("Enter a name")
@@ -275,16 +275,20 @@ const states = [
 class Donation extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+    this.state = { value: "", frequency:"" };
   }
 
   handleChange = event => {
     this.setState({ value: event.target.value });
   };
 
-  handleClick = e => {
-    this.setState({ value: e.target.value });
-  };
+  // handleClick = e => {
+  //   this.setState({ value: e.target.value });
+  // };
+
+  handleClick2 = e => {
+    this.setState({ frequency: e.target.value })
+  }
 
   onToken = (token, addresses) => {
     //need thank you page here
@@ -318,7 +322,8 @@ class Donation extends React.Component {
     city,
     stateProviceGeoId,
     postalCode,
-    emailAddress
+    emailAddress,
+    subscribe
   }) => {
     const person = {
       firstName: firstName,
@@ -329,14 +334,15 @@ class Donation extends React.Component {
       city: city,
       stateProviceGeoId: stateProviceGeoId,
       postalCode: postalCode,
-      emailAddress: emailAddress
+      emailAddress: emailAddress,
+      subscribe: subscribe
     };
 
     console.log(person);
 
     axios
       .post(
-        `http://54.165.248.29:8080/apps/CreditCardApp/ApplicationForm/createApplicationForm`,
+        `http://localhost:8080/apps/CreditCardApp/ApplicationForm/createApplicationForm`,
         person
       )
       .then(res => {
@@ -354,7 +360,8 @@ class Donation extends React.Component {
       city,
       stateProviceGeoId,
       postalCode,
-      emailAddress
+      emailAddress,
+      subscribe
     });
   };
 
@@ -371,8 +378,11 @@ class Donation extends React.Component {
       city: "",
       stateProviceGeoId: "",
       postalCode: "",
-      emailAddress: ""
+      emailAddress: "",
+      subscribe: "",
     };
+    console.log(this.state.value)
+    console.log(this.state.frequency)
     return (
       <Layout>
       <Grow
@@ -397,7 +407,8 @@ class Donation extends React.Component {
                   city,
                   stateProviceGeoId,
                   postalCode,
-                  emailAddress
+                  emailAddress,
+                  subscribe
                 },
                 errors,
                 touched,
@@ -409,11 +420,10 @@ class Donation extends React.Component {
                   onSubmit={handleSubmit}
                   method="post"
                 >
-                <img  className="ssl" src={SSLlogo} alt="SSLLogo" height="124" width="124"/>
                 <div className="mainborder" >
                 
                 <center>
-                    <h2>Select Amount To Donate</h2>
+                    <h2 style={{fontFamily: `arial`}}>Select Amount To Donate</h2>
                       <FormControl
                         component="fieldset"
                         className={classes.formControl}
@@ -430,7 +440,7 @@ class Donation extends React.Component {
                             control={
                               <Radio
                                 color="primary"
-                                onClick={e => this.handleClick(e)}
+                                // onClick={e => this.handleClick(e)}
                               />
                             }
                             label="$21.00"
@@ -479,9 +489,41 @@ class Donation extends React.Component {
                             control={<Radio />}
                           />
                         </RadioGroup>
-                      </FormControl>
-                      </center>
-                </div>
+                        </FormControl>
+                        </center>
+                  <div className="donation-frequency">
+                    <p style={{fontSize: 18, margin: 0}}> Donation Frequency: </p>
+                      <FormControl
+                        component="fieldset"
+                        className={classes.formControl}
+                      >
+                        <RadioGroup
+                          style={{ flexDirection: "row", justifyContent: `center`}}
+                          className={classes.group}
+                          value={this.state.frequency}
+                          // onChange={this.handleChange}
+                        >
+                          <FormControlLabel
+                            value="one-time"
+                            control={
+                              <Radio
+                                color="primary"
+                                onClick={e => this.handleClick2(e)}
+                              />
+                            }
+                            label="One Time"
+                          />
+                          <FormControlLabel
+                            value="monthly"
+                            control={<Radio color="primary" 
+                            onClick={e => this.handleClick2(e)}
+                             />}
+                            label="Monthly"
+                          />
+                          </RadioGroup>
+                          </FormControl>
+                  </div>
+                  </div>
                 <div className="mainborder" >
                   <TextField
                     style={textfield}
@@ -626,6 +668,16 @@ class Donation extends React.Component {
                     variant="outlined"
                     className="textfield"
                   /> 
+                 <FormControlLabel
+                    control={
+                     <Checkbox
+                        checked={this.state.subscribe}
+                        onChange={handleChange}
+                        value="subscribe"
+                      />
+                    }
+                    label="Send me newsletters about Guru Nanak Dwara"
+                    />
                   </div>
                       <center>
                       <div className="mainborder" >
@@ -645,7 +697,7 @@ class Donation extends React.Component {
                             </Button>
                           </StripeCheckout>
                         </div>
-                        <img src={StripeLogo} alt="Stripe-Logo" height="30" width="100"/>
+                        <img src={StripeLogo} alt="Stripe-Logo" height="40" width="250"/>
                       </center>
                 </Form>
               )}
