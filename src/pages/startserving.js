@@ -357,6 +357,27 @@ class Forms extends React.Component {
                   console.error("Error:", error);
               })
   }
+
+  addNewsletter = (email, first, last) => {
+     
+    const person = {
+        firstName: first,
+        lastName: last,
+        emailAddress: email,
+        salutation: 'Subscribed'
+    };
+
+    if (this.state.checked === true) {
+        axios.post(`http://localhost:8080//apps/NewPage/NewForm/createCCOSApplication`, person )
+        .then(res => {
+            console.log(res);
+            console.log(res.data);
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        })
+    }
+  }
   
   submitValues = ({ first, last, street, unit, city, state, zipcode, phone, email, serve, description }) => 
       { 
@@ -382,6 +403,7 @@ class Forms extends React.Component {
                   console.log(res);
                   console.log(res.data);
                   this.sendEmail(email, first);
+                  this.addNewsletter(email, first, last);
                   this.setState({
                       message: "Submission successful!",
                       messageColor: "green"
@@ -411,6 +433,7 @@ class Forms extends React.Component {
         serve: "",
         description: ""
       };
+      console.log(this.state.checked)
 
     return (
       <Layout>
@@ -434,7 +457,7 @@ class Forms extends React.Component {
             }) => (
               <Form  onSubmit={handleSubmit} >
               <Grow
-                in='true'
+                in={true}
                 style={{ transformOrigin: '0 0 0' }}
                 {...(true ? { timeout: 1000 } : {})}
                 >
@@ -447,26 +470,26 @@ class Forms extends React.Component {
 
               <div className='both-borders'>
                 <Grow
-                    in='true'
+                    in={true}
                     style={{ transformOrigin: '0 0 0' }}
                     {...(true ? { timeout: 1000 } : {})}
                 >
                     <div className='border'>
                         <div className="subheaders">WAYS TO SERVE</div>
                         <Grow
-                            in='true'
+                            in={true}
                             {...(true ? { timeout: 2000 } : {})}
                         >
                             <img className='images image1' src={startserving1} alt='service'/>
                         </Grow>
                         <Grow
-                            in='true'
+                            in={true}
                             {...(true ? { timeout: 2000 } : {})}
                         >
                             <img className='images' src={startserving2} alt='service'/>
                         </Grow>
                         <Grow
-                            in='true'
+                            in={true}
                             {...(true ? { timeout: 2000 } : {})}
                         >
                             <img className='images' src={startserving3} alt='service'/>
@@ -526,7 +549,7 @@ class Forms extends React.Component {
                     </div> 
               </Grow>
               <Grow
-                in='true'
+                in={true}
                 style={{ transformOrigin: '0 0 0' }}
                 {...(true ? { timeout: 2000 } : {})}
                 >
