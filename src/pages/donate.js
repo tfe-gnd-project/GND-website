@@ -275,16 +275,20 @@ const states = [
 class Donation extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+    this.state = { value: "", frequency:"" };
   }
 
   handleChange = event => {
     this.setState({ value: event.target.value });
   };
 
-  handleClick = e => {
-    this.setState({ value: e.target.value });
-  };
+  // handleClick = e => {
+  //   this.setState({ value: e.target.value });
+  // };
+
+  handleClick2 = e => {
+    this.setState({ frequency: e.target.value })
+  }
 
   onToken = (token, addresses) => {
     //need thank you page here
@@ -377,6 +381,8 @@ class Donation extends React.Component {
       emailAddress: "",
       subscribe: "",
     };
+    console.log(this.state.value)
+    console.log(this.state.frequency)
     return (
       <Layout>
       <Grow
@@ -434,7 +440,7 @@ class Donation extends React.Component {
                             control={
                               <Radio
                                 color="primary"
-                                onClick={e => this.handleClick(e)}
+                                // onClick={e => this.handleClick(e)}
                               />
                             }
                             label="$21.00"
@@ -483,19 +489,42 @@ class Donation extends React.Component {
                             control={<Radio />}
                           />
                         </RadioGroup>
-                  <div className="donation-frequency">
-                 
-                    <p> Donation Frequency: </p>
-                    <button type="button" onclick="alert('This is supposed to be a one time payment') ">One Time</button>
-                    &nbsp; &nbsp; 
-                    
-                    <button type="button" onclick="alert('This is supposed to be a monthly payment') ">Monthly</button>
-                    
-                  </div>
-
-                      </FormControl>
-                      </center>
+                        </FormControl>
+                        </center>
                 </div>
+                  <div className="donation-frequency">
+                    <p> Donation Frequency: </p>
+                    <h2>Select Amount To Donate</h2>
+                      <FormControl
+                        component="fieldset"
+                        className={classes.formControl}
+                      >
+                        <RadioGroup
+                          style={{ flexDirection: "row", justifyContent: `center`}}
+                          className={classes.group}
+                          value={this.state.frequency}
+                          // onChange={this.handleChange}
+                        >
+                          <FormControlLabel
+                            value="one-time"
+                            control={
+                              <Radio
+                                color="primary"
+                                onClick={e => this.handleClick2(e)}
+                              />
+                            }
+                            label="One Time"
+                          />
+                          <FormControlLabel
+                            value="monthly"
+                            control={<Radio color="primary" 
+                            onClick={e => this.handleClick2(e)}
+                             />}
+                            label="Monthly"
+                          />
+                          </RadioGroup>
+                          </FormControl>
+                  </div>
                 <div className="mainborder" >
                   <TextField
                     style={textfield}
