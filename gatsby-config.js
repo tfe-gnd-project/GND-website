@@ -31,6 +31,12 @@ module.exports = {
     author: `misun-janice`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-s3`,
+      options: {
+          bucketName: 'gnd-website'
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

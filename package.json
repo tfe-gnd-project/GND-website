@@ -15,6 +15,7 @@
     "gatsby-plugin-manifest": "^2.0.17",
     "gatsby-plugin-offline": "^2.0.23",
     "gatsby-plugin-react-helmet": "^3.0.6",
+    "gatsby-plugin-s3": "^0.2.4",
     "gatsby-plugin-sharp": "^2.0.20",
     "gatsby-source-filesystem": "^2.0.20",
     "gatsby-transformer-sharp": "^2.1.13",
@@ -23,6 +24,7 @@
     "react-dom": "^16.8.0",
     "react-helmet": "^5.2.0",
     "react-icons": "^3.4.0",
+    "react-stripe-checkout": "^2.6.3",
     "yup": "^0.26.10"
   },
   "keywords": [
@@ -34,7 +36,8 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
+    "deploy": "gatsby-plugin-s3 deploy"
   },
   "repository": {
     "type": "git",
