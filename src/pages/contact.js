@@ -12,6 +12,7 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import "../assets/contact.css";
 import Grow from '@material-ui/core/Grow';
+import axios from "axios";
 
 
 
@@ -98,6 +99,8 @@ class Contact extends React.Component {
     this.setState({ value: event.target.value });
   };
 
+  
+
   submitValues = ({
     firstName,
     lastName,
@@ -116,6 +119,26 @@ class Contact extends React.Component {
       questionAbout: questionAbout
     };
     console.log(custcontactinfo);
+
+    axios
+    .post(
+      `http://localhost:8080/apps/CreditCardApp/ApplicationForm/createApplicationForm`,
+      custcontactinfo
+    )
+    .then(res => {
+      console.log(res);
+      console.log(res.data);
+    });
+
+  console.log({
+    firstName,
+    lastName,
+    emailAddress,
+    phoneNumber,
+    questionType,
+    questionAbout,
+  });
+
   };
   render() {
     const classes = this.props;

@@ -27,7 +27,7 @@
 .menu {
   background-color: #0a2f6c;
   padding: 10px;
-  box-shadow: 5px 0px 15px grey;
+  box-shadow: 5px 0px 15px lightgrey;
   overflow: hidden;
   position: fixed;
   top: 0;
@@ -59,6 +59,10 @@
   color: skyblue;
 }
 
+.donate:hover {
+  color: grey;
+}
+
 .active {
   color: orange;
 }
@@ -67,7 +71,7 @@
   display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 690px) {
   .menu a:not(:first-child) {display: none;}
   .menu a.icon {
     float: right;
@@ -75,7 +79,7 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 690px) {
   .menu.responsive {position: fixed;}
   .menu.responsive .icon {
     position: absolute;
@@ -86,6 +90,17 @@
     float: none;
     display: block;
     text-align: center;
+  }
+}
+
+@media screen and (min-width: 690px) {
+  .menu {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .menufont {
+    flex-grow: .05;
   }
 }
 

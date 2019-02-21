@@ -422,6 +422,7 @@ class Donation extends React.Component {
                 <div className="mainborder" >
                 <center>
                     <p className="donate-title">DONATE</p>
+
                       <FormControl
                         component="fieldset"
                         className={classes.formControl}
@@ -488,8 +489,10 @@ class Donation extends React.Component {
                           />
                         </RadioGroup>
                         </FormControl>
+
                         <br/>
                     <p style={{fontSize: 18, margin: 0}}> Frequency: </p>
+ 
                       <FormControl
                         component="fieldset"
                         className={classes.formControl}
