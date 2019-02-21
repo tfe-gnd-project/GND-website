@@ -478,19 +478,19 @@ class Forms extends React.Component {
                         <div className="subheaders">WAYS TO SERVE</div>
                         <Grow
                             in={true}
-                            {...(true ? { timeout: 2000 } : {})}
+                            {...(true ? { timeout: 1500 } : {})}
                         >
                             <img className='images image1' src={startserving1} alt='service'/>
                         </Grow>
                         <Grow
                             in={true}
-                            {...(true ? { timeout: 2000 } : {})}
+                            {...(true ? { timeout: 1500 } : {})}
                         >
                             <img className='images' src={startserving2} alt='service'/>
                         </Grow>
                         <Grow
                             in={true}
-                            {...(true ? { timeout: 2000 } : {})}
+                            {...(true ? { timeout: 1500 } : {})}
                         >
                             <img className='images' src={startserving3} alt='service'/>
                         </Grow>
