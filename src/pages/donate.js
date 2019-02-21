@@ -291,8 +291,7 @@ class Donation extends React.Component {
   }
 
   onToken = (token, addresses) => {
-    //need thank you page here
-    // window.location.replace("thankyou");
+    window.location.replace("thankyou");
   };
 
   ses = emailAddress => {
@@ -421,9 +420,9 @@ class Donation extends React.Component {
                   method="post"
                 >
                 <div className="mainborder" >
-                
                 <center>
-                    <h2 style={{fontFamily: `arial`}}>Select Amount To Donate</h2>
+                    <p className="donate-title">DONATE</p>
+
                       <FormControl
                         component="fieldset"
                         className={classes.formControl}
@@ -490,16 +489,17 @@ class Donation extends React.Component {
                           />
                         </RadioGroup>
                         </FormControl>
-                        </center>
-                  <div className="donation-frequency">
-                    <p style={{fontSize: 18, margin: 0}}> Donation Frequency: </p>
+
+                        <br/>
+                    <p style={{fontSize: 18, margin: 0}}> Frequency: </p>
+ 
                       <FormControl
                         component="fieldset"
                         className={classes.formControl}
                       >
                         <RadioGroup
                           style={{ flexDirection: "row", justifyContent: `center`}}
-                          className={classes.group}
+                          className="frequency-btn"
                           value={this.state.frequency}
                           // onChange={this.handleChange}
                         >
@@ -522,7 +522,7 @@ class Donation extends React.Component {
                           />
                           </RadioGroup>
                           </FormControl>
-                  </div>
+                        </center>
                   </div>
                 <div className="mainborder" >
                   <TextField
