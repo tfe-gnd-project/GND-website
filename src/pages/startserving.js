@@ -324,8 +324,8 @@ const validationSchema = Yup.object({
   .required("Please enter an email address"),
   serve: Yup.string()
   .required("Please choose a service"),
-  description: Yup.string()
-  .required("Please provide a brief description of your service"),
+  comments: Yup.string()
+  .required("Please provide a brief comments of your service"),
 })
 
 
@@ -358,17 +358,17 @@ class Forms extends React.Component {
               })
   }
 
-  addNewsletter = (email, first, last) => {
+  addNewsletter = (email, first, serve, comments) => {
      
     const person = {
-        firstName: first,
-        lastName: last,
-        emailAddress: email,
-        salutation: 'Subscribed'
+        contactListName: first,
+        description: serve,
+        comments: comments,
+        verifyEmailFrom: email,
     };
 
     if (this.state.checked === true) {
-        axios.post(`http://localhost:8080//apps/NewPage/NewForm/createCCOSApplication`, person )
+        axios.post(`http://localhost:8080//apps/NewPage/NewForm/createContactList`, person )
         .then(res => {
             console.log(res);
             console.log(res.data);
@@ -379,7 +379,7 @@ class Forms extends React.Component {
     }
   }
   
-  submitValues = ({ first, last, street, unit, city, state, zipcode, phone, email, serve, description }) => 
+  submitValues = ({ first, last, street, unit, city, state, zipcode, phone, email, serve, comments }) => 
       { 
           const person = {
               firstName: first,
@@ -391,19 +391,17 @@ class Forms extends React.Component {
               postalCode: zipcode, 
               contactNumber: phone,
               emailAddress: email,
-              accessCode: serve,
-              directions: description
           };
   
           console.log(person)
 
-          axios.post(`http://localhost:8080//apps/NewPage/NewForm/createCCOSApplication`,
+          axios.post(`http://localhost:8080//apps/NewPage/NewForm/createPersonCustomer`,
               person )
               .then(res => {
                   console.log(res);
                   console.log(res.data);
                   this.sendEmail(email, first);
-                  this.addNewsletter(email, first, last);
+                  this.addNewsletter(email, first, serve, comments);
                   this.setState({
                       message: "Submission successful!",
                       messageColor: "green"
@@ -431,7 +429,7 @@ class Forms extends React.Component {
         phone: "", 
         email: "",
         serve: "",
-        description: ""
+        comments: ""
       };
       console.log(this.state.checked)
 
@@ -447,7 +445,7 @@ class Forms extends React.Component {
           >
             {({
                 values: { 
-                    first, last, street, unit, city, state, zipcode, phone, email, serve, description
+                    first, last, street, unit, city, state, zipcode, phone, email, serve, comments
                 },
                 errors,
                 touched,
@@ -478,19 +476,19 @@ class Forms extends React.Component {
                         <div className="subheaders">WAYS TO SERVE</div>
                         <Grow
                             in={true}
-                            {...(true ? { timeout: 2000 } : {})}
+                            {...(true ? { timeout: 1500 } : {})}
                         >
                             <img className='images image1' src={startserving1} alt='service'/>
                         </Grow>
                         <Grow
                             in={true}
-                            {...(true ? { timeout: 2000 } : {})}
+                            {...(true ? { timeout: 1500 } : {})}
                         >
                             <img className='images' src={startserving2} alt='service'/>
                         </Grow>
                         <Grow
                             in={true}
-                            {...(true ? { timeout: 2000 } : {})}
+                            {...(true ? { timeout: 1500 } : {})}
                         >
                             <img className='images' src={startserving3} alt='service'/>
                         </Grow>
@@ -520,11 +518,11 @@ class Forms extends React.Component {
                         <TextField
                             className='textfieldEmail'
                             label="Tell us how you can serve in your own unique way"
-                            id="description"
-                            name="description"
-                            helperText={touched.description ? errors.description : ""}
-                            error={touched.description && Boolean(errors.description)}
-                            value={description}
+                            id="comments"
+                            name="comments"
+                            helperText={touched.comments ? errors.comments : ""}
+                            error={touched.comments && Boolean(errors.comments)}
+                            value={comments}
                             margin="normal"
                             variant="outlined"
                             onChange={handleChange}

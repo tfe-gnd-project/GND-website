@@ -31,6 +31,7 @@ module.exports = {
     author: `misun-janice`,
   },
   plugins: [
+    `gatsby-plugin-material-ui`,
     {
       resolve: `gatsby-plugin-s3`,
       options: {
