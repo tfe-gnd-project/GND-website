@@ -11,7 +11,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Grow from '@material-ui/core/Grow';
 
 import startserving1 from '../images/startserving1.jpg'
 import startserving2 from '../images/startserving2.jpg'
@@ -454,44 +453,24 @@ class Forms extends React.Component {
                 handleBlur,
             }) => (
               <Form  onSubmit={handleSubmit} >
-              <Grow
-                in={true}
-                style={{ transformOrigin: '0 0 0' }}
-                {...(true ? { timeout: 1000 } : {})}
-                >
                 <center>
                     <div className='start-serving-header'>
                         START SERVING
                     </div>
-                </center>
-                </Grow> <br/>
+                </center><br/>
 
               <div className='both-borders'>
-                <Grow
-                    in={true}
-                    style={{ transformOrigin: '0 0 0' }}
-                    {...(true ? { timeout: 1000 } : {})}
-                >
                     <div className='border'>
                         <div className="subheaders">WAYS TO SERVE</div>
-                        <Grow
-                            in={true}
-                            {...(true ? { timeout: 1500 } : {})}
-                        >
+
                             <img className='images image1' src={startserving1} alt='service'/>
-                        </Grow>
-                        <Grow
-                            in={true}
-                            {...(true ? { timeout: 1500 } : {})}
-                        >
+                        
+                        
                             <img className='images' src={startserving2} alt='service'/>
-                        </Grow>
-                        <Grow
-                            in={true}
-                            {...(true ? { timeout: 1500 } : {})}
-                        >
+                        
+                        
                             <img className='images' src={startserving3} alt='service'/>
-                        </Grow>
+                        
                         <br/>
                         <TextField
                             className='textfieldEmail'
@@ -545,12 +524,8 @@ class Forms extends React.Component {
                             label="Send me newsletters about Guru Nanak Dwara."
                         />
                     </div> 
-              </Grow>
-              <Grow
-                in={true}
-                style={{ transformOrigin: '0 0 0' }}
-                {...(true ? { timeout: 2000 } : {})}
-                >
+              
+              
                 <div className="border">
                   <div className="subheaders">CONTACT INFORMATION</div>
                   <TextField
@@ -698,7 +673,7 @@ class Forms extends React.Component {
                     </Button>
                 
                 </div>
-                </Grow>
+                
                 
               
                 </div>
