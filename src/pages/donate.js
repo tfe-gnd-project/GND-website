@@ -1,4 +1,3 @@
-
 import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -22,8 +21,6 @@ import Image1 from "../images/gndfloat1.jpg"
 import Image2 from "../images/gndfloat2.jpg"
 import Image3 from "../images/gndfloat3.jpg"
 import StripeLogo from '../images/secure-stripe-payment-logo.png'
-import Grow from '@material-ui/core/Grow';
-import Slide from '@material-ui/core/Slide';
 import Checkbox from '@material-ui/core/Checkbox';
 
 const validationSchema = Yup.object({
@@ -384,11 +381,6 @@ class Donation extends React.Component {
     console.log(this.state.frequency)
     return (
       <Layout>
-      <Grow
-            in="true"
-            style={{ transformOrigin: '0 0 0' }}
-            {...(true ? { timeout: 1000 } : {})}
-          >
         <div className="donationpage">
           <center>
             <Formik
@@ -705,14 +697,11 @@ class Donation extends React.Component {
             <SEO title="Donate" />
           </center>
         </div>
-      </Grow>
-      <Slide direction="left" in="true" {...(true ? { timeout: 1000 } : {})} mountOnEnter unmountOnExit>
         <div className="floatright" >
         <img src={Image1} alt="GND" height="320" width="600"/>
         <img src={Image2} alt="GND" height="320" width="600"/>
         <img src={Image3} alt="GND" height="320" width="600"/>
         </div>
-      </Slide>
       </Layout>
     );
   }
