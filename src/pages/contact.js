@@ -11,7 +11,6 @@ import RoomIcon from '@material-ui/icons/room';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import "../assets/contact.css";
-import Grow from '@material-ui/core/Grow';
 import axios from "axios";
 
 
@@ -152,11 +151,6 @@ class Contact extends React.Component {
     };
     return (
       <Layout>
-        <Grow
-            in="true"
-            style={{ transformOrigin: '0 0 0' }}
-            {...(true ? { timeout: 1000 } : {})}
-          >
         <div className="contactpage" style={{
             // border: `3px red solid`,
             // padding: 15,
@@ -340,7 +334,6 @@ class Contact extends React.Component {
             </Formik> </center>
             <SEO title="Contact Us" />
         </div>
-      </Grow>
       </Layout>
     );
   }

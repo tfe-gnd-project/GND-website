@@ -1,5 +1,5 @@
 .border {
-  border: 2px solid rgb(0,0,0,0.02);
+  border-radius: 15px;
   max-width: 900px;
   margin: 20px;
   padding-top: 10px;
