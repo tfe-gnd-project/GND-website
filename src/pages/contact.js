@@ -99,6 +99,10 @@ class Contact extends React.Component {
     this.setState({ value: event.target.value });
   };
 
+  onSubmit = e => {
+    window.location.replace("posted");
+  };
+
   submitValues = ({
     firstName,
     lastName,
@@ -126,9 +130,8 @@ class Contact extends React.Component {
     .then(res => {
       console.log(res);
       console.log(res.data);
-  
+      this.onSubmit()
     });
-
   };
   render() {
     const classes = this.props;
@@ -322,7 +325,7 @@ class Contact extends React.Component {
                     }}
                   />
                   <br/><center>
-                  <button className="contactusbutton"type="submit">Submit</button></center>
+                  <button className="contactusbutton"type="submit" onSubmit={this.onSubmit}>Submit</button></center>
                 
             </Form>
            
