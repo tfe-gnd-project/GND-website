@@ -40,7 +40,7 @@ const validationSchema = Yup.object({
   city: Yup.string("Enter a city")
     .min(2, "Enter a valid city")
     .required("Please enter your City"),
-  stateProviceGeoId: Yup.string("Select a State").required(
+  stateProvinceGeoId: Yup.string("Select a State").required(
     "Please select your State"
   ),
   postalCode: Yup.string("Enter Postal Code").required(
@@ -316,7 +316,7 @@ class Donation extends React.Component {
     address1,
     address2,
     city,
-    stateProviceGeoId,
+    stateProvinceGeoId,
     postalCode,
     emailAddress,
     subscribe
@@ -328,7 +328,7 @@ class Donation extends React.Component {
       address1: address1,
       address2: address2,
       city: city,
-      stateProviceGeoId: stateProviceGeoId,
+      stateProvinceGeoId: stateProvinceGeoId,
       postalCode: postalCode,
       emailAddress: emailAddress,
       subscribe: subscribe
@@ -338,7 +338,7 @@ class Donation extends React.Component {
 
     axios
       .post(
-        `http://localhost:8080/apps/CreditCardApp/ApplicationForm/createApplicationForm`,
+        `http://localhost:8080/apps/CreditCardApp/ApplicationForm/createDonateForm`,
         person
       )
       .then(res => {
@@ -354,7 +354,7 @@ class Donation extends React.Component {
       address1,
       address2,
       city,
-      stateProviceGeoId,
+      stateProvinceGeoId,
       postalCode,
       emailAddress,
       subscribe
@@ -372,7 +372,7 @@ class Donation extends React.Component {
       address1: "",
       address2: "",
       city: "",
-      stateProviceGeoId: "",
+      stateProvinceGeoId: "",
       postalCode: "",
       emailAddress: "",
       subscribe: "",
@@ -396,7 +396,7 @@ class Donation extends React.Component {
                   address1,
                   address2,
                   city,
-                  stateProviceGeoId,
+                  stateProvinceGeoId,
                   postalCode,
                   emailAddress,
                   subscribe
@@ -605,16 +605,16 @@ class Donation extends React.Component {
                     style={textfield}
                     id="standard-select-state"
                     select
-                    name="stateProviceGeoId"
+                    name="stateProvinceGeoId"
                     label="State*"
-                    value={stateProviceGeoId}
+                    value={stateProvinceGeoId}
                     onChange={handleChange}
                     helperText={
-                      touched.stateProviceGeoId ? errors.stateProviceGeoId : ""
+                      touched.stateProvinceGeoId ? errors.stateProvinceGeoId : ""
                     }
                     error={
-                      touched.stateProviceGeoId &&
-                      Boolean(errors.stateProviceGeoId)
+                      touched.stateProvinceGeoId &&
+                      Boolean(errors.stateProvinceGeoId)
                     }
                     SelectProps={{
                       MenuProps: {

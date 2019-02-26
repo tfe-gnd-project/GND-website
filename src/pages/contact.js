@@ -29,10 +29,10 @@ const ContactSchema = Yup.object({
   emailAddress: Yup.string("Enter your email")
     .email("Enter a valid email")
     .required("Please enter your E-mail"),
-  phoneNumber: Yup.string("Enter your phone number")
+  contactNumber: Yup.string("Enter your phone number")
     .matches(/^\d{3}-\d{3}-\d{4}$/, "Enter a valid phone number.")
     .required("Please enter a Phone Number"),
-  questionAbout: Yup.string("Enter a message")
+  noteText: Yup.string("Enter a message")
     .min(1, "What can we help you with?")
     .required("What can we help you with?")
 });
@@ -98,24 +98,26 @@ class Contact extends React.Component {
     this.setState({ value: event.target.value });
   };
 
-  
+  onSubmit = e => {
+    window.location.replace("posted");
+  };
 
   submitValues = ({
     firstName,
     lastName,
     emailAddress,
-    phoneNumber,
+    contactNumber,
     questionType,
-    questionAbout,
+    noteText,
 
   }) => {
     const custcontactinfo = {
       firstName: firstName,
       lastName: lastName,
       emailAddress: emailAddress,
-      phoneNumber: phoneNumber,
+      contactNumber: contactNumber,
       questionType: questionType,
-      questionAbout: questionAbout
+      noteText: noteText
     };
     console.log(custcontactinfo);
 
@@ -127,17 +129,8 @@ class Contact extends React.Component {
     .then(res => {
       console.log(res);
       console.log(res.data);
+      this.onSubmit()
     });
-
-  console.log({
-    firstName,
-    lastName,
-    emailAddress,
-    phoneNumber,
-    questionType,
-    questionAbout,
-  });
-
   };
   render() {
     const classes = this.props;
@@ -145,9 +138,9 @@ class Contact extends React.Component {
       firstName: "",
       lastName: "",
       emailAddress: "",
-      phoneNumber: "",
+      contactNumber: "",
       questionType: "",
-      questionAbout: "",
+      noteText: "",
     };
     return (
       <Layout>
@@ -203,9 +196,9 @@ class Contact extends React.Component {
                 firstName,
                 lastName,
                 emailAddress,
-                phoneNumber,
+                contactNumber,
                 questionType,
-                questionAbout,
+                noteText,
               },
               errors,
               touched,
@@ -266,14 +259,14 @@ class Contact extends React.Component {
                     />
                  
                   <TextField style={textfield}
-                    name="phoneNumber"
+                    name="contactNumber"
                     id="standard-phone-input"
                     label="Phone Number*"
                     type="tel"
-                    value={phoneNumber}
+                    value={contactNumber}
                     onChange={handleChange}
-                    helperText={touched.phoneNumber ? errors.phoneNumber : ""}
-                    error={touched.phoneNumber && Boolean(errors.phoneNumber)}
+                    helperText={touched.contactNumber ? errors.contactNumber : ""}
+                    error={touched.contactNumber && Boolean(errors.contactNumber)}
                     placeholder="ex. 555-555-5555"
                     margin="normal"
                     variant="outlined"
@@ -312,13 +305,13 @@ class Contact extends React.Component {
                     <br/>
                     <TextField
                     style={{ width: `100%`, textAlign: `center` }}
-                    name="questionAbout"
+                    name="noteText"
                     id="outlined-full-width"
                     label="My question is..."
-                    value={questionAbout}
+                    value={noteText}
                     onChange={handleChange}
-                    helperText={touched.questionAbout ? errors.questionAbout :""}
-                    error={touched.questionAbout && Boolean(errors.questionAbout)}
+                    helperText={touched.noteText ? errors.noteText :""}
+                    error={touched.noteText && Boolean(errors.noteText)}
                     margin="normal"
                     variant="outlined"
                     InputLabelProps={{
@@ -326,7 +319,7 @@ class Contact extends React.Component {
                     }}
                   />
                   <br/><center>
-                  <button className="contactusbutton"type="submit">Submit</button></center>
+                  <button className="contactusbutton"type="submit" onSubmit={this.onSubmit}>Submit</button></center>
                 
             </Form>
            
