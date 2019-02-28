@@ -357,26 +357,6 @@ class Forms extends React.Component {
               })
   }
 
-  addNewsletter = (email, first, serve, comments) => {
-     
-    const person = {
-        contactListName: first,
-        description: serve,
-        comments: comments,
-        verifyEmailFrom: email,
-    };
-
-    if (this.state.checked === true) {
-        axios.post(`http://localhost:8080//apps/NewPage/NewForm/createContactList`, person )
-        .then(res => {
-            console.log(res);
-            console.log(res.data);
-        })
-        .catch(error => {
-            console.error("Error:", error);
-        })
-    }
-  }
   
   submitValues = ({ first, last, street, unit, city, state, zipcode, phone, email, serve, comments }) => 
       { 
@@ -390,29 +370,42 @@ class Forms extends React.Component {
               postalCode: zipcode, 
               contactNumber: phone,
               emailAddress: email,
+              contentLocation: serve,
+              description: comments
           };
   
           console.log(person)
 
-          axios.post(`http://localhost:8080//apps/NewPage/NewForm/createPersonCustomer`,
-              person )
-              .then(res => {
-                  console.log(res);
-                  console.log(res.data);
-                  this.sendEmail(email, first);
-                  this.addNewsletter(email, first, serve, comments);
-                  this.setState({
-                      message: "Submission successful!",
-                      messageColor: "green"
-                  })
-              })
-              .catch(error => {
-                  console.error("Error:", error);
-                  this.setState({
-                      message: "Submission failed.",
-                      messageColor: "red"
-                  })
-              })
+          // if checked is true, add email to newsletter list
+          if (this.state.checked === true) {
+            axios.post(`http://localhost:8080//apps/NewPage/NewForm/addNewsletterEmail`, person )
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+                this.sendEmail(email, first);
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            })
+          } else {
+            axios.post(`http://localhost:8080//apps/NewPage/NewForm/addServingContent`, person )
+                .then(res => {
+                    console.log(res);
+                    console.log(res.data);
+                    this.sendEmail(email, first);
+                    this.setState({
+                        message: "Submission successful!",
+                        messageColor: "green"
+                    })
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    this.setState({
+                        message: "Submission failed.",
+                        messageColor: "red"
+                    })
+                })
+          }
       }
 
 
