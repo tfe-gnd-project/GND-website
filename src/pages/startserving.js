@@ -17,6 +17,7 @@ import startserving2 from '../images/startserving2.jpg'
 import startserving3 from '../images/startserving3.jpg'
 
 import "../assets/startserving.css";
+import { FaSpinner } from 'react-icons/fa'
 
 
 const textfield = { 
@@ -324,7 +325,7 @@ const validationSchema = Yup.object({
   serve: Yup.string()
   .required("Please choose a service"),
   comments: Yup.string()
-  .required("Please provide a brief comments of your service"),
+  .required("Please briefly describe how you want to serve"),
 })
 
 
@@ -341,25 +342,32 @@ class Forms extends React.Component {
 
   sendEmail = (email, first) => {
 
-      console.log(email, first)
-      const user = {
-          email,
-          first
-      }
+      const user = { email, first }
 
       axios.post(`https://qbjqrzyla9.execute-api.us-east-1.amazonaws.com/dev/send-email-serving-page`, user)
-              .then(res => {
-                  console.log(res);
-                  console.log(res.data);
-              })
-              .catch(error => {
-                  console.error("Error:", error);
-              })
+        .then(res => {
+            console.log(res);
+            console.log(res.data);
+            this.setState({
+                message: "Submission successful!",
+                messageColor: "green"
+            })
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            this.setState({
+                message: "Submission failed.",
+                messageColor: "red"
+            })
+        })
   }
-
   
   submitValues = ({ first, last, street, unit, city, state, zipcode, phone, email, serve, comments }) => 
       { 
+        this.setState({
+            message: "Please wait...",
+        })
+
           const person = {
               firstName: first,
               lastName: last,
@@ -370,11 +378,9 @@ class Forms extends React.Component {
               postalCode: zipcode, 
               contactNumber: phone,
               emailAddress: email,
-              contentLocation: serve,
-              description: comments
+              service: serve,
+              comment: comments,
           };
-  
-          console.log(person)
 
           // if checked is true, add email to newsletter list
           if (this.state.checked === true) {
@@ -386,6 +392,10 @@ class Forms extends React.Component {
             })
             .catch(error => {
                 console.error("Error:", error);
+                this.setState({
+                    message: "Submission failed.",
+                    messageColor: "red"
+                })
             })
           } else {
             axios.post(`http://localhost:8080//apps/NewPage/NewForm/addServingContent`, person )
@@ -393,10 +403,6 @@ class Forms extends React.Component {
                     console.log(res);
                     console.log(res.data);
                     this.sendEmail(email, first);
-                    this.setState({
-                        message: "Submission successful!",
-                        messageColor: "green"
-                    })
                 })
                 .catch(error => {
                     console.error("Error:", error);
@@ -654,8 +660,17 @@ class Forms extends React.Component {
                       onChange={handleChange}
                       onBlur={handleBlur}
                   />
-
                   <br/>
+
+
+                  {this.state.message === "Please wait..." 
+                    ? 
+                    <div style={{ fontFamily: 'sans-serif' }}>{this.state.message} <FaSpinner className="spinner"/></div>
+
+                    :
+                    <div style={{ fontFamily: 'sans-serif', color: this.state.messageColor}}>{this.state.message}</div>
+                  }
+                  
                     <Button
                         style={button}
                         type="submit"
@@ -667,8 +682,6 @@ class Forms extends React.Component {
                 
                 </div>
                 
-                
-              
                 </div>
                 
                 <br/>
@@ -677,6 +690,7 @@ class Forms extends React.Component {
             )}
           </Formik>
         </div>
+        {this.state.message === "Submission successful!" && window.location.replace("/startservingthankyou")}
       </Layout>
 
     );

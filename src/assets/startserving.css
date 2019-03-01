@@ -48,3 +48,17 @@
   .checkboxlabel  { width: 280px }
   .image1 { display: none }
 }
+
+.spinner {
+  animation: spinner-logo infinite 1.3s linear;
+  pointer-events: none;
+}
+
+@keyframes spinner-logo {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
