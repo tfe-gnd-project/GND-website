@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `GND-website`,
+    title: `GND`,
       menuLinks: [
         {
            name:'Home',
