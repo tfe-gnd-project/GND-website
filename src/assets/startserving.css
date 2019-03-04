@@ -43,7 +43,7 @@
   margin: 0;
 }
 
-@media screen and (max-width: 682px) {
+@media screen and (max-width: 699px) {
   .textfieldEmail  { width: 300px }
   .checkboxlabel  { width: 280px }
   .image1 { display: none }
