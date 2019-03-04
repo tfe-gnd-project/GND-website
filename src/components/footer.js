@@ -9,7 +9,8 @@ import Tooltip from '@material-ui/core/Tooltip';
 
 const Footer = ({ siteTitle }) => (
   <div style={{ background: `#0a2f6c` }} >
-    <div style={{ padding: `1.00rem 1.0875rem` }}>
+    <div style={{ padding: `1.00rem 1.0875rem`}}>
+
       <div className='font-container'>
         <a href="https://www.facebook.com/gurunanakdwara/" rel="noopener noreferrer" title="GND Facebook Page" target="_blank">
           <Tooltip title="Facebook" placement="left">
