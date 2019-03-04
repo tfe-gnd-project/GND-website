@@ -11,32 +11,32 @@ const Footer = ({ siteTitle }) => (
   <div style={{ background: `#0a2f6c` }} >
     <div style={{ padding: `1.00rem 1.0875rem` }}>
       <div className='font-container'>
-        <a href="https://www.facebook.com/gurunanakdwara/" rel="noopener noreferrer" target="_blank">
+        <a href="https://www.facebook.com/gurunanakdwara/" rel="noopener noreferrer" title="GND Facebook Page" target="_blank">
           <Tooltip title="Facebook" placement="left">
             <FaFacebook className='icons'/>
           </Tooltip>
         </a>
          
-        <a href="https://www.instagram.com/gurunanakdwara/" rel="noopener noreferrer" target="_blank">
+        <a href="https://www.instagram.com/gurunanakdwara/" rel="noopener noreferrer" title="GND Instagram Page" target="_blank">
           <Tooltip title="Instagram" placement="top">
             <FaInstagram className='icons' />
           </Tooltip>
         </a>
 
-        <a href="https://twitter.com/gurunanakdwara" rel="noopener noreferrer"  target="_blank">
+        <a href="https://twitter.com/gurunanakdwara" rel="noopener noreferrer"  title="GND Twitter Page" target="_blank">
           <Tooltip title="Twitter" placement="top">
             <FaTwitter className='icons' />
           </Tooltip>
         </a>
 
-        <a href="https://www.youtube.com/c/GuruNanakDwara" rel="noopener noreferrer" target="_blank">
+        <a href="https://www.youtube.com/c/GuruNanakDwara" rel="noopener noreferrer" title="GND YouTube Channel" target="_blank">
           <Tooltip title="YouTube" placement="top">
             <FaYoutube className='icons' />
           </Tooltip>
         </a>
 
         <Link to='/subscribe'>
-          <Tooltip title="Subscribe" placement="right">
+          <Tooltip disableFocusListener title="Subscribe" placement="right">
             <FaMailBulk className='icons' />
           </Tooltip>
         </Link>
