@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { Link } from "gatsby"
 import './footer.css'
-import { FaFacebook, FaTwitter, FaYoutube, FaInstagram, FaMailBulk } from 'react-icons/fa'
+import { FaFacebook, FaTwitter, FaYoutube, FaInstagram, FaRegBell } from 'react-icons/fa'
 import Tooltip from '@material-ui/core/Tooltip';
 
 
@@ -37,7 +37,7 @@ const Footer = ({ siteTitle }) => (
 
         <Link to='/subscribe'>
           <Tooltip disableFocusListener title="Subscribe" placement="right">
-            <FaMailBulk className='icons' />
+            <FaRegBell className='icons' />
           </Tooltip>
         </Link>
       </div>
