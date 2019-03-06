@@ -1,5 +1,5 @@
 .border {
-  width: 750px;
+  max-width: 750px;
   margin: 20px;
   padding-top: 10px;
   padding-bottom: 20px;
