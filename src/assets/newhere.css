@@ -1,0 +1,233 @@
+/* splash image */
+.container {
+  position: relative;
+  text-align: center;
+}
+
+.splashimage {
+  width: 100vw;
+}
+
+.splashimagetext {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-family: sans-serif;
+  color: white;
+  border: solid white 1px;
+  padding: 30px 30px 0px 30px;
+  width: 70vw;
+}
+
+.paragraph {
+  font-size: 11px;
+  line-height: 1.5;
+  padding-top: 10px;
+}
+
+.paragraphMobile {
+  display: none;
+}
+
+/* media queries for splash */
+@media screen and (max-width: 690px) {
+  .paragraph {
+    display: none;
+  }
+  .paragraphMobile {
+    width: 100vw;
+    margin-bottom: 20px;
+    padding: 20px 40px 30px 40px;
+    background-color: rgba(0,0,0, 0.07);
+    align-items: center;
+    font-family: sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .splashimagetext {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .paragraph {
+    font-size: 15px;
+    padding-top: 20px;
+  }
+  .splashimagetext {
+    font-size: 30px;
+    padding: 30px 80px 0px 80px;
+  }
+}
+
+/* history component */
+.history {
+  width: 100vw;
+  margin-bottom: 20px;
+  padding: 20px 40px 30px 40px;
+  background-color: rgba(0,0,0, 0.07);
+  align-items: center;
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.subheaderHistory {
+  border: solid hsla(0, 0%, 0%, 0.8) 1px;
+  padding: 10px;
+  color: hsla(0, 0%, 0%, 0.8);
+  font-size: 15px;
+  font-variant: petite-caps;
+  margin-bottom: 10px;
+}
+
+.historytext {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* media queries for history component */
+
+@media screen and (max-width: 650px) {
+  .subheaderHistory {
+    width: 80vw;
+  }
+  .historytext {
+    width: 70vw;
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .subheaderHistory {
+    width: 500px;
+  }
+  .historytext {
+    width: 70vw;
+    font-size: 12px;
+  }
+}
+
+/* attending and practice block */
+.attendingAndPractice {
+  display: flex;
+  flex-direction: row;
+  width: 90vw;
+  justify-content: center;
+}
+
+/* attending block */
+.attendingContainer {
+  width: 45vw;
+  margin-right: 10px;
+  padding: 10px;
+  background-color: #0a2f6cb0;
+  color: white;
+  font-family: sans-serif;
+}
+
+.attendingHeader {
+  width: 100%;
+}
+
+.attendingAllImagesAndText {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.attendingImagesAndText {
+  margin: 10px;
+}
+
+.attendingImages {
+  width: 180px;
+  height: 180px;
+  margin: 10px;
+}
+
+.attendingText {
+  font-size: 10px;
+  line-height: 1.5;
+  text-align: initial;
+  max-width: 180px;
+  margin: 10px;
+}
+
+/* practice block */
+.practiceContainer {
+  width: 45vw;
+  margin-left: 10px;
+  padding: 10px;
+  background-color: #0a2f6cb0;
+  color: white;
+  font-family: sans-serif;
+}
+
+.practiceHeader {
+  width: 100%;
+}
+
+.practiceAllImagesAndText {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.practiceImagesAndText {
+  margin: 10px;
+}
+
+.practiceImages {
+  width: 180px;
+  height: 180px;
+  margin: 10px;
+}
+
+.practiceText {
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: center;
+  min-width: 180px;
+  margin: 10px;
+}
+
+@media screen and (max-width: 1070px) {
+  .attendingAndPractice {
+    display: flex;
+    flex-direction: column;
+  }
+  .attendingContainer {
+    width: 90vw;
+    margin-bottom: 20px;
+  }
+  .practiceContainer {
+    width: 90vw;
+    margin-left: 0px;
+  }
+}
+
+.getConnected {
+  width: 90vw;
+  margin: 20px;
+  padding: 20px;
+  background-color: #0a2f6cb0;
+  color: white;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.getConnectedImages {
+  max-width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 10px;
+}
