@@ -5,7 +5,7 @@
   padding-bottom: 20px;
   padding-left: 10px;
   padding-right: 10px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.75);
   text-align: center;
   justify-content: center;
 }
@@ -25,11 +25,18 @@
   margin: 10px;
   font-family: sans-serif;
   font-size: larger;
+  padding: 5px;
+  font-size: 23px;
 }
 
+.textfield {
+  width: 300px;
+  margin: 10px;
+}
 
 .textfieldEmail {
   width: 620px;
+  margin: 10px;
 }
 
 .checkboxicon {
@@ -47,6 +54,14 @@
   .textfieldEmail  { width: 300px }
   .checkboxlabel  { width: 280px }
   .image1 { display: none }
+  .image3 { display: none }
+}
+
+@media screen and (max-width: 360px) {
+  .start-serving-header { width: 80vw; }
+  .textfield { width: 200px; }
+  .textfieldEmail  { width: 200px }
+  .checkboxlabel  { width: 200px }
 }
 
 .spinner {
