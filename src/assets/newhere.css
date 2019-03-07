@@ -73,9 +73,18 @@
   }
 }
 
-@media screen and (min-width: 1030px) {
+@media screen and (min-width: 950px) {
   .splashimagetext {
     font-size: 30px;
+  }
+  .paragraph {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .splashimagetext {
+    font-size: 35px;
     padding: 30px 80px 0px 80px;
   }
   .paragraph {
