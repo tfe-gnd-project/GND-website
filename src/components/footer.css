@@ -18,6 +18,9 @@
   color: white;
   height: 30px;
   width: 30px;
-  margin-right: 20px;
-  margin-left: 20px;
+  margin: 0px 20px 0px 20px;
+}
+
+@media screen and (max-width: 320px) {
+  .icons { margin: 0px 10px 0px 10px; }
 }
