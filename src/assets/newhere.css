@@ -187,11 +187,31 @@
 }
 
 /* media queries for attending services component */
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 525px){
   .attendingHeader {
-    font-size: 20px;
     width: 500px;
   }
+  .attendingAllImagesAndText {
+    width: 70vw;
+  }
+}
+
+@media screen and (min-width: 728px){
+  .attendingAllImagesAndText {
+    width: 60vw;
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .attendingHeader {
+    width: 500px;
+  }
+  .attendingAllImagesAndText {
+    width: 90vw;
+  }
+}
+
+@media screen and (min-width: 1024px) {
   .attendingSubHeader {
     font-size: 18px;
   }
@@ -214,7 +234,7 @@
   }
 }
 
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1340px) {
   .attendingAllImagesAndText {
     width: 75vw;
   }
@@ -314,17 +334,22 @@
 }
 
 /* media queries for daily practice component */
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 650px) {
   .practiceHeader {
-    font-size: 20px;
     width: 500px;
   }
+  .practiceAllImagesAndText {
+    margin: 0px 30px 0px 30px;
+    width: 70vw;
+  }
+}
+
+@media screen and (min-width: 960px) {
   .practiceSubHeader {
     font-size: 18px;
   }
   .practiceAllImagesAndText {
-    margin: 0px 30px 0px 30px;
-    width: 90vw;
+    width: 75vw;
   }
   .practiceImages {
     width: 175px;
@@ -334,6 +359,18 @@
   .practiceTextMiddle {
     width: 166px;
     height: 158px;
+  }
+}
+
+@media screen and (min-width: 1220px) {
+  .practiceAllImagesAndText {
+    width: 60vw;
+  }
+}
+
+@media screen and (min-width: 1580px) {
+  .practiceAllImagesAndText {
+    width: 90vw;
   }
 }
 
@@ -400,11 +437,14 @@
   background-color: #0a2f6c;
 }
 
-@media screen and (min-width: 1000px) {
+/* media queries for get connected components */
+@media screen and (min-width: 650px) {
   .getConnectedHeader {
-    font-size: 20px;
     width: 500px;
   }
+}
+
+@media screen and (min-width: 740px) {
   .imagesAndButtonsContainer {
     flex-direction: column;
   }
@@ -417,6 +457,12 @@
   .getConnectedButtonsContainer {
     flex-direction: row;
   }
+  .getConnectedButton {
+    width: 150px;
+  }
+}
+
+@media screen and (min-width: 1030px) {
   .getConnectedButton {
     width: 200px;
   }
