@@ -27,20 +27,41 @@
   padding-top: 10px;
 }
 
-.paragraphMobile {
+.welcomeGNDMobile {
   display: none;
+}
+
+.welcomeGNDMobileHeader {
+  border: solid white 1px;
+  padding: 10px;
+  color: white;
+  font-size: 18px;
+  font-variant: petite-caps;
+  margin-bottom: 10px;
+  width: 80vw;
+}
+
+.welcomeGNDMobileText {
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: justify;
+  width: 75vw;
 }
 
 /* media queries for splash */
 @media screen and (max-width: 690px) {
+  .container {
+    background-color: #0a2f6cb0;
+  }
   .paragraph {
     display: none;
   }
-  .paragraphMobile {
+  .welcomeGNDMobile {
     width: 100vw;
     margin-bottom: 20px;
     padding: 20px 40px 30px 40px;
-    background-color: rgba(0,0,0, 0.07);
+    background-color: #0a2f6cb0;
+    color: white;
     align-items: center;
     font-family: sans-serif;
     text-align: center;
@@ -52,14 +73,14 @@
   }
 }
 
-@media screen and (min-width: 1000px) {
-  .paragraph {
-    font-size: 15px;
-    padding-top: 20px;
-  }
+@media screen and (min-width: 1030px) {
   .splashimagetext {
     font-size: 30px;
     padding: 30px 80px 0px 80px;
+  }
+  .paragraph {
+    font-size: 18px;
+    padding-top: 20px;
   }
 }
 
@@ -68,7 +89,6 @@
   width: 100vw;
   margin-bottom: 20px;
   padding: 20px 40px 30px 40px;
-  background-color: rgba(0,0,0, 0.07);
   align-items: center;
   font-family: sans-serif;
   text-align: center;
@@ -80,58 +100,67 @@
   border: solid hsla(0, 0%, 0%, 0.8) 1px;
   padding: 10px;
   color: hsla(0, 0%, 0%, 0.8);
-  font-size: 15px;
+  font-size: 18px;
   font-variant: petite-caps;
   margin-bottom: 10px;
+  width: 80vw;
 }
 
 .historytext {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
+  text-align: justify;
+  width: 75vw;
 }
 
 /* media queries for history component */
-
-@media screen and (max-width: 650px) {
-  .subheaderHistory {
-    width: 80vw;
-  }
-  .historytext {
-    width: 70vw;
-    font-size: 12px;
-  }
-}
-
 @media screen and (min-width: 650px) {
   .subheaderHistory {
     width: 500px;
+    font-size: 20px;
   }
   .historytext {
     width: 70vw;
-    font-size: 12px;
+    font-size: 18px;
   }
 }
 
-/* attending and practice block */
+/* attending service && daily practice container */
 .attendingAndPractice {
   display: flex;
-  flex-direction: row;
-  width: 90vw;
-  justify-content: center;
+  flex-direction: column;
 }
 
-/* attending block */
+/* attending service components */
 .attendingContainer {
-  width: 45vw;
-  margin-right: 10px;
-  padding: 10px;
+  width: 100vw;
+  padding: 20px 10px 20px 10px;
+  margin-bottom: 20px;
   background-color: #0a2f6cb0;
-  color: white;
   font-family: sans-serif;
+  color: white;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .attendingHeader {
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  border: solid white 1px;
+  padding: 10px;
+  font-size: 20px;
+  font-variant: petite-caps;
+  margin-bottom: 10px;
+  width: 80vw;
+}
+
+.attendingSubHeader {
+  display: flex;
+  font-size: 15px;
+  width: 80vw;
+  justify-content: center;
 }
 
 .attendingAllImagesAndText {
@@ -146,31 +175,94 @@
 }
 
 .attendingImages {
-  width: 180px;
-  height: 180px;
-  margin: 10px;
+  width: 150px;
+  height: 150px;
 }
 
 .attendingText {
-  font-size: 10px;
-  line-height: 1.5;
+  font-size: 14px;
+  line-height: 1.3;
   text-align: initial;
-  max-width: 180px;
-  margin: 10px;
+  max-width: 150px;
 }
 
-/* practice block */
+/* media queries for attending services component */
+@media screen and (min-width: 1000px) {
+  .attendingHeader {
+    font-size: 20px;
+    width: 500px;
+  }
+  .attendingSubHeader {
+    font-size: 18px;
+  }
+  .attendingAllImagesAndText {
+    margin: 20px 20px 20px 20px;
+    width: 90vw;
+  }
+  .attendingImagesAndText {
+    margin: 20px 20px 20px 20px;
+    display: flex;
+  }
+  .attendingImages {
+    width: 175px;
+    height: 175px;
+    margin-right: 20px;
+  }
+  .attendingText {
+    font-size: 17px;
+    max-width: 225px;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .attendingAllImagesAndText {
+    width: 75vw;
+  }
+  .attendingImagesAndText {
+    display: flex;
+  }
+  .attendingImages {
+    width: 190px;
+    height: 190px;
+    margin-right: 20px;
+  }
+  .attendingText {
+    font-size: 18px;
+    max-width: 250px;
+  }
+}
+
+
+/* practice components */
 .practiceContainer {
-  width: 45vw;
-  margin-left: 10px;
-  padding: 10px;
-  background-color: #0a2f6cb0;
-  color: white;
+  width: 100vw;
+  padding: 20px 10px 20px 10px;
+  margin-bottom: 20px;
   font-family: sans-serif;
+  color: #414141;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .practiceHeader {
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  border: solid #414141 1px;
+  padding: 10px;
+  font-size: 20px;
+  font-variant: petite-caps;
+  margin-bottom: 10px;
+  width: 80vw;
+}
+
+.practiceSubHeader {
+  display: flex;
+  font-size: 15px;
+  width: 80vw;
+  justify-content: center;
 }
 
 .practiceAllImagesAndText {
@@ -182,52 +274,150 @@
 
 .practiceImagesAndText {
   margin: 10px;
+  position: relative;
+  text-align: center;
 }
 
 .practiceImages {
-  width: 180px;
-  height: 180px;
-  margin: 10px;
+  width: 150px;
+  height: 150px;
+}
+
+.practiceTextMiddle {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.6);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-family: sans-serif;
+  color: #414141;
+  width: 143px;
+  height: 135px;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 35px;
 }
 
 .practiceText {
-  font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.3;
   text-align: center;
-  min-width: 180px;
-  margin: 10px;
+  width: 145px;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15px;
+  font-family: sans-serif;
+  color: #414141;
+  padding: 7px;
 }
 
-@media screen and (max-width: 1070px) {
-  .attendingAndPractice {
-    display: flex;
-    flex-direction: column;
+/* media queries for daily practice component */
+@media screen and (min-width: 1000px) {
+  .practiceHeader {
+    font-size: 20px;
+    width: 500px;
   }
-  .attendingContainer {
-    width: 90vw;
-    margin-bottom: 20px;
+  .practiceSubHeader {
+    font-size: 18px;
   }
-  .practiceContainer {
+  .practiceAllImagesAndText {
+    margin: 0px 30px 0px 30px;
     width: 90vw;
-    margin-left: 0px;
+  }
+  .practiceImages {
+    width: 175px;
+    height: 175px;
+    margin: 0px 20px 0px 20px;
+  }
+  .practiceTextMiddle {
+    width: 166px;
+    height: 158px;
   }
 }
 
+/* get connected components */
 .getConnected {
-  width: 90vw;
-  margin: 20px;
-  padding: 20px;
+  width: 100vw;
+  padding: 20px 40px 30px 40px;
   background-color: #0a2f6cb0;
   color: white;
+  align-items: center;
   font-family: sans-serif;
+  text-align: center;
   display: flex;
-  flex-direction: row;
-  flex-grow: 1;
+  flex-direction: column;
 }
 
-.getConnectedImages {
+.getConnectedHeader {
+  border: solid white 1px;
+  padding: 10px;
+  color: white;
+  font-size: 20px;
+  font-variant: petite-caps;
+  margin-bottom: 10px;
+  width: 80vw;
+}
+
+.imagesAndButtonsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.getConnectedAllImages {
+  display: flex;
+  flex-direction: row;
+}
+
+.getConnectedImage {
   max-width: 50px;
   height: 50px;
   border-radius: 50%;
   margin: 10px;
+}
+
+.getConnectedButtonsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.getConnectedButton {
+  border: solid white 1px;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 10px;
+  color: white;
+  font-size: 18px;
+  margin-bottom: 10px;
+  width: 50vw;
+  background-color: rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+}
+
+.getConnectedButton:hover {
+  background-color: #0a2f6c;
+}
+
+@media screen and (min-width: 1000px) {
+  .getConnectedHeader {
+    font-size: 20px;
+    width: 500px;
+  }
+  .imagesAndButtonsContainer {
+    flex-direction: column;
+  }
+  .getConnectedImage {
+    max-width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: 10px;
+  }
+  .getConnectedButtonsContainer {
+    flex-direction: row;
+  }
+  .getConnectedButton {
+    width: 200px;
+  }
 }
