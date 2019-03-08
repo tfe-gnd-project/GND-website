@@ -58,10 +58,11 @@
 }
 
 @media screen and (max-width: 360px) {
+  .border { width: 100vw; margin: 0px 0px 20px 0px; }
   .start-serving-header { width: 80vw; }
-  .textfield { width: 200px; }
-  .textfieldEmail  { width: 200px }
-  .checkboxlabel  { width: 200px }
+  .textfield { width: 250px; }
+  .textfieldEmail  { width: 250px }
+  .checkboxlabel  { width: 250px }
 }
 
 .spinner {
