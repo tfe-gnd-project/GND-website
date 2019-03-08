@@ -456,7 +456,7 @@ class Forms extends React.Component {
                     <div className='start-serving-header'>
                         Start Serving
                     </div>
-                </center><br/>
+                </center>
 
               <div className='both-borders'>
                     <div className='border'>
