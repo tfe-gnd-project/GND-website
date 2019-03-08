@@ -1,0 +1,468 @@
+/* splash image */
+.container {
+  position: relative;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.splashimage {
+  width: 100vw;
+  max-width: 1024px;
+}
+
+.splashimagetext {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-family: sans-serif;
+  color: white;
+  border: solid white 1px;
+  padding: 30px 30px 0px 30px;
+  width: 70vw;
+  max-width: 800px;
+  background-color: rgba(0, 0, 0, 0.13)
+}
+
+.paragraph {
+  font-size: 11px;
+  line-height: 1.5;
+  padding-top: 10px;
+}
+
+.welcomeGNDMobile {
+  display: none;
+}
+
+.welcomeGNDMobileHeader {
+  border: solid white 1px;
+  padding: 10px;
+  color: white;
+  font-size: 18px;
+  margin-bottom: 10px;
+  width: 80vw;
+}
+
+.welcomeGNDMobileText {
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: justify;
+  width: 75vw;
+}
+
+/* media queries for splash */
+@media screen and (max-width: 690px) {
+  .container {
+    background-color: #0a2f6cb0;
+  }
+  .paragraph {
+    display: none;
+  }
+  .welcomeGNDMobile {
+    width: 100vw;
+    margin-bottom: 20px;
+    padding: 20px 40px 30px 40px;
+    background-color: #0a2f6cb0;
+    color: white;
+    align-items: center;
+    font-family: sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .splashimagetext {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .splashimagetext {
+    font-size: 30px;
+  }
+  .paragraph {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .splashimage {
+    border-radius: 5px;
+  }
+}
+
+
+/* history component */
+.history {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100vw;
+  padding: 20px 40px 30px 40px;
+  align-items: center;
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.subheaderHistory {
+  border: solid hsla(0, 0%, 0%, 0.8) 1px;
+  padding: 10px;
+  color: hsla(0, 0%, 0%, 0.8);
+  font-size: 18px;
+  margin-bottom: 10px;
+  width: 80vw;
+}
+
+.historytext {
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: justify;
+  width: 75vw;
+  max-width: 875px;
+}
+
+/* media queries for history component */
+@media screen and (min-width: 650px) {
+  .subheaderHistory {
+    width: 500px;
+    font-size: 20px;
+  }
+  .historytext {
+    width: 70vw;
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .history {
+    width: 1024px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .historytext {
+    width: 950px;
+  }
+}
+
+/* attending service && daily practice container */
+.attendingAndPractice {
+  display: flex;
+  flex-direction: column;
+}
+
+/* attending service components */
+.attendingContainer {
+  width: 100vw;
+  padding: 20px 10px 20px 10px;
+  background-color: #0a2f6cb0;
+  font-family: sans-serif;
+  color: white;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.attendingHeader {
+  display: flex;
+  justify-content: center;
+  border: solid white 1px;
+  padding: 10px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  width: 80vw;
+}
+
+.attendingSubHeader {
+  display: flex;
+  font-size: 15px;
+  width: 80vw;
+  justify-content: center;
+}
+
+.attendingAllImagesAndText {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.attendingImagesAndText {
+  margin: 10px;
+  display: flex;
+}
+
+.attendingImages {
+  width: 150px;
+  height: 150px;
+  margin-right: 10px;
+}
+
+.attendingText {
+  font-size: 14px;
+  line-height: 1.3;
+  text-align: initial;
+  max-width: 200px;
+}
+
+/* media queries for attending services component */
+@media screen and (min-width: 525px){
+  .attendingHeader {
+    width: 500px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .attendingContainer {
+    width: 1024px;
+    margin: auto;
+    border-radius: 15px;
+    margin-bottom: 20px;
+  }
+  .attendingSubHeader {
+    font-size: 18px;
+  }
+  .attendingAllImagesAndText {
+    margin: 20px 20px 20px 20px;
+    width: 950px;
+  }
+  .attendingImagesAndText {
+    margin: 20px 20px 20px 20px;
+    display: flex;
+  }
+  .attendingImages {
+    width: 175px;
+    height: 175px;
+    margin-right: 20px;
+  }
+  .attendingText {
+    font-size: 17px;
+    max-width: 225px;
+  }
+}
+
+/* practice components */
+.practiceContainer {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100vw;
+  padding: 20px 10px 20px 10px;
+  font-family: sans-serif;
+  color: #414141;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.practiceHeader {
+  display: flex;
+  justify-content: center;
+  border: solid #414141 1px;
+  padding: 10px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  width: 80vw;
+}
+
+.practiceSubHeader {
+  display: flex;
+  font-size: 15px;
+  width: 80vw;
+  justify-content: center;
+}
+
+.practiceAllImagesAndText {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.practiceImagesAndText {
+  margin: 10px;
+  position: relative;
+  text-align: center;
+}
+
+.practiceImages {
+  width: 150px;
+  height: 150px;
+}
+
+.practiceTextMiddle {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.6);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-family: sans-serif;
+  color: #414141;
+  width: 143px;
+  height: 135px;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 35px;
+}
+
+.practiceText {
+  line-height: 1.3;
+  text-align: center;
+  width: 145px;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15px;
+  font-family: sans-serif;
+  color: #414141;
+  padding: 7px;
+}
+
+/* media queries for daily practice component */
+@media screen and (min-width: 650px) {
+  .practiceHeader {
+    width: 500px;
+  }
+  .practiceAllImagesAndText {
+    margin: 0px 30px 0px 30px;
+    width: 70vw;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .practiceSubHeader {
+    font-size: 18px;
+  }
+  .practiceAllImagesAndText {
+    width: 75vw;
+  }
+  .practiceImages {
+    width: 175px;
+    height: 175px;
+    margin: 0px 20px 0px 20px;
+  }
+  .practiceTextMiddle {
+    width: 166px;
+    height: 158px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .practiceContainer {
+    width: 1024px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    margin-bottom: 20px;
+  }
+  .practiceAllImagesAndText {
+    width: 900px;
+  }
+}
+
+
+/* get connected components */
+.getConnected {
+  width: 100vw;
+  padding: 20px 40px 20px 40px;
+  background-color: #0a2f6cb0;
+  color: white;
+  align-items: center;
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.getConnectedHeader {
+  border: solid white 1px;
+  padding: 10px;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 10px;
+  width: 80vw;
+}
+
+.imagesAndButtonsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.getConnectedAllImages {
+  display: flex;
+  flex-direction: row;
+}
+
+.getConnectedImage {
+  max-width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.getConnectedButtonsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.getConnectedButton {
+  border: solid white 1px;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 10px;
+  color: white;
+  font-size: 18px;
+  width: 50vw;
+  background-color: rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+}
+
+.getConnectedButton:hover {
+  background-color: #0a2f6c;
+}
+
+/* media queries for get connected components */
+@media screen and (min-width: 650px) {
+  .getConnectedHeader {
+    width: 500px;
+  }
+}
+
+@media screen and (min-width: 740px) {
+  .imagesAndButtonsContainer {
+    flex-direction: column;
+  }
+  .getConnectedImage {
+    max-width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: 10px;
+  }
+  .getConnectedButtonsContainer {
+    flex-direction: row;
+  }
+  .getConnectedButton {
+    width: 150px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .getConnected {
+    width: 1024px;
+    margin: auto;
+    border-radius: 15px;
+    margin-bottom: 20px;
+  }
+  .imagesAndButtonsContainer {
+    width: 950px;
+  }
+  .getConnectedButton {
+    margin: 0px 10px 0px 10px;
+  }
+}

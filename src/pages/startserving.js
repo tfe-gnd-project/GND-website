@@ -454,22 +454,18 @@ class Forms extends React.Component {
               <Form  onSubmit={handleSubmit} >
                 <center>
                     <div className='start-serving-header'>
-                        START SERVING
+                        Start Serving
                     </div>
-                </center><br/>
+                </center>
 
               <div className='both-borders'>
                     <div className='border'>
-                        <div className="subheaders">WAYS TO SERVE</div>
+                        <div className="subheaders">Ways To Serve</div>
 
-                            <img className='images image1' src={startserving1} alt='service'/>
-                        
-                        
-                            <img className='images' src={startserving2} alt='service'/>
-                        
-                        
-                            <img className='images' src={startserving3} alt='service'/>
-                        
+                        <img className='images image1' src={startserving1} alt='service'/>
+                        <img className='images image2' src={startserving2} alt='service'/>
+                        <img className='images image3' src={startserving3} alt='service'/>
+
                         <br/>
                         <TextField
                             className='textfieldEmail'
@@ -526,9 +522,9 @@ class Forms extends React.Component {
               
               
                 <div className="border">
-                  <div className="subheaders">CONTACT INFORMATION</div>
+                  <div className="subheaders">Contact Information</div>
                   <TextField
-                      style={textfield}
+                      className="textfield"
                       id="first"
                       name="first"
                       helperText={touched.first ? errors.first : ""}
@@ -542,7 +538,7 @@ class Forms extends React.Component {
                   />
 
                   <TextField
-                      style={textfield}
+                      className="textfield"
                       id="last"
                       name="last"
                       helperText={touched.last ? errors.last : ""}
@@ -556,7 +552,7 @@ class Forms extends React.Component {
                   /> 
 
                   <TextField
-                      style={textfield}
+                      className="textfield"
                       id="street"
                       name="street"
                       helperText={touched.street ? errors.street : ""}
@@ -570,7 +566,7 @@ class Forms extends React.Component {
                   />
 
                   <TextField
-                      style={textfield}
+                      className="textfield"
                       id="unit"
                       name="unit"
                       helperText={touched.unit ? errors.unit : ""}
@@ -584,7 +580,7 @@ class Forms extends React.Component {
                   />
 
                   <TextField
-                      style={textfield}
+                      className="textfield"
                       id="city"
                       name="city"
                       helperText={touched.city ? errors.city : ""}
@@ -598,7 +594,7 @@ class Forms extends React.Component {
                   />
                 
                   <TextField
-                      style={textfield}
+                      className="textfield"
                       id="state"
                       name="state"
                       helperText={touched.state ? errors.state : ""}
@@ -619,7 +615,7 @@ class Forms extends React.Component {
                   </TextField>
                   
                   <TextField
-                      style={textfield}
+                      className="textfield"
                       id="zipcode"
                       name="zipcode"
                       helperText={touched.zipcode ? errors.zipcode : ""}
@@ -633,7 +629,7 @@ class Forms extends React.Component {
                   />
                 
                   <TextField
-                      style={textfield}
+                      className="textfield"
                       id="phone"
                       name="phone"
                       placeholder="###-###-####"

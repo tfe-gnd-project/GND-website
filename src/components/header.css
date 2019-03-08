@@ -27,7 +27,7 @@
 .menu {
   background-color: #0a2f6c;
   padding: 10px;
-  box-shadow: 5px 0px 15px lightgrey;
+  box-shadow: 5px 0px 15px #0000005c;
   overflow: hidden;
   position: fixed;
   top: 0;
