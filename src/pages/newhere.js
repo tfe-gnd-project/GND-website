@@ -120,7 +120,7 @@ class NewHere extends React.Component {
             </div>
           </div>
           <div className="getConnected">
-            <div className="getConnectedHeader">Get Connected</div>
+            <div className="getConnectedHeader">Connect With Us</div>
             <div className="imagesAndButtonsContainer">
               <div className="getConnectedAllImages">
                 <a href="https://www.facebook.com/gurunanakdwara/" rel="noopener noreferrer" title="GND Facebook Page" target="_blank">

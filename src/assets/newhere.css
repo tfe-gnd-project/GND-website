@@ -2,10 +2,12 @@
 .container {
   position: relative;
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .splashimage {
   width: 100vw;
+  max-width: 1024px;
 }
 
 .splashimagetext {
@@ -19,6 +21,8 @@
   border: solid white 1px;
   padding: 30px 30px 0px 30px;
   width: 70vw;
+  max-width: 800px;
+  background-color: rgba(0, 0, 0, 0.13)
 }
 
 .paragraph {
@@ -36,7 +40,6 @@
   padding: 10px;
   color: white;
   font-size: 18px;
-  font-variant: petite-caps;
   margin-bottom: 10px;
   width: 80vw;
 }
@@ -82,21 +85,17 @@
   }
 }
 
-@media screen and (min-width: 1300px) {
-  .splashimagetext {
-    font-size: 35px;
-    padding: 30px 80px 0px 80px;
-  }
-  .paragraph {
-    font-size: 18px;
-    padding-top: 20px;
+@media screen and (min-width: 1025px) {
+  .splashimage {
+    border-radius: 5px;
   }
 }
 
+
 /* history component */
 .history {
+  background-color: rgba(255, 255, 255, 0.5);
   width: 100vw;
-  margin-bottom: 20px;
   padding: 20px 40px 30px 40px;
   align-items: center;
   font-family: sans-serif;
@@ -110,7 +109,6 @@
   padding: 10px;
   color: hsla(0, 0%, 0%, 0.8);
   font-size: 18px;
-  font-variant: petite-caps;
   margin-bottom: 10px;
   width: 80vw;
 }
@@ -120,6 +118,7 @@
   line-height: 1.5;
   text-align: justify;
   width: 75vw;
+  max-width: 875px;
 }
 
 /* media queries for history component */
@@ -134,6 +133,20 @@
   }
 }
 
+@media screen and (min-width: 1025px) {
+  .history {
+    width: 1024px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .historytext {
+    width: 950px;
+  }
+}
+
 /* attending service && daily practice container */
 .attendingAndPractice {
   display: flex;
@@ -144,7 +157,6 @@
 .attendingContainer {
   width: 100vw;
   padding: 20px 10px 20px 10px;
-  margin-bottom: 20px;
   background-color: #0a2f6cb0;
   font-family: sans-serif;
   color: white;
@@ -160,7 +172,6 @@
   border: solid white 1px;
   padding: 10px;
   font-size: 20px;
-  font-variant: petite-caps;
   margin-bottom: 10px;
   width: 80vw;
 }
@@ -181,18 +192,20 @@
 
 .attendingImagesAndText {
   margin: 10px;
+  display: flex;
 }
 
 .attendingImages {
   width: 150px;
   height: 150px;
+  margin-right: 10px;
 }
 
 .attendingText {
   font-size: 14px;
   line-height: 1.3;
   text-align: initial;
-  max-width: 150px;
+  max-width: 200px;
 }
 
 /* media queries for attending services component */
@@ -200,33 +213,21 @@
   .attendingHeader {
     width: 500px;
   }
-  .attendingAllImagesAndText {
-    width: 70vw;
-  }
 }
 
-@media screen and (min-width: 728px){
-  .attendingAllImagesAndText {
-    width: 60vw;
+@media screen and (min-width: 1025px) {
+  .attendingContainer {
+    width: 1024px;
+    margin: auto;
+    border-radius: 15px;
+    margin-bottom: 20px;
   }
-}
-
-@media screen and (min-width: 760px) {
-  .attendingHeader {
-    width: 500px;
-  }
-  .attendingAllImagesAndText {
-    width: 90vw;
-  }
-}
-
-@media screen and (min-width: 1024px) {
   .attendingSubHeader {
     font-size: 18px;
   }
   .attendingAllImagesAndText {
     margin: 20px 20px 20px 20px;
-    width: 90vw;
+    width: 950px;
   }
   .attendingImagesAndText {
     margin: 20px 20px 20px 20px;
@@ -243,30 +244,11 @@
   }
 }
 
-@media screen and (min-width: 1340px) {
-  .attendingAllImagesAndText {
-    width: 75vw;
-  }
-  .attendingImagesAndText {
-    display: flex;
-  }
-  .attendingImages {
-    width: 190px;
-    height: 190px;
-    margin-right: 20px;
-  }
-  .attendingText {
-    font-size: 18px;
-    max-width: 250px;
-  }
-}
-
-
 /* practice components */
 .practiceContainer {
+  background-color: rgba(255, 255, 255, 0.5);
   width: 100vw;
   padding: 20px 10px 20px 10px;
-  margin-bottom: 20px;
   font-family: sans-serif;
   color: #414141;
   align-items: center;
@@ -282,7 +264,6 @@
   border: solid #414141 1px;
   padding: 10px;
   font-size: 20px;
-  font-variant: petite-caps;
   margin-bottom: 10px;
   width: 80vw;
 }
@@ -371,22 +352,24 @@
   }
 }
 
-@media screen and (min-width: 1220px) {
+@media screen and (min-width: 1025px) {
+  .practiceContainer {
+    width: 1024px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    margin-bottom: 20px;
+  }
   .practiceAllImagesAndText {
-    width: 60vw;
+    width: 900px;
   }
 }
 
-@media screen and (min-width: 1580px) {
-  .practiceAllImagesAndText {
-    width: 90vw;
-  }
-}
 
 /* get connected components */
 .getConnected {
   width: 100vw;
-  padding: 20px 40px 30px 40px;
+  padding: 20px 40px 20px 40px;
   background-color: #0a2f6cb0;
   color: white;
   align-items: center;
@@ -401,7 +384,6 @@
   padding: 10px;
   color: white;
   font-size: 20px;
-  font-variant: petite-caps;
   margin-bottom: 10px;
   width: 80vw;
 }
@@ -436,7 +418,6 @@
   margin: 10px;
   color: white;
   font-size: 18px;
-  margin-bottom: 10px;
   width: 50vw;
   background-color: rgba(255, 255, 255, 0.2);
   text-decoration: none;
@@ -471,8 +452,17 @@
   }
 }
 
-@media screen and (min-width: 1030px) {
+@media screen and (min-width: 1025px) {
+  .getConnected {
+    width: 1024px;
+    margin: auto;
+    border-radius: 15px;
+    margin-bottom: 20px;
+  }
+  .imagesAndButtonsContainer {
+    width: 950px;
+  }
   .getConnectedButton {
-    width: 200px;
+    margin: 0px 10px 0px 10px;
   }
 }
