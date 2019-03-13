@@ -1,302 +1,25 @@
 import React from 'react';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
-import axios from 'axios';
 import { Formik, Form } from "formik";
 import * as Yup from "yup"
-
+import axios from 'axios';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-
+import Dialog from '@material-ui/core/Dialog';
+import SubscribeThankYou from '../components/startserving/startservingthankyou'
 import startserving1 from '../images/startserving1.jpg'
 import startserving2 from '../images/startserving2.jpg'
 import startserving3 from '../images/startserving3.jpg'
-
-import "../assets/startserving.css";
 import { FaSpinner } from 'react-icons/fa'
+import "../assets/startserving.css";
+import ranges from '../assets/startservingData/states'
+import serving from '../assets/startservingData/serving'
 
 
-const textfield = { 
-    minWidth: '300px',
-    maxWidth: '300px',
-    margin: '10px',
-}
-  
-const button = {
-    backgroundColor: "#0a2f6c",
-    color: 'white',
-    height: 50,
-    maxWidth: '100px',
-    fontSize: 17,
-    marginTop: '15px',
-  }
-
-const ranges = [
-    {
-        value: 'USA_AK',
-        label: 'AK',
-    },
-    {
-        value: 'USA_AL',
-        label: 'AL',
-    },
-    {
-        value: 'USA_AR',
-        label: 'AR',
-    },
-    {
-        value: 'USA_AZ',
-        label: 'AZ',
-    },
-    {
-        value: 'USA_CA',
-        label: 'CA',
-    },
-    {
-        value: 'USA_CO',
-        label: 'CO',
-    },
-    {
-        value: 'USA_CT',
-        label: 'CT',
-    },
-    {
-        value: 'USA_DE',
-        label: 'DE',
-    },
-    {
-        value: 'USA_FL',
-        label: 'FL',
-    },
-    {
-        value: 'USA_GA',
-        label: 'GA',
-    },
-    {
-        value: 'USA_HI',
-        label: 'HI',
-    },
-    {
-        value: 'USA_IA',
-        label: 'IA',
-    },
-    {
-        value: 'USA_ID',
-        label: 'ID',
-    },
-    {
-        value: 'USA_IL',
-        label: 'IL',
-    },
-    {
-        value: 'USA_IN',
-        label: 'IN',
-    },
-    {
-        value: 'USA_KS',
-        label: 'KS',
-    },
-    {
-        value: 'USA_KY',
-        label: 'KY',
-    },
-    {
-        value: 'USA_LA',
-        label: 'LA',
-    },
-    {
-        value: 'USA_MA',
-        label: 'MA',
-    },
-    {
-        value: 'USA_MD',
-        label: 'MD',
-    },
-    {
-        value: 'USA_ME',
-        label: 'ME',
-    },
-    {
-        value: 'USA_MI',
-        label: 'MI',
-    },
-    {
-        value: 'USA_MN',
-        label: 'MN',
-    },
-    {
-        value: 'USA_MO',
-        label: 'MO',
-    },
-    {
-        value: 'USA_MS',
-        label: 'MS',
-    },
-    {
-        value: 'USA_MT',
-        label: 'MT',
-    },
-    {
-        value: 'USA_NC',
-        label: 'NC',
-    },
-    {
-        value: 'USA_ND',
-        label: 'ND',
-    },
-    {
-        value: 'USA_NE',
-        label: 'NE',
-    },
-    {
-        value: 'USA_NH',
-        label: 'NH',
-    },
-    {
-        value: 'USA_NJ',
-        label: 'NJ',
-    },
-    {
-        value: 'USA_NM',
-        label: 'NM',
-    },
-    {
-        value: 'USA_NV',
-        label: 'NV',
-    },
-    {
-        value: 'USA_NY',
-        label: 'NY',
-    },
-    {
-        value: 'USA_OH',
-        label: 'OH',
-    },
-    {
-        value: 'USA_OK',
-        label: 'OK',
-    },
-    {
-        value: 'USA_OR',
-        label: 'OR',
-    },
-    {
-        value: 'USA_PA',
-        label: 'PA',
-    },
-    {
-        value: 'USA_RI',
-        label: 'RI',
-    },
-    {
-        value: 'USA_SC',
-        label: 'SC',
-    },
-    {
-        value: 'USA_SD',
-        label: 'SD',
-    },
-    {
-        value: 'USA_TN',
-        label: 'TN',
-    },
-    {
-        value: 'USA_TX',
-        label: 'TX',
-    },
-    {
-        value: 'USA_UT',
-        label: 'UT',
-    },
-    {
-        value: 'USA_VA',
-        label: 'VA',
-    },
-    {
-        value: 'USA_VT',
-        label: 'VT',
-    },
-    {
-        value: 'USA_WA',
-        label: 'WA',
-    },
-    {
-        value: 'USA_WI',
-        label: 'WI',
-    },
-    {
-        value: 'USA_WV',
-        label: 'WV',
-    },
-    {
-        value: 'USA_WY',
-        label: 'WY',
-    },
-  ];
-
-
-const serving = [
-  {
-    value: 'Fundraising',
-    label: 'Fundraising',
-  },
-  {
-    value: 'Program Development',
-    label: 'Program Development',
-  },
-  {
-    value: 'Operations',
-    label: 'Operations',
-  },
-  {
-    value: 'Security',
-    label: 'Security',
-  },
-  {
-    value: 'Marketing',
-    label: 'Marketing',
-  },
-  {
-    value: 'Event Production',
-    label: 'Event Production',
-  },
-  {
-    value: 'Public Relations',
-    label: 'Public Relations',
-  },
-  {
-    value: 'Guru Ka Langar',
-    label: 'Guru Ka Langar',
-  },
-  {
-    value: 'Khalsa Youth Training',
-    label: 'Khalsa Youth Training',
-  },
-  {
-    value: 'Marble Perkarma',
-    label: 'Marble Perkarma',
-  },
-  {
-    value: 'Ramala Set Up',
-    label: 'Ramala Set Up',
-  },
-  {
-    value: 'Kirtan, Ardas or Hukham',
-    label: 'Kirtan, Ardas or Hukham',
-  },
-  {
-    value: 'Akhand Path',
-    label: 'Akhand Path',
-  },
-  {
-    value: 'Other',
-    label: 'Other',
-  },
-]
 
 const validationSchema = Yup.object({
   first: Yup.string()
@@ -328,113 +51,112 @@ const validationSchema = Yup.object({
   .required("Please briefly describe how you want to serve"),
 })
 
-
 class Forms extends React.Component {
-  state = {
-    message: "",
-    messageColor: "",
-    checked: false,
+  constructor(props) {
+    super(props)
+    this.state = {
+      message: "",
+      messageHeader: "",
+      checked: false,
+      open: false,
+    }
   }
+  
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
 
   handleChange = name => event => {
     this.setState({ [name]: event.target.checked });
   };
 
   sendEmail = (email, first) => {
-
-      const user = { email, first }
-
-      axios.post(`https://qbjqrzyla9.execute-api.us-east-1.amazonaws.com/dev/send-email-serving-page`, user)
-        .then(res => {
-            console.log(res);
-            console.log(res.data);
-            this.setState({
-                message: "Submission successful!",
-                messageColor: "green"
-            })
-        })
-        .catch(error => {
-            console.error("Error:", error);
-            this.setState({
-                message: "Submission failed.",
-                messageColor: "red"
-            })
-        })
+    const user = { email, first }
+    axios.post(`https://qbjqrzyla9.execute-api.us-east-1.amazonaws.com/dev/send-email-serving-page`, user)
+    .then(res => {
+      console.log(res);
+      console.log(res.data);
+      this.setState({
+        message: "You should recieve a confirmation email shortly.",
+        messageHeader: `Thank you for volunteering ${first}!`,
+      })
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      this.setState({
+        message: "ERROR: Submission failed. \r\n The backend may not be running at this time.",
+      })
+    })
   }
   
-  submitValues = ({ first, last, street, unit, city, state, zipcode, phone, email, serve, comments }) => 
-      { 
-        this.setState({
-            message: "Please wait...",
+  submitValues = ({ first, last, street, unit, city, state, zipcode, phone, email, serve, comments }) => { 
+    this.setState({
+      open: true,
+      messageHeader: "",
+      message: "Please wait...",
+    })
+    const person = {
+      firstName: first,
+      lastName: last,
+      address1: street, 
+      unitNumber: unit, 
+      city: city, 
+      stateProvinceGeoId: state, 
+      postalCode: zipcode, 
+      contactNumber: phone,
+      emailAddress: email,
+      service: serve,
+      comment: comments,
+    };
+    // if checked is true, add email to newsletter list
+    if (this.state.checked === true) {
+      axios.post(`http://localhost:8080//apps/NewPage/NewForm/addNewsletterEmail`, person )
+        .then(res => {
+          console.log(res);
+          console.log(res.data);
+          this.sendEmail(email, first);
         })
-
-          const person = {
-              firstName: first,
-              lastName: last,
-              address1: street, 
-              unitNumber: unit, 
-              city: city, 
-              stateProvinceGeoId: state, 
-              postalCode: zipcode, 
-              contactNumber: phone,
-              emailAddress: email,
-              service: serve,
-              comment: comments,
-          };
-
-          // if checked is true, add email to newsletter list
-          if (this.state.checked === true) {
-            axios.post(`http://localhost:8080//apps/NewPage/NewForm/addNewsletterEmail`, person )
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-                this.sendEmail(email, first);
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                this.setState({
-                    message: "Submission failed.",
-                    messageColor: "red"
-                })
-            })
-          } else {
-            axios.post(`http://localhost:8080//apps/NewPage/NewForm/addServingContent`, person )
-                .then(res => {
-                    console.log(res);
-                    console.log(res.data);
-                    this.sendEmail(email, first);
-                })
-                .catch(error => {
-                    console.error("Error:", error);
-                    this.setState({
-                        message: "Submission failed.",
-                        messageColor: "red"
-                    })
-                })
-          }
-      }
+        .catch(error => {
+          console.error("Error:", error);
+          this.setState({
+            message: "ERROR: Submission failed. \r\n The backend may not be running at this time."
+          })
+        })
+    } else {
+      axios.post(`http://localhost:8080//apps/NewPage/NewForm/addServingContent`, person )
+        .then(res => {
+          console.log(res);
+          console.log(res.data);
+          this.sendEmail(email, first);
+        })
+        .catch(error => {
+          console.error("Error:", error);
+          this.setState({
+            message: "ERROR: Submission failed. \r\n The backend may not be running at this time."
+          })
+        })
+    }
+  }
 
 
   render() {
     const values = { 
-        first: "", 
-        last: "", 
-        street: "", 
-        unit: "", 
-        city: "", 
-        state: "", 
-        zipcode: "", 
-        phone: "", 
-        email: "",
-        serve: "",
-        comments: ""
-      };
-      console.log(this.state.checked)
-
+      first: "", 
+      last: "", 
+      street: "", 
+      unit: "", 
+      city: "", 
+      state: "", 
+      zipcode: "", 
+      phone: "", 
+      email: "",
+      serve: "",
+      comments: ""
+    };
     return (
       <Layout>
-        <SEO title="Start Serving"/>
-        
+        <SEO title="Start Serving"/>        
         <div >
           <Formik
             initialValues={values}
@@ -442,88 +164,81 @@ class Forms extends React.Component {
             onSubmit={this.submitValues}
           >
             {({
-                values: { 
-                    first, last, street, unit, city, state, zipcode, phone, email, serve, comments
-                },
-                errors,
-                touched,
-                handleChange,
-                handleSubmit,
-                handleBlur,
+              values: { 
+                first, last, street, unit, city, state, zipcode, phone, email, serve, comments
+              },
+              errors,
+              touched,
+              handleChange,
+              handleSubmit,
+              handleBlur,
             }) => (
-              <Form  onSubmit={handleSubmit} >
+              <Form onSubmit={handleSubmit}>
                 <center>
-                    <div className='start-serving-header'>
-                        Start Serving
-                    </div>
+                  <div className='start-serving-header'>
+                      Start Serving
+                  </div>
                 </center>
-
-              <div className='both-borders'>
-                    <div className='border'>
-                        <div className="subheaders">Ways To Serve</div>
-
-                        <img className='images image1' src={startserving1} alt='service'/>
-                        <img className='images image2' src={startserving2} alt='service'/>
-                        <img className='images image3' src={startserving3} alt='service'/>
-
-                        <br/>
-                        <TextField
-                            className='textfieldEmail'
-                            label="How would you like to start serving?"
-                            id="serve"
-                            name="serve"
-                            helperText={touched.serve ? errors.serve : ""}
-                            error={touched.serve && Boolean(errors.serve)}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={serve}
-                            margin="normal"
-                            variant="outlined"
-                            select
-                        >
-                            {serving.map(option => (
-                            <MenuItem key={option.value} value={option.value}>
-                            {option.label}
-                            </MenuItem>
-                            ))}
-                        </TextField>
-                        <br/>
-
-                        <TextField
-                            className='textfieldEmail'
-                            label="Tell us how you can serve in your own unique way"
-                            id="comments"
-                            name="comments"
-                            helperText={touched.comments ? errors.comments : ""}
-                            error={touched.comments && Boolean(errors.comments)}
-                            value={comments}
-                            margin="normal"
-                            variant="outlined"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            multiline
-                            rows="4"
+                <div className='both-borders'>
+                  <div className='border'>
+                    <div className="subheaders">Ways To Serve</div>
+                    <img className='images image1' src={startserving1} alt='service'/>
+                    <img className='images image2' src={startserving2} alt='service'/>
+                    <img className='images image3' src={startserving3} alt='service'/>
+                    <br/>
+                    <TextField
+                      className='textfieldEmail'
+                      label="How would you like to start serving?"
+                      id="serve"
+                      name="serve"
+                      helperText={touched.serve ? errors.serve : ""}
+                      error={touched.serve && Boolean(errors.serve)}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={serve}
+                      margin="normal"
+                      variant="outlined"
+                      select
+                    >
+                      {serving.map(option => (
+                        <MenuItem key={option.value} value={option.value}>
+                          {option.label}
+                        </MenuItem>
+                      ))}
+                    </TextField>
+                    <br/>
+                    <TextField
+                      className='textfieldEmail'
+                      label="Tell us how you can serve in your own unique way"
+                      id="comments"
+                      name="comments"
+                      helperText={touched.comments ? errors.comments : ""}
+                      error={touched.comments && Boolean(errors.comments)}
+                      value={comments}
+                      margin="normal"
+                      variant="outlined"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      multiline
+                      rows="4"
+                    />
+                    <br/>
+                    <FormControlLabel
+                      className="checkboxlabel"
+                      control={
+                        <Checkbox
+                          checked={this.state.checked}
+                          onChange={this.handleChange('checked')}
+                          value="checked"
+                          color="primary"
                         />
-                        <br/>
-
-                        <FormControlLabel
-                            className="checkboxlabel"
-                            control={
-                            <Checkbox
-                                checked={this.state.checked}
-                                onChange={this.handleChange('checked')}
-                                value="checked"
-                                color="primary"
-                            />
-                            }
-                            label="Send me newsletters about Guru Nanak Dwara."
-                        />
-                    </div> 
-              
-              
-                <div className="border">
-                  <div className="subheaders">Contact Information</div>
-                  <TextField
+                      }
+                      label="Send me newsletters about Guru Nanak Dwara."
+                    />
+                  </div>                            
+                  <div className="border">
+                    <div className="subheaders">Contact Information</div>
+                    <TextField
                       className="textfield"
                       id="first"
                       name="first"
@@ -535,9 +250,8 @@ class Forms extends React.Component {
                       onBlur={handleBlur}
                       margin="normal"
                       variant="outlined"
-                  />
-
-                  <TextField
+                    />
+                    <TextField
                       className="textfield"
                       id="last"
                       name="last"
@@ -549,9 +263,8 @@ class Forms extends React.Component {
                       onBlur={handleBlur}
                       margin="normal"
                       variant="outlined"
-                  /> 
-
-                  <TextField
+                    /> 
+                    <TextField
                       className="textfield"
                       id="street"
                       name="street"
@@ -563,9 +276,8 @@ class Forms extends React.Component {
                       onBlur={handleBlur}
                       margin="normal"
                       variant="outlined"
-                  />
-
-                  <TextField
+                    />
+                    <TextField
                       className="textfield"
                       id="unit"
                       name="unit"
@@ -577,9 +289,8 @@ class Forms extends React.Component {
                       onBlur={handleBlur}
                       margin="normal"
                       variant="outlined"
-                  />
-
-                  <TextField
+                    />
+                    <TextField
                       className="textfield"
                       id="city"
                       name="city"
@@ -591,9 +302,8 @@ class Forms extends React.Component {
                       onBlur={handleBlur}
                       margin="normal"
                       variant="outlined"
-                  />
-                
-                  <TextField
+                    />                  
+                    <TextField
                       className="textfield"
                       id="state"
                       name="state"
@@ -606,15 +316,14 @@ class Forms extends React.Component {
                       margin="normal"
                       variant="outlined"
                       select
-                  >
+                    >
                       {ranges.map(option => (
-                      <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                      </MenuItem>
+                        <MenuItem key={option.value} value={option.value}>
+                          {option.label}
+                        </MenuItem>
                       ))}
-                  </TextField>
-                  
-                  <TextField
+                    </TextField>                     
+                    <TextField
                       className="textfield"
                       id="zipcode"
                       name="zipcode"
@@ -626,9 +335,8 @@ class Forms extends React.Component {
                       onBlur={handleBlur}
                       margin="normal"
                       variant="outlined"
-                  />
-                
-                  <TextField
+                    />                 
+                    <TextField
                       className="textfield"
                       id="phone"
                       name="phone"
@@ -641,9 +349,8 @@ class Forms extends React.Component {
                       onBlur={handleBlur}
                       margin="normal"
                       variant="outlined"
-                  /><br/>
-                  
-                  <TextField
+                    /><br/>                  
+                    <TextField
                       className='textfieldEmail'
                       id="email"
                       name="email"
@@ -655,44 +362,36 @@ class Forms extends React.Component {
                       value={email}
                       onChange={handleChange}
                       onBlur={handleBlur}
-                  />
-                  <br/>
-
-
-                  {this.state.message === "Please wait..." 
-                    ? 
-                    <div style={{ fontFamily: 'sans-serif' }}>{this.state.message} <FaSpinner className="spinner"/></div>
-
-                    :
-                    <div style={{ fontFamily: 'sans-serif', color: this.state.messageColor}}>{this.state.message}</div>
-                  }
-                  
-                    <Button
-                        style={button}
-                        type="submit"
-                        margin="normal"
-                        variant="contained"
-                    >
-                        Submit
-                    </Button>
-                
-                </div>
-                
-                </div>
-                
+                    />
+                    <br/>
+                    {this.state.message === "Please wait..." 
+                      ? 
+                      <div style={{ fontFamily: 'sans-serif' }}>{this.state.message} <FaSpinner className="spinner"/></div>
+                      :
+                      <div style={{ fontFamily: 'sans-serif' }}>{this.state.message}</div>
+                    }                  
+                    <Button className="startservingButton" type="submit" margin="normal" variant="contained">
+                      Submit
+                    </Button>               
+                  </div>               
+                </div>               
                 <br/>
-
               </Form>
             )}
           </Formik>
+
+
         </div>
-        {this.state.message === "Submission successful!" && window.location.replace("/startservingthankyou")}
+        <Dialog
+          open={this.state.open}
+          onClose={this.handleClose}
+          aria-labelledby="form-dialog-title"
+        >
+          <SubscribeThankYou open={this.state.open} onClose={this.handleClose} message={this.state.message} messageHeader={this.state.messageHeader}/>
+        </Dialog>
       </Layout>
-
     );
-
-  }
-        
+  }       
 }
 
 

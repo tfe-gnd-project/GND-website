@@ -1,10 +1,8 @@
 import React from 'react'
-import "./header.css"
-
 import { Link } from "gatsby"
 import { FaBars } from 'react-icons/fa'
-
 import logo from '../images/gnd-logo.svg'
+import "./header.css"
 
 
 class Header extends React.Component {
@@ -28,7 +26,7 @@ class Header extends React.Component {
     return (
         <div>
           <div className={this.state.toggleicon}>
-            <Link to='/' className='gndlogobackground menufont' activeClassName='active'>
+            <Link to='/newhere' className='gndlogobackground menufont' activeClassName='active'>
               <img className='gndlogo' src={logo} alt="logo"/>
             </Link>
             <Link className='links menufont'  to='/newhere' activeClassName='active'>New Here</Link>

@@ -7,7 +7,7 @@
 
 .splashimage {
   width: 100vw;
-  max-width: 1024px;
+  filter: brightness(80%)
 }
 
 .splashimagetext {
@@ -18,11 +18,9 @@
   font-size: 20px;
   font-family: sans-serif;
   color: white;
-  border: solid white 1px;
   padding: 30px 30px 0px 30px;
   width: 70vw;
   max-width: 800px;
-  background-color: rgba(0, 0, 0, 0.13)
 }
 
 .paragraph {
@@ -87,6 +85,14 @@
 @media screen and (min-width: 1025px) {
   .splashimage {
     border-radius: 5px;
+  }
+  .splashimagetext {
+    font-size: 40px;
+  }
+  .paragraph {
+    font-size: 17px;
+    padding-top: 20px;
+    text-align: left;
   }
 }
 
@@ -225,7 +231,6 @@
     font-size: 18px;
   }
   .attendingAllImagesAndText {
-    margin: 20px 20px 20px 20px;
     width: 950px;
   }
   .attendingImagesAndText {
@@ -399,10 +404,11 @@
 }
 
 .getConnectedImage {
-  max-width: 50px;
+  display: none;
+  /* max-width: 50px;
   height: 50px;
   border-radius: 50%;
-  margin: 10px;
+  margin: 10px; */
 }
 
 .getConnectedButtonsContainer {
@@ -418,12 +424,13 @@
   color: white;
   font-size: 18px;
   width: 50vw;
-  background-color: rgba(255, 255, 255, 0.2);
   text-decoration: none;
+  background-color: #0a2f6c;  
 }
 
 .getConnectedButton:hover {
-  background-color: #0a2f6c;
+  background-color: #0a306c34;
+  cursor: pointer;
 }
 
 /* media queries for get connected components */
@@ -447,7 +454,7 @@
     flex-direction: row;
   }
   .getConnectedButton {
-    width: 150px;
+    width: 200px;
   }
 }
 
