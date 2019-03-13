@@ -1,0 +1,24 @@
+.subscribeBorder {
+  text-align: center;
+  justify-content: center;
+}
+
+.subscribeTextfield {
+  display: flex;
+  flex-direction: column;
+}
+
+.subscribeButton {
+  background-color: #0a2f6c;
+  color: white;
+  margin-top: 15px;
+}
+
+.subscribeButton:hover {
+  background-color: #0a2f6c;
+}
+
+.subscribeProgress {
+  max-width: 20px;
+  max-height: 20px;
+}
