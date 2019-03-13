@@ -1,10 +1,7 @@
 .border {
   max-width: 750px;
   margin: 20px;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-top: 10px 10px 20px 10px;
   background-color: rgba(255, 255, 255, 0.75);
   text-align: center;
   justify-content: center;
@@ -40,6 +37,10 @@
   margin: 10px;
 }
 
+.checkboxlabel {
+  margin-bottom: 20px;
+}
+
 .checkboxicon {
   width: 30;
   height: 30;
@@ -49,6 +50,13 @@
   width: 200px;
   height: 133.469px;
   margin: 0;
+}
+
+.startservingButton {
+  background-color: #0a2f6c;
+  color: white;
+  max-width: 100px;
+  margin: 10px 0px 25px 0px;
 }
 
 @media screen and (max-width: 699px) {
