@@ -467,6 +467,7 @@
   }
   .imagesAndButtonsContainer {
     width: 950px;
+    margin: auto;
   }
   .getConnectedButton {
     margin: 0px 10px 0px 10px;
