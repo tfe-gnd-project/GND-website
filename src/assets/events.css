@@ -1,0 +1,119 @@
+/* both events and calendar components */
+.eventsContainer {
+  margin-top: 20px;
+}
+
+/* events component */
+.eventsBorder {
+  margin: 20px;
+  padding: 5px;
+  text-align: center;
+  min-width: 340px;
+}
+
+.eventsParagraph {
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  width: 300px;
+}
+
+.facebookContainerMobile {
+  width: 300px;
+}
+.facebookContainerIpad {
+  display: none;
+}
+.facebookContainerDesktop {
+  display: none;
+}
+
+/* calendar component */
+.calendarBorder {
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
+  min-width: 340px;
+}
+
+.calendarParagraph {
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  width: 300px;
+}
+
+.calendarContainer {
+  border: 0;
+  width: 320px;
+  height: 370px;
+  margin: auto;
+}
+
+@media screen and (min-width: 760px) {
+  .eventsBorder {
+    min-width: 85vw;
+  }
+  .eventsParagraph {
+    width: 570px;
+  }
+  .facebookContainerMobile {
+    display: none;
+  }
+  .facebookContainerIpad {
+    display: unset;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+  }
+  .calendarBorder {
+    min-width: 85vw;
+  }
+  .calendarParagraph {
+    width: 570px;
+  }
+  .calendarContainer {
+    width: 500px;
+    height: 500px;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .eventsContainer {
+    display: flex;
+    flex-direction: row;
+  }
+  /* events component */
+  .eventsBorder {
+    padding: 20px 5px 20px 5px;
+    min-width: 45vw;
+    max-width: 45vw;
+    min-height: 900px;
+  }
+  .eventsParagraph {
+    width: 40vw;
+  }
+  .facebookContainerIpad {
+    display: none;
+  }
+  .facebookContainerDesktop {
+    display: unset;
+    width: 500px;
+    height: 700px;
+    margin: auto;
+  }
+  /* calendar component */
+  .calendarBorder {
+    padding: 20px 5px 20px 5px;
+    min-width: 45vw;
+    max-width: 45vw;
+    min-height: 900px;
+  }
+  .calendarParagraph {
+    width: 40vw;
+  }
+  .calendarContainer {
+    height: 730px;
+  }
+}
