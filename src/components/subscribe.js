@@ -59,7 +59,7 @@ class Forms extends React.Component {
     .catch(error => {
       console.error("Error:", error);
       this.setState({
-        message: "Submission failed.",
+        message: "ERROR: Submission failed. \r\n The backend may not be running at this time.",
         messageColor: "red"
       })
     })
