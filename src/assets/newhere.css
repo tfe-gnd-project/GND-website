@@ -454,7 +454,8 @@
     flex-direction: row;
   }
   .getConnectedButton {
-    width: 200px;
+    width: 150px;
+    font-size: 16px;
   }
 }
 
@@ -471,5 +472,7 @@
   }
   .getConnectedButton {
     margin: 0px 10px 0px 10px;
+    width: 200px;
+    font-size: 20px;
   }
 }
