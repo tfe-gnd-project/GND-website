@@ -10,15 +10,16 @@ import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Dialog from '@material-ui/core/Dialog';
+import Paper from '@material-ui/core/Paper';
+
 import SubscribeThankYou from '../components/startserving/startservingthankyou'
 import startserving1 from '../images/startserving1.jpg'
 import startserving2 from '../images/startserving2.jpg'
 import startserving3 from '../images/startserving3.jpg'
 import { FaSpinner } from 'react-icons/fa'
 import "../assets/startserving.css";
-import ranges from '../assets/startservingData/states'
-import serving from '../assets/startservingData/serving'
-
+import ranges from '../components/startserving/states'
+import serving from '../components/startserving/serving'
 
 
 const validationSchema = Yup.object({
@@ -180,7 +181,7 @@ class Forms extends React.Component {
                   </div>
                 </center>
                 <div className='both-borders'>
-                  <div className='border'>
+                  <Paper elevation={1} className="border">
                     <div className="subheaders">Ways To Serve</div>
                     <img className='images image1' src={startserving1} alt='service'/>
                     <img className='images image2' src={startserving2} alt='service'/>
@@ -235,8 +236,8 @@ class Forms extends React.Component {
                       }
                       label="Send me newsletters about Guru Nanak Dwara."
                     />
-                  </div>                            
-                  <div className="border">
+                  </Paper>                            
+                  <Paper elevation={1} className="border">
                     <div className="subheaders">Contact Information</div>
                     <TextField
                       className="textfield"
@@ -373,7 +374,7 @@ class Forms extends React.Component {
                     <Button className="startservingButton" type="submit" margin="normal" variant="contained">
                       Submit
                     </Button>               
-                  </div>               
+                  </Paper>               
                 </div>               
                 <br/>
               </Form>
