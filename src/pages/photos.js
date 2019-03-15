@@ -1,6 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import TitlebarGridList from '../components/photos/gridlist'
 
 class Photos extends React.Component {
 
@@ -8,7 +9,7 @@ class Photos extends React.Component {
     return (
       <Layout>
         <SEO title="Photos"/>
-        <div>Photos</div>
+        <TitlebarGridList />
       </Layout>
     );
   }
